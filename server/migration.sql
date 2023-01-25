@@ -40,6 +40,9 @@ CREATE TABLE address (
 
 CREATE TABLE reviews (
   id SERIAL,
+  user_id INT,
+  title TEXT,
+  content TEXT,
   rating INT
 )
 
