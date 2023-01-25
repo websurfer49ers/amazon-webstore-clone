@@ -18,7 +18,7 @@ const App = () => {
         setTasks(tasks);
       });
   }, []);
-
+// lucas verifying authentication. Can delete this comment
   return (
     <>
       <Header />
