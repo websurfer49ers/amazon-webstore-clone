@@ -32,4 +32,4 @@ const Rate = () => {
 
 export default Rate;
 
-// Comment
+// Comment 2
