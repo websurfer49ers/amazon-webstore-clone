@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import Header from "./navbar/Header.jsx";
+import MainItem from "./main-item/MainItem.jsx";
 import Footer from "./Footer.jsx";
 import Tasks from "./Tasks.jsx";
 import TaskForm from "./TaskForm.jsx";
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <>
       <Header />
+      <MainItem />
       <main className="main">
         <TaskForm />
         <Tasks tasks={tasks} />
