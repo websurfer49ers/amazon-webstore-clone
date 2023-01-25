@@ -31,3 +31,5 @@ const Rate = () => {
 };
 
 export default Rate;
+
+// Comment
