@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+}
+
+.header {
+  height: 50px;
+  background: #c4c3c3;
+  font-size: 30px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #c4c3c3;
+}
+
+.main {
+  padding: 8px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 2px;
+  max-width: 200px;
+}
+
+.task + .task {
+  margin-top: 4px;
+}
+
+.task > * + * {
+  margin-left: 4px;
+}
+
+.task-form {
+  margin-bottom: 12px;
+}

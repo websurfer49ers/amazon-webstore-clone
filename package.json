@@ -1,0 +1,29 @@
+{
+  "name": "full-stack-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:client": "vite serve",
+    "dev:server": "nodemon server/index.js",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "concurrently": "^7.1.0",
+    "happy-dom": "^6.0.4",
+    "nodemon": "^2.0.15",
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recoil": "^0.7.2"
+  }
+}
