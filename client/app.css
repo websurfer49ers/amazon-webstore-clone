@@ -1,5 +1,38 @@
 body {
-  margin: 0;
+  outline: 1px solid black;
+  margin: auto;
+}
+
+.navbarSubCategories,
+.navbarCategories,
+.navbarSearch{
+  outline: 1px solid black;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: white;
+}
+
+.navbarSearch{
+  height: 60px;
+  background-color: #131921;
+}
+
+.navbarCategories{
+  height: 39px;
+  background-color: #232f3e
+}
+
+.navbarSubCategories{
+  height: 33px;
+  background-color: #fafafa;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  color: black;
+}
+.navbarCategoryItem,
+.navbarSubCategoryItem{
+  outline: 1px solid black;
+  font-size: 14;
 }
 
 .header {
