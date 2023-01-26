@@ -67,6 +67,17 @@ body {
 
 .photoGallery{
   width: 45%;
+  display:flex;
+}
+
+.galleryThumbnailDiv{
+  width:15%;
+  height: 100%;
+}
+
+.mainPhotoDiv{
+  width: 85%;
+  height: 100%;
 }
 .itemInfo{
   width: 30%;
