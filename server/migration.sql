@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS address;
 
 CREATE TABLE product (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   productName TEXT,
   description VARCHAR,
   price MONEY,
@@ -16,26 +16,26 @@ CREATE TABLE product (
 );
 
 CREATE TABLE pictures (
-  id SERIAL,
-  productId INT REFERENCES product(id)
-  pictureName VARCHAR
+  id SERIAL PRIMARY KEY,
+  productId INT REFERENCES product(id),
+  pictureURL VARCHAR
 );
 
 CREATE TABLE users (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   firstName TEXT,
   lastName TEXT,
-  phone char(10),
+  phone char(10)
 );
 
 CREATE TABLE sellers (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   companyName TEXT,
   productId INT REFERENCES product(id)
 );
 
 CREATE TABLE address (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   sellerId INT REFERENCES sellers(id),
   userId INT REFERENCES users(id),
   street TEXT,
@@ -45,23 +45,23 @@ CREATE TABLE address (
 );
 
 CREATE TABLE reviews (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   userId INT REFERENCES users(id),
   title TEXT,
   content TEXT,
   rating INT
-)
+);
 
 CREATE TABLE questions (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   userId INT REFERENCES users(id),
   question TEXT
-)
+);
 
 CREATE TABLE answers(
-  id SERIAL, 
+  id SERIAL PRIMARY KEY, 
   userId INT REFERENCES users(id),
   questionID INT REFERENCES questions(id),
   answer TEXT
-)
+);
 
