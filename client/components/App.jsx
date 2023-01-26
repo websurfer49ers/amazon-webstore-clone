@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import Header from "./navbar/Header.jsx";
 import MainItem from "./main-item/MainItem.jsx";
+import MainReviews from "./reviews/MainReviews.jsx";
 import Footer from "./Footer.jsx";
-// import Rate from "./Reviews/Rating.jsx";
 import { tasksState } from "../state.js";
 
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
     <>
       <Header />
       <MainItem />
+      <MainReviews />
       {/* <Rate /> */}
       <Footer />
 

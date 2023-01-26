@@ -6,7 +6,7 @@ import { RecoilRoot } from "recoil";
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-  // <RecoilRoot>
+  <RecoilRoot>
   <App />
-  // {/* </RecoilRoot> */}
+  </RecoilRoot>
 );

@@ -34,4 +34,3 @@ function Rate () {
 
 export default Rate;
 
-// Comment 3
