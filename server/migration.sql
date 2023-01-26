@@ -18,6 +18,7 @@ CREATE TABLE product (
 
 CREATE TABLE pictures (
   id SERIAL,
+  productId INT REFERENCES product(id),
   pictureName VARCHAR
 );
 
