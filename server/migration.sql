@@ -11,8 +11,7 @@ CREATE TABLE product (
   id SERIAL PRIMARY KEY,
   productName TEXT,
   description VARCHAR,
-  price MONEY,
-  artificial_ship_dates INT
+  price MONEY
 );
 
 CREATE TABLE pictures (
@@ -64,4 +63,3 @@ CREATE TABLE answers(
   questionID INT REFERENCES questions(id),
   answer TEXT
 );
-
