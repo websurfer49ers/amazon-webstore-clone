@@ -1,0 +1,1 @@
+insert into users (firstName, lastName, phone) values ('Aakash', 'Ghimire', '4088065212');
