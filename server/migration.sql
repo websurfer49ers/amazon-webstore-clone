@@ -63,3 +63,5 @@ CREATE TABLE answers(
   questionID INT REFERENCES questions(id),
   answer TEXT
 );
+
+-- //Hello
