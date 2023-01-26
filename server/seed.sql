@@ -1,7 +1,7 @@
--- insert into product
---     (productName, description, price)
---         values
---         ('squirrel', 'This is a squirrel', 9.99);
+insert into product
+    (productName, description, price)
+        values
+        ('squirrel', 'This is a squirrel', 9.99);
 
 insert into pictures
     (productId, pictureUrl)
