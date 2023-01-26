@@ -8,17 +8,17 @@ import TaskForm from "./TaskForm.jsx";
 import { tasksState } from "../state.js";
 
 const App = () => {
-  const [tasks, setTasks] = useRecoilState(tasksState);
+  // const [tasks, setTasks] = useRecoilState(tasksState);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/tasks", {
-      mode: "cors",
-    })
-      .then((res) => res.json())
-      .then((tasks) => {
-        setTasks(tasks);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/api/tasks", {
+  //     mode: "cors",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((tasks) => {
+  //       setTasks(tasks);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -29,6 +29,7 @@ const App = () => {
         <Tasks tasks={tasks} />
       </main>
       <Footer />
+
     </>
   );
 };
