@@ -3,7 +3,7 @@ import cors from "cors";
 import pg from "pg";
 
 const pool = new pg.Pool({
-  database: "webstore", username: "sangyeonpak", password: "asdf"
+  database: "amazon-store"
 });
 
 const app = express();

@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS address;
 
 CREATE TABLE product (
   id SERIAL,
-  product_name TEXT,
-  picture_id INT,
+  productName TEXT,
   description VARCHAR,
   price MONEY,
   artificial_ship_dates INT
@@ -18,7 +17,8 @@ CREATE TABLE product (
 
 CREATE TABLE pictures (
   id SERIAL,
-  picture_name VARCHAR
+  productId INT REFERENCES product(id)
+  pictureName VARCHAR
 );
 
 CREATE TABLE users (
@@ -30,17 +30,23 @@ CREATE TABLE users (
 
 CREATE TABLE sellers (
   id SERIAL,
-  user_id INT
+  companyName TEXT,
+  productId INT REFERENCES product(id)
 );
 
 CREATE TABLE address (
   id SERIAL,
-  user_id INT
+  sellerId INT REFERENCES sellers(id),
+  userId INT REFERENCES users(id),
+  street TEXT,
+  city TEXT,
+  state INT,
+  zipcode char(5)
 );
 
 CREATE TABLE reviews (
   id SERIAL,
-  user_id INT,
+  userId INT REFERENCES users(id),
   title TEXT,
   content TEXT,
   rating INT
@@ -48,13 +54,14 @@ CREATE TABLE reviews (
 
 CREATE TABLE questions (
   id SERIAL,
-  user_id INT,
+  userId INT REFERENCES users(id),
   question TEXT
 )
 
 CREATE TABLE answers(
   id SERIAL, 
-  user_id INT,
+  userId INT REFERENCES users(id),
+  questionID INT REFERENCES questions(id),
   answer TEXT
 )
 
