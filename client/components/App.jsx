@@ -3,8 +3,7 @@ import { useRecoilState } from "recoil";
 import Header from "./navbar/Header.jsx";
 import MainItem from "./main-item/MainItem.jsx";
 import Footer from "./Footer.jsx";
-import Tasks from "./Tasks.jsx";
-import TaskForm from "./TaskForm.jsx";
+// import Rate from "./Reviews/Rating.jsx";
 import { tasksState } from "../state.js";
 
 const App = () => {
@@ -24,10 +23,7 @@ const App = () => {
     <>
       <Header />
       <MainItem />
-      <main className="main">
-        <TaskForm />
-        <Tasks tasks={tasks} />
-      </main>
+      {/* <Rate /> */}
       <Footer />
     </>
   );
