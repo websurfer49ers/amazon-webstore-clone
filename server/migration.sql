@@ -28,6 +28,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE sellers (
+
   id SERIAL PRIMARY KEY,
   companyName TEXT,
   productId INT REFERENCES product(id)
@@ -58,6 +59,7 @@ CREATE TABLE questions (
 );
 
 CREATE TABLE answers(
+
   id SERIAL PRIMARY KEY, 
   userId INT REFERENCES users(id),
   questionID INT REFERENCES questions(id),
