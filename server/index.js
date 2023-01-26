@@ -1,9 +1,12 @@
 import express from "express";
 import cors from "cors";
 import pg from "pg";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const pool = new pg.Pool({
-  database: "webstore", username: "sangyeonpak", password: "asdf"
+  database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
 });
 
 const app = express();
