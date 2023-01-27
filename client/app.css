@@ -3,6 +3,9 @@ body {
   margin: auto;
 }
 
+img{
+}
+
 .navbarSubCategories,
 .navbarCategories,
 .navbarSearch{
@@ -53,7 +56,6 @@ body {
 .mainItemDiv{
   display:flex;
   width: 100%;
-  height: 400px;
   justify-content: center;
   outline: 1px solid black;
 
@@ -66,10 +68,51 @@ body {
 }
 
 .photoGallery{
-  width: 45%;
+  width: 40%;
+  display:flex;
 }
+
+.galleryThumbnailContainer{
+  width:15%;
+  height: 100%;
+}
+
+.galleryThumbnail{
+  width: 4vw;
+  height: 4vw;
+  outline: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.thumbnailImage{
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+.mainPhotoContainer{
+  width: 440px;
+  outline: solid 1px black;
+}
+
+.mainPhoto{
+  width: 440px;
+  height: 100%;
+  object-fit: contain;
+  outline: solid 2px red;
+}
+
+.zoomedContainer{
+  max-height: 55vh;
+  overflow: hidden;
+}
+.zoomedPhoto{
+  position: relative;
+}
+
 .itemInfo{
-  width: 30%;
+  width: 35%;
+  overflow: hidden;
 }
 
 .addToCart{
@@ -83,30 +126,6 @@ body {
   right: 0;
   text-align: center;
   background: #c4c3c3;
-}
-
-.main {
-  padding: 8px;
-}
-
-.task {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  padding: 2px;
-  max-width: 200px;
-}
-
-.task + .task {
-  margin-top: 4px;
-}
-
-.task > * + * {
-  margin-left: 4px;
-}
-
-.task-form {
-  margin-bottom: 12px;
 }
 
 .reviewsLeft {
