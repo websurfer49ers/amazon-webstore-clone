@@ -3,6 +3,9 @@ body {
   margin: auto;
 }
 
+img{
+}
+
 .navbarSubCategories,
 .navbarCategories,
 .navbarSearch{
@@ -53,7 +56,6 @@ body {
 .mainItemDiv{
   display:flex;
   width: 100%;
-  height: 400px;
   justify-content: center;
   outline: 1px solid black;
 
@@ -66,21 +68,47 @@ body {
 }
 
 .photoGallery{
-  width: 45%;
+  width: 40%;
   display:flex;
 }
 
-.galleryThumbnailDiv{
+.galleryThumbnailContainer{
   width:15%;
   height: 100%;
 }
 
-.mainPhotoDiv{
-  width: 85%;
+.galleryThumbnail{
+  width: 4vw;
+  height: 4vw;
+  outline: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.thumbnailImage{
+  width: 100%;
   height: 100%;
+  object-fit: scale-down;
+}
+.mainPhotoContainer{
+  width: 85%;
+  height: 420px;
+  outline: solid 1px black;
+}
+
+.mainPhoto{
+  width: 28vw;
+  height: 100%;
+  object-fit: contain;
+}
+
+.zoomedPhoto{
+  height: 65%;
+  object-fit: cover;
 }
 .itemInfo{
-  width: 30%;
+  width: 35%;
+  overflow: hidden;
 }
 
 .addToCart{
@@ -94,28 +122,4 @@ body {
   right: 0;
   text-align: center;
   background: #c4c3c3;
-}
-
-.main {
-  padding: 8px;
-}
-
-.task {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  padding: 2px;
-  max-width: 200px;
-}
-
-.task + .task {
-  margin-top: 4px;
-}
-
-.task > * + * {
-  margin-left: 4px;
-}
-
-.task-form {
-  margin-bottom: 12px;
 }
