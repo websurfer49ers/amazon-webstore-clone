@@ -179,3 +179,11 @@ input.navbarSearchBar:focus{
   text-align: center;
   background: #c4c3c3;
 }
+
+.reviewsLeft {
+  width: 25%;
+}
+
+.reviewsRight {
+  width: 50%;
+}
