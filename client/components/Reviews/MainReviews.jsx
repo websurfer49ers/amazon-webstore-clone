@@ -1,10 +1,15 @@
 import React from "react";
-import Rate from "./Rating.jsx"
+import CustomerReviews from "./CustomerReviews.jsx";
 
 function MainReviews(){
     return (
         <div className="mainReviewDiv">
-            <Rate />
+            <div className="reviewsLeft">
+            <CustomerReviews />
+            </div>
+            <div className="reviewsRight">
+                
+            </div>
         </div>
     )
 }
