@@ -1,6 +1,17 @@
+@font-face{
+  font-family: AmazonEmber;
+  src: url("./fonts/Ember/AmazonEmber_Rg.ttf");
+}
+
+@font-face{
+  font-family: AmazonEmberBold;
+  src: url("./fonts/Ember/AmazonEmber_Bd.ttf")
+}
+
 body {
   outline: 1px solid black;
   margin: auto;
+  font-family: AmazonEmber;
 }
 
 img{
@@ -21,19 +32,54 @@ img{
 }
 
 .navbarSearchBar{
-  height: 40px;
+  height: 38px;
   width: 100%;
+  border-radius: 10px;
+}
+.chooseDepartment{
+  margin-right: -121px;
+  z-index:1;
+  height: 40px;
+  width: 120px;
+  border-radius: 8px;
+  border: none;
+  border-top-right-radius:0;
+  border-bottom-right-radius: 0;
+  font-size: 12px;
+  font-family: AmazonEmber;
+
 }
 
-.addressDiv{
+input.navbarSearchBar:focus{
+  border:3px solid darkorange;
+  outline: none;
+}
+
+.searchBarContents{
   width:10%;
   text-align:center;
   margin: auto;
-}
-.navbarSearchBarDiv{
-  width: 40%;
+  font-size: 14px;
 }
 
+.deliverTo{
+  font-size: 12px;
+  color: rgb(195, 194, 194);
+}
+.fakeCity{
+  font-family: AmazonEmberBold;
+}
+.navbarSearchBarDiv{
+  width: 60%;
+  display: flex;
+  align-items:center;
+}
+
+
+.logo{
+  height: 28px;
+  width: 120px;
+}
 .navbarCategories{
   height: 39px;
   background-color: #232f3e
@@ -50,7 +96,13 @@ img{
   outline: 1px solid black;
   text-align:center;
   margin: auto;
-  font-size: 14;
+  font-size: 14px;
+
+}
+
+
+.navbarSubCategoryItem{
+  font-size: 12px;
 }
 
 .mainItemDiv{

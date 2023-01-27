@@ -18,7 +18,6 @@ function ItemInfo() {
     });
   }
 
-  console.log(properties.x, properties.y)
 
   return (
     <div className="itemInfo" onMouseMove={moveWithin}>
