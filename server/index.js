@@ -24,13 +24,44 @@ app.get("/api/product/", (req, res) => {
   });
 });
 
-/******************** Get ratings for a particular product ********************/
+/******************** Get average ratings for a particular product ********************/
 app.get("/api/rating/:id", (req, res) => {
   const {id} = req.params;
   pool.query(`SELECT ROUND(AVG(rating),1) as AverageRating FROM reviews where productid = ${id}`).then((result) => {
     res.send(result.rows);
   });
 });
+
+/******************** Get all ratings for a particular product by users ********************/
+app.get("/api/rating/product/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(
+    `SELECT reviews.rating, users.firstName, users.lastName
+      FROM reviews
+        JOIN users
+        ON reviews.userid = users.id
+        where reviews.productid = ${id}
+        `)
+  .then((result) => {
+    res.send(result.rows);
+  });
+});
+
+/******************** Get all questions and answers for particular product ********************/
+app.get("/api/questions/product/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(
+    `SELECT questions.question, answers.answer
+      FROM questions
+        JOIN answers
+        ON questions.id = answers.questionId
+        where questions.productId = ${id}
+        `)
+  .then((result) => {
+    res.send(result.rows);
+  });
+});
+
 
 
 // app.post("/api/tasks", (req, res) => {
