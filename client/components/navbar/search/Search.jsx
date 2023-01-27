@@ -1,16 +1,17 @@
 import React from "react";
 import ChooseDept from "./ChooseDept.jsx";
+import Language from "./Language.jsx";
+import DeliverTo from "./DeliverTo.jsx";
+
+
 
 function Search() {
   return (
     <div className="navbarSearch">
-      <div className="searchBarContents">
+      <div className="searchBarContents logoDiv">
         <img src="../../logo/amazoom.png" className="logo"></img>
       </div>
-      <div className="searchBarContents">
-        <div className="deliverTo">Deliver to Websurfer49</div>
-        <div className="fakeCity">Fakecity 12345</div>
-      </div>
+      <DeliverTo />
       <div className="navbarSearchBarDiv">
         <ChooseDept />
         <input
@@ -20,7 +21,7 @@ function Search() {
         >
         </input>
       </div>
-      <div className="searchBarContents">Language</div>
+      <Language />
       <div className="searchBarContents">User</div>
       <div className="searchBarContents">Returns & Orders</div>
       <div className="searchBarContents">Cart</div>
