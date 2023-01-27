@@ -7,6 +7,6 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <RecoilRoot>
-  <App />
+    <App />
   </RecoilRoot>
 );
