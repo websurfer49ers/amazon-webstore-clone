@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {  FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "./RatingStyles";
 
+
 export function Rate () {
   const [rate, setRate] = useState(0);
   return (
@@ -10,7 +11,7 @@ export function Rate () {
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label>
+          <label className="starHolder">
             <Radio
               type="radio"
               value={givenRating}
@@ -38,8 +39,9 @@ export const PercentageBar = ({bgcolor,progress,height}) => {
 
   const Parentdiv = {
     display: "flex",
+    verticalAlign: "top",
     height: height,
-    width: '15%',
+    width: "185px",
     backgroundColor: 'whitesmoke',
     borderStyle: "solid",
     borderColor: "rgb(211, 211, 211)",
@@ -49,7 +51,6 @@ export const PercentageBar = ({bgcolor,progress,height}) => {
   }
   
   const Childdiv = {
-    height: '95%',
     width: `${progress}%`,
     backgroundColor: bgcolor,
     borderStyle: "solid",

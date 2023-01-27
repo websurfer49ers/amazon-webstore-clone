@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    justify-content: left;
-    align-items: left;
-    min-height: 20vh;
+    margin: 7px;
     font-size: 20px;
 `
 
