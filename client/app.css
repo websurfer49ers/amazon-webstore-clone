@@ -108,3 +108,11 @@ body {
 .task-form {
   margin-bottom: 12px;
 }
+
+.reviewsLeft {
+  width: 25%;
+}
+
+.reviewsRight {
+  width: 50%;
+}
