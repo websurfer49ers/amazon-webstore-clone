@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import imageState from "../../state.js";
-import { imageIsSelected, defaultPosition } from "../../state.js";
+import {
+  imageIsSelected,
+  defaultPosition,
+  imageProperties,
+} from "../../state.js";
 
 function PhotoGallery() {
   const [selectedImage, setImage] = useRecoilState(imageState);
   const [isSelected, setIsSelected] = useRecoilState(imageIsSelected);
   const [mousePosition, setMousePosition] = useRecoilState(defaultPosition);
+  const [imageProps, setImageProps] = useRecoilState(imageProperties);
+  const imgElement = React.useRef(null);
 
   function enterThumbnail(event) {
     event.preventDefault();
@@ -28,6 +34,17 @@ function PhotoGallery() {
     });
   }
 
+  function loadProperties(){
+    setImageProps({
+      height: imgElement.current.height,
+      width: imgElement.current.width,
+      naturalHeight: imgElement.current.naturalHeight,
+      naturalWidth: imgElement.current.naturalWidth,
+      x: imgElement.current.x,
+      y: imgElement.current.y
+    })
+  }
+
   return (
     <div className="photoGallery">
       <div className="galleryThumbnailContainer">
@@ -46,10 +63,14 @@ function PhotoGallery() {
           ></img>
         </div>
       </div>
-      <div>{mousePosition.x},{mousePosition.y}</div>
       <div className="mainPhotoContainer">
+      <div>
+        {mousePosition.x}, {mousePosition.y}
+      </div>
         <img
           src={selectedImage}
+          ref={imgElement}
+          onLoad={loadProperties}
           className="mainPhoto"
           onMouseEnter={enterMainPhoto}
           onMouseLeave={leaveMainPhoto}

@@ -91,21 +91,25 @@ img{
   object-fit: scale-down;
 }
 .mainPhotoContainer{
-  width: 85%;
-  height: 420px;
+  width: 440px;
   outline: solid 1px black;
 }
 
 .mainPhoto{
-  width: 28vw;
+  width: 440px;
   height: 100%;
   object-fit: contain;
+  outline: solid 2px red;
 }
 
-.zoomedPhoto{
-  height: 65%;
-  object-fit: cover;
+.zoomedContainer{
+  max-height: 55vh;
+  overflow: hidden;
 }
+.zoomedPhoto{
+  position: relative;
+}
+
 .itemInfo{
   width: 35%;
   overflow: hidden;
