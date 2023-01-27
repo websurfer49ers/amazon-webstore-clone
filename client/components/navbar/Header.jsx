@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "./Search.jsx";
+import Search from "./search/Search.jsx";
 import Categories from "./Categories.jsx";
 import SubCategories from "./SubCategories.jsx";
 
