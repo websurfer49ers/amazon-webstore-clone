@@ -128,10 +128,15 @@ img{
   background: #c4c3c3;
 }
 
-.reviewsLeft {
-  width: 25%;
+.calculatedStars {
+  vertical-align: top;
 }
 
-.reviewsRight {
-  width: 50%;
+.starHolder {
+  height: min-content;
+}
+
+.customerReviewDiv {
+  height: 292px;
+  width: 300px;
 }
