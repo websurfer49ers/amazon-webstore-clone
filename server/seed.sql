@@ -43,5 +43,8 @@ insert into answers
         values
         (2, 1, 'My squirrel throws intricate gangs signs at foos not repping his set. So i dont see why it cant summon lord Cthulhu. I plan on working a deal with Beelzebub later on my lunch break. Ill lyk how it goes');
 
-
+insert into reviews
+    (userid, title, content, rating)
+        values
+        (2, 'Good', 'I gave this to my grandfather for his 100th birthday. He loved it', 4);
 
