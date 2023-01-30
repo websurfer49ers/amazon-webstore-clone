@@ -71,7 +71,7 @@ function ItemInfo() {
           <hr className="MainItemDividerColor"></hr>
           <div className="MainInfoAboutThisItemDiv">
             <h4 className="MainInfoAboutThisItem">About this item</h4>
-            <ul>
+            <ul className="whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes">
               <li>Set of 5 finger puppets</li>
               <li>Includes 4 paws & 1 head</li>
               <li>Transforms hand into a squirrel</li>
