@@ -5,10 +5,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-
-// const pool = new pg.Pool({
-//   database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
-// });
 console.log(process.env.DB_NAME);
 const pool = new pg.Pool({connectionString: process.env.DB_NAME});
 
@@ -16,7 +12,6 @@ const pool = new pg.Pool({connectionString: process.env.DB_NAME});
 const port = 3000;
 
 const app = express();
-
 
 app.use(cors());
 app.use(express.json());
