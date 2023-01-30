@@ -2,15 +2,15 @@ import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
+
 dotenv.config();
 
-
-const pool = new pg.Pool({
-  database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
-});
+console.log(process.env.DB_NAME);
+const pool = new pg.Pool({connectionString: process.env.DB_NAME});
 
 // const pool = new pg.Pool({database: 'amazon-webstore'});
 const port = 3000;
+
 const app = express();
 
 app.use(cors());
@@ -24,7 +24,7 @@ app.get("/api/product/", (req, res) => {
   });
 });
 
-/******************** Get ratings for a particular product ********************/
+/******************** Get average ratings for a particular product ********************/
 app.get("/api/rating/:id", (req, res) => {
   const {id} = req.params;
   pool.query(`SELECT ROUND(AVG(rating),1) as AverageRating FROM reviews where productid = ${id}`).then((result) => {
@@ -32,11 +32,41 @@ app.get("/api/rating/:id", (req, res) => {
   });
 });
 
+/******************** Get all ratings for a particular product by users ********************/
+app.get("/api/rating/product/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(
+    `SELECT reviews.rating, users.firstName, users.lastName
+      FROM reviews
+        JOIN users
+        ON reviews.userid = users.id
+        where reviews.productid = ${id}
+        `)
+  .then((result) => {
+    res.send(result.rows);
+  });
+});
+
+/******************** Get all questions and answers for particular product ********************/
+app.get("/api/questions/product/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(
+    `SELECT questions.question, answers.answer
+      FROM questions
+        JOIN answers
+        ON questions.id = answers.questionId
+        where questions.productId = ${id}
+        `)
+  .then((result) => {
+    res.send(result.rows);
+  });
+});
+
+
 
 // app.post("/api/tasks", (req, res) => {
 //   const { description } = req.body;
-//   pool
-//     .query("INSERT INTO tasks (description) VALUES ($1) RETURNING *", [
+//   pool.query("INSERT INTO tasks (description) VALUES ($1) RETURNING *", [
 //       description,
 //     ])
 //     .then((result) => {
