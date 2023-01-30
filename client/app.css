@@ -20,9 +20,6 @@ body {
   margin: auto;
 }
 
-img {
-}
-
 .navbarSubCategories,
 .navbarCategories,
 .navbarSearch {
@@ -399,6 +396,84 @@ input.navbarSearchBar:focus {
 }
 
 .customerReviewDiv {
+  margin: 0;
   height: 292px;
   width: 300px;
+  margin-left: 20px;
+}
+
+.barText {
+  color: #0089a1;
+  font-family: Arial,sans-serif;
+  box-sizing: border-box;
+  font-size: 14px!important;
+  line-height: 20px!important;
+  white-space: nowrap;
+  border-collapse: collapse;
+  text-indent: initial;
+  border-spacing: 2px;
+  margin: 7px;
+}
+
+.starHolder {
+  color: #0F1111!important;;
+  text-rendering: optimizeLegibility;
+  font-size: 18px!important;
+  line-height: 24px!important;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-family: Arial,sans-serif;
+  margin-left: 1px;
+}
+
+.globalRatings {
+  margin-left: 7px;
+  font-size: 14px;
+  font-family: AmazonEmber;
+  color: #565959!important;
+}
+
+.reviewsLeft {
+  width: 300px;
+  height: 1010px;
+}
+
+.reviewHeadline {
+  margin-bottom: 8px!important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.thoughts {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
+.reviewThisMain {
+  margin-left: 20px;
+}
+
+.writeReview {
+  width: 300px;
+  background-color: #fff;
+  border-color: #D5D9D9;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  height: 29px;
+}
+
+.partition {
+  margin-top: 32px!important;
+  margin-bottom: 24px!important;
+  border-top: 1px solid #e7e7e7;
+  display: block;
+  height: 1px;
 }
