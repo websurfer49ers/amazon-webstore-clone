@@ -42,32 +42,43 @@ function ItemInfo() {
             style={{
               top:
                 -position.y * (properties.naturalHeight / properties.height) +
-                405,
+                600,
               left:
                 -position.x * (properties.naturalWidth / properties.width) +
                 700,
             }}
           ></img>
         </div>
-      ) : null}
-      <div className="MainInfoProductNameDiv">
-        <h2 className="MainInfoProductName">Mcphee Archie Handi Squirrel</h2>
-        Brand: Mcphee<br></br>
-        3,496 ratings | 14 answered questions<br></br>
-        Amazoom's Choice for "archie mcphee"<br></br>
-      </div>
-      <hr></hr>
-      <div className="MainInfoDetails">
-        <h2 className="MainInfoPrice">7.89</h2>
-        Brand:Mcphee<br></br>
-        Material: Cotton<br></br>
-        Size: 8"<br></br>
-        Theme: Animal <br></br>
-        Item Dimsensions 5.52 x 4.05 x 1.73 inches
-      </div>
-      <hr></hr>
-      <div className="MainInfoAboutThisItemDiv"></div>
-      <h4 className="MainInfoAboutThisItem">About this item</h4>
+      ) : (
+        <>
+          <div className="MainInfoProductNameDiv">
+            <h2 className="MainInfoProductName">
+              Mcphee Archie Handi Squirrel
+            </h2>
+            Brand: Mcphee<br></br>
+            3,496 ratings | 14 answered questions<br></br>
+            Amazoom's Choice for "archie mcphee"<br></br>
+          </div>
+          <hr className="MainItemDividerColor"></hr>
+          <div className="MainInfoDetails">
+            <h2 className="MainInfoPrice">7.89</h2>
+            Brand:Mcphee<br></br>
+            Material: Cotton<br></br>
+            Size: 8"<br></br>
+            Theme: Animal <br></br>
+            Item Dimsensions 5.52 x 4.05 x 1.73 inches
+          </div>
+          <hr className="MainItemDividerColor"></hr>
+          <div className="MainInfoAboutThisItemDiv">
+            <h4 className="MainInfoAboutThisItem">About this item</h4>
+            <ul>
+              <li>Set of 5 finger puppets</li>
+              <li>Includes 4 paws & 1 head</li>
+              <li>Transforms hand into a squirrel</li>
+            </ul>
+          </div>
+        </>
+      )}
     </div>
   );
 }
