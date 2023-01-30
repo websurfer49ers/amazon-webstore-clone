@@ -5,10 +5,10 @@ function MainReviews(){
     return (
         <div className="mainReviewDiv">
             <div className="reviewsLeft">
-            <CustomerReviews />
+                <CustomerReviews />
             </div>
             <div className="reviewsRight">
-                
+
             </div>
         </div>
     )
