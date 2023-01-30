@@ -9,8 +9,12 @@ dotenv.config();
 //   database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
 // });
 
-const pool = new pg.Pool({database: 'amazon-webstore'});
-const port = 5173;
+
+const pool = new pg.Pool(process.env.DB_NAME);
+
+// const pool = new pg.Pool({database: 'amazon-webstore'});
+const port = 3000;
+
 const app = express();
 
 app.use(cors());
@@ -66,8 +70,7 @@ app.get("/api/questions/product/:id", (req, res) => {
 
 // app.post("/api/tasks", (req, res) => {
 //   const { description } = req.body;
-//   pool
-//     .query("INSERT INTO tasks (description) VALUES ($1) RETURNING *", [
+//   pool.query("INSERT INTO tasks (description) VALUES ($1) RETURNING *", [
 //       description,
 //     ])
 //     .then((result) => {
