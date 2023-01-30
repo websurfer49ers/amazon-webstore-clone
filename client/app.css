@@ -343,9 +343,12 @@ input.navbarSearchBar:focus {
   border: none;
   margin: 4px 0px 4px 0px;
   width: 100%;
-  background-color: rgb(255, 217, 0);
+  background-color: rgb(249, 225, 11);
 }
 
+.addToCartButton:hover{
+  background-color: rgb(238, 203, 3);
+}
 .whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes{
   font-size: 14px;
 }
@@ -378,6 +381,9 @@ input.navbarSearchBar:focus {
 }
 .buyNowButton {
   background-color: orange;
+}
+.buyNowButton:hover {
+  background-color: darkorange;
 }
 .chooseLanguage {
   font-family: AmazonEmberBold;

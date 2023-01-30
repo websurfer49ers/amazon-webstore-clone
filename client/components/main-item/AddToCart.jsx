@@ -5,7 +5,11 @@ function AddToCart() {
     <div className="addToCart">
       <div className="lazySpacer"></div>
       <div className="addToCartContainer">
-        7.89 <br></br>
+        <div style={{"text-align":"top"}}>
+          <span style={{ "font-size": "13px" }}>$</span>
+          <span style={{ "font-size": "28px", "vertical-align":"text-top"}}>7</span>
+          <span style={{ "font-size": "13px" }}>89</span>
+        </div>
         "PrimeLogo" <br></br>
         <div style={{ "margin-bottom": "5px" }}>
           <a>FREE Returns</a>{" "}
@@ -45,11 +49,18 @@ function AddToCart() {
         <button className="buyNowButton">Buy Now</button> <br></br>
         Secure transaction <br></br>
         <div className="shipsByDiv">
-          <div className="shipsByContent" style={{color: "rgb(90, 90, 90)"}}>Ships from</div>
+          <div className="shipsByContent" style={{ color: "rgb(90, 90, 90)" }}>
+            Ships from
+          </div>
           <div className="shipsByContent">Amazoom</div>
         </div>
         <div className="soldByDiv">
-          <div className="shipsByContent" style={{color: "rgb(90, 90, 90)"}}>Sold by</div> <div className="shipsByContent"><a>Neron Brands</a></div>
+          <div className="shipsByContent" style={{ color: "rgb(90, 90, 90)" }}>
+            Sold by
+          </div>{" "}
+          <div className="shipsByContent">
+            <a>Neron Brands</a>
+          </div>
         </div>
         Return policy:{" "}
         <a>
