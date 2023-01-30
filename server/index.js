@@ -5,12 +5,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
-// const pool = new pg.Pool({
-//   database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
-// });
+const pool = new pg.Pool({
+  database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
+});
 
-const pool = new pg.Pool({database: 'amazon-webstore'});
-const port = 5173;
+// const pool = new pg.Pool({database: 'amazon-webstore'});
+const port = 3000;
 const app = express();
 
 app.use(cors());
