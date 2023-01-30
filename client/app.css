@@ -1,14 +1,14 @@
-@font-face{
+@font-face {
   font-family: AmazonEmber;
   src: url("./fonts/Ember/AmazonEmber_Rg.ttf");
 }
 
-@font-face{
+@font-face {
   font-family: AmazonEmberBold;
-  src: url("./fonts/Ember/AmazonEmber_Bd.ttf")
+  src: url("./fonts/Ember/AmazonEmber_Bd.ttf");
 }
 
-html{
+html {
   overflow-x: scroll;
 }
 body {
@@ -17,176 +17,311 @@ body {
   font-family: AmazonEmber;
 }
 
-img{
+img {
 }
 
 .navbarSubCategories,
 .navbarCategories,
-.navbarSearch{
-  outline: 1px solid black;
+.navbarSearch {
   display: flex;
   color: white;
 }
 
-.navbarSearch{
+.navbarSearch {
   height: 60px;
   background-color: #131921;
 }
 
-.navbarSearchBar{
+.navbarSearchBar {
+  position: relative;
   height: 38px;
   width: 100%;
-  border-radius: 10px;
+  min-width: 100px;
+  border-radius: 8px;
+  font-family: AmazonEmber;
+  padding-left: 125px;
 }
-.chooseDepartment{
-  margin-right: -121px;
-  z-index:1;
+.chooseDepartment {
+  position: absolute;
+  margin-left: 2px;
+  left: 0;
+  z-index: 1;
   height: 40px;
   width: 120px;
-  border-radius: 8px;
+  border-radius: 5px;
   border: none;
-  border-top-right-radius:0;
+  border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   font-size: 12px;
   font-family: AmazonEmber;
-
+  border-right: 1px solid lightgray;
+  color: rgb(72, 72, 72);
 }
 
-input.navbarSearchBar:focus{
-  border:3px solid darkorange;
+.submitSearch {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  margin-right: 2px;
+  width: 45px;
+  height: 40px;
+  background-color: rgba(240, 185, 76, 1);
+  border: none;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.submitSearch:hover{
+  background-color: rgba(252, 169, 2, 1);
+}
+
+input.navbarSearchBar:focus {
+  border: 3px solid darkorange;
   outline: none;
 }
 
 .deliverToDiv,
-.searchBarContents{
-  width:10%;
+.userOptionsDiv,
+.returnsOrdersDiv,
+.searchBarContents {
+  width: 10%;
   min-width: 70px;
-  text-align:center;
+  text-align: center;
   margin: auto;
   font-size: 14px;
   cursor: pointer;
   margin: 5px;
-  border: solid white 1px;
   line-height: 50px;
+  border-radius: 1px;
 }
 
-.logoDiv,
-.deliverToDiv{
+.deliverToDiv:hover,
+.userOptionsDiv:hover,
+.returnsOrdersDiv:hover,
+.searchBarContents:hover{
+  outline: solid white 1px;
+
+}
+
+.chooseDepartment {
+  cursor: pointer;
+}
+.chooseDepartment:hover{
+  background-color: rgb(206, 202, 202);
+  color: black;
+}
+
+.deliverToDiv,
+.userOptionsDiv,
+.returnsOrdersDiv,
+.logoDiv {
   min-width: 130px;
-  line-height: 1.2;
-
+  justify-content: center;
+  display:flex;
+  align-items: center;
 }
-.deliverTo{
+.returnsOrdersDiv{
+  width: auto;
+  min-width: 70px;
+}
+.deliverToDiv,
+.userOptionsDiv,
+.returnsOrdersDiv {
+  line-height: 1.2;
+}
+
+.deliverTo {
   font-size: 12px;
   color: rgb(195, 194, 194);
 }
-.fakeCity{
+.firstLineDiv {
+  font-size: 12px;
+}
+.secondLineDiv {
   font-family: AmazonEmberBold;
-
 }
-.navbarSearchBarDiv{
-  width: auto;
-  min-width: 60%;
+.navbarSearchBarDiv {
+  width: 100%;
+  min-width: 20%;
+  position: relative;
   display: flex;
-  align-items:center;
+  align-items: center;
 }
 
-
-.logo{
+.logo {
   height: 28px;
   width: 120px;
 }
-.navbarCategories{
+.navbarCategories {
   height: 39px;
-  background-color: #232f3e
+  background-color: #232f3e;
 }
 
-.navbarSubCategories{
+.navbarSubCategories {
+  justify-content: start;
   height: 33px;
   background-color: #fafafa;
-  border-bottom: 1px solid rgba(0,0,0,.1);
   color: black;
+  border-bottom: 1px solid rgb(216, 215, 215);
 }
 .navbarCategoryItem,
-.navbarSubCategoryItem{
-  outline: 1px solid black;
-  text-align:center;
-  margin: auto;
+.navbarSubCategoryItem {
+  text-align: baseline;
+  padding: 8px;
   font-size: 14px;
-
+  border-radius: 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 2px;
 }
 
+.navbarCategoryItem{
+  margin:auto;
+}
 
-.navbarSubCategoryItem{
+.navbarSubCategoryItem {
+  margin-left: 15px;
+}
+
+.allItemCategory{
+  font-family: AmazonEmberBold;
+}
+
+.navbarCategoryItem:hover{
+  outline: 1px solid white;
+}
+
+.navbarSubCategoryItem {
   font-size: 12px;
 }
 
-.mainItemDiv{
-  display:flex;
+.navbarSubCategoryItem:hover{
+  color:rgba(255, 157, 0, 1);
+  border-bottom: 3px solid rgba(255, 157, 0, 1);
+}
+
+.mainItemDiv {
+  display: flex;
   width: 100%;
+  height: 800px;
   justify-content: center;
-  outline: 1px solid black;
-
 }
 
-.addToCart,
-.itemInfo,
-.photoGallery{
-  outline: 1px solid black;
+.MainInfoPrice,
+.MainInfoProductName{
+  margin: 0;
+  font-weight: 100;
 }
 
-.photoGallery{
-  width: 40%;
+.photoGallery {
+  width: 32%;
+  margin-right: 50px;
+}
+.lazySpacer{
+  height:35px;
+}
+.shareButton{
+  width:36px;
+  height:36px;
+  border-radius: 100%;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  background-color: #f6f4f4;
+}
+
+.thumbnailAndMainPhoto{
   display:flex;
 }
 
-.galleryThumbnailContainer{
-  width:15%;
+.galleryThumbnailContainer {
+  width: auto;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.galleryThumbnail{
-  width: 4vw;
-  height: 4vw;
-  outline: 1px solid black;
+.evenMoreCategories{
+  display: flex;
+  color:rgb(91, 91, 91);
+  font-size: 12px;
+  margin: 10px;
+}
+
+.evenMoreItems{
+  margin-left: 5px;
+}
+.galleryThumbnail {
+  width: 2vw;
+  height: 2vw;
+  outline: 1px solid rgb(147, 146, 146);
   margin: 5px;
   padding: 5px;
+  border-radius: 8px;
+
 }
 
-.thumbnailImage{
+.galleryThumbnail:hover{
+  box-shadow: 0px 0px 6px rgb(0, 179, 255);
+
+}
+
+.thumbnailImage {
   width: 100%;
   height: 100%;
   object-fit: scale-down;
 }
-.mainPhotoContainer{
+.mainPhotoContainer {
   width: 440px;
   outline: solid 1px black;
 }
 
-.mainPhoto{
-  width: 440px;
-  height: 100%;
-  object-fit: contain;
+.mainPhoto {
+  width: 100%;
   outline: solid 2px red;
 }
 
-.zoomedContainer{
-  max-height: 55vh;
+.zoomedContainer {
+  max-height: 800px;
+  margin: 5px;
   overflow: hidden;
+  box-shadow: 0px 0px 5px black;
 }
-.zoomedPhoto{
+.zoomedPhoto {
   position: relative;
+  outline: solid 2px red;
+  z-index: -1;
 }
 
-.itemInfo{
-  width: 35%;
+.itemInfo {
+  width: 40%;
   overflow: hidden;
 }
 
 .addToCart{
-  width: 10%;
+  width:15%;
+}
+.chooseLanguage {
+  font-family: AmazonEmberBold;
+  width: 5%;
+  margin-top: 12px;
+  position:relative;
 }
 
+.flagForLanguage{
+  position:relative;
+  width:18px;
+  height:11px;
+  margin-right: 2px;
+}
+.triangleDown{
+  margin-left: 3px;
+}
+
+.mainSubCatItem{
+  font-family: AmazonEmberBold;
+}
 .footer {
   position: fixed;
   bottom: 0;
