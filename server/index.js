@@ -2,20 +2,21 @@ import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 
 // const pool = new pg.Pool({
 //   database: process.env.DB_NAME, username: process.env.DB_USERNAME, password: process.env.DB_PASSWORD
 // });
-
-
-const pool = new pg.Pool(process.env.DB_NAME);
+console.log(process.env.DB_NAME);
+const pool = new pg.Pool({connectionString: process.env.DB_NAME});
 
 // const pool = new pg.Pool({database: 'amazon-webstore'});
 const port = 3000;
 
 const app = express();
+
 
 app.use(cors());
 app.use(express.json());
