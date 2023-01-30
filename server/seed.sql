@@ -36,7 +36,7 @@ insert into reviews
 insert into questions
     (userId, question)
         values 
-        (5, 'Can the puppet be worn while performing intricate hand motions in a Cthulhu summoning ritual?');
+        (5, 'Can the puppet be worn while performing intricate hand motions in a Cthulhu summoning ritual?', 1);
 
 insert into answers
     (userId, questionID, answer)
