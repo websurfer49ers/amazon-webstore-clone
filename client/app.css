@@ -1,6 +1,23 @@
+@font-face{
+  font-family: AmazonEmber;
+  src: url("./fonts/Ember/AmazonEmber_Rg.ttf");
+}
+
+@font-face{
+  font-family: AmazonEmberBold;
+  src: url("./fonts/Ember/AmazonEmber_Bd.ttf")
+}
+
+html{
+  overflow-x: scroll;
+}
 body {
   outline: 1px solid black;
   margin: auto;
+  font-family: AmazonEmber;
+}
+
+img{
 }
 
 .navbarSubCategories,
@@ -8,7 +25,6 @@ body {
 .navbarSearch{
   outline: 1px solid black;
   display: flex;
-  width: 100%;
   color: white;
 }
 
@@ -18,19 +34,68 @@ body {
 }
 
 .navbarSearchBar{
-  height: 40px;
+  height: 38px;
   width: 100%;
+  border-radius: 10px;
+}
+.chooseDepartment{
+  margin-right: -121px;
+  z-index:1;
+  height: 40px;
+  width: 120px;
+  border-radius: 8px;
+  border: none;
+  border-top-right-radius:0;
+  border-bottom-right-radius: 0;
+  font-size: 12px;
+  font-family: AmazonEmber;
+
 }
 
-.addressDiv{
+input.navbarSearchBar:focus{
+  border:3px solid darkorange;
+  outline: none;
+}
+
+.deliverToDiv,
+.searchBarContents{
   width:10%;
+  min-width: 70px;
   text-align:center;
   margin: auto;
-}
-.navbarSearchBarDiv{
-  width: 40%;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px;
+  border: solid white 1px;
+  line-height: 50px;
 }
 
+.logoDiv,
+.deliverToDiv{
+  min-width: 130px;
+  line-height: 1.2;
+
+}
+.deliverTo{
+  font-size: 12px;
+  color: rgb(195, 194, 194);
+}
+.fakeCity{
+  font-family: AmazonEmberBold;
+
+}
+.navbarSearchBarDiv{
+  width: auto;
+  min-width: 60%;
+  display: flex;
+  align-items:center;
+}
+
+
+.logo{
+  height: 28px;
+  width: 120px;
+}
 .navbarCategories{
   height: 39px;
   background-color: #232f3e
@@ -47,13 +112,18 @@ body {
   outline: 1px solid black;
   text-align:center;
   margin: auto;
-  font-size: 14;
+  font-size: 14px;
+
+}
+
+
+.navbarSubCategoryItem{
+  font-size: 12px;
 }
 
 .mainItemDiv{
   display:flex;
   width: 100%;
-  height: 400px;
   justify-content: center;
   outline: 1px solid black;
 
@@ -66,10 +136,51 @@ body {
 }
 
 .photoGallery{
-  width: 45%;
+  width: 40%;
+  display:flex;
 }
+
+.galleryThumbnailContainer{
+  width:15%;
+  height: 100%;
+}
+
+.galleryThumbnail{
+  width: 4vw;
+  height: 4vw;
+  outline: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.thumbnailImage{
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+.mainPhotoContainer{
+  width: 440px;
+  outline: solid 1px black;
+}
+
+.mainPhoto{
+  width: 440px;
+  height: 100%;
+  object-fit: contain;
+  outline: solid 2px red;
+}
+
+.zoomedContainer{
+  max-height: 55vh;
+  overflow: hidden;
+}
+.zoomedPhoto{
+  position: relative;
+}
+
 .itemInfo{
-  width: 30%;
+  width: 35%;
+  overflow: hidden;
 }
 
 .addToCart{
@@ -85,26 +196,15 @@ body {
   background: #c4c3c3;
 }
 
-.main {
-  padding: 8px;
+.calculatedStars {
+  vertical-align: top;
 }
 
-.task {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  padding: 2px;
-  max-width: 200px;
+.starHolder {
+  height: min-content;
 }
 
-.task + .task {
-  margin-top: 4px;
-}
-
-.task > * + * {
-  margin-left: 4px;
-}
-
-.task-form {
-  margin-bottom: 12px;
+.customerReviewDiv {
+  height: 292px;
+  width: 300px;
 }

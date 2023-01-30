@@ -11,7 +11,8 @@ CREATE TABLE product (
   id SERIAL PRIMARY KEY,
   productName TEXT,
   description VARCHAR,
-  price MONEY
+  price MONEY,
+  sold BOOLEAN
 );
 
 CREATE TABLE pictures (
@@ -24,7 +25,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   firstName TEXT,
   lastName TEXT,
-  phone char(10)
+  phone char(10) UNIQUE
 );
 
 CREATE TABLE sellers (

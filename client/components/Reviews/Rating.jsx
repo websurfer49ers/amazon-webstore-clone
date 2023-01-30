@@ -1,14 +1,17 @@
+import { findByLabelText } from "@testing-library/react";
 import React, { useState } from "react";
-import { FaRegBell, FaStar } from "react-icons/fa";
+import {  FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "./RatingStyles";
-function Rate () {
+
+
+export function Rate () {
   const [rate, setRate] = useState(0);
   return (
-    <container>
+    <Container>
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label>
+          <label className="starHolder">
             <Radio
               type="radio"
               value={givenRating}
@@ -20,18 +23,47 @@ function Rate () {
               <FaStar
                 color={
                   givenRating < rate || givenRating === rate
-                    ? "000"
-                    : "rgb(255, 215, 0)"
+                    ? "rgb(255, 153, 0)"
+                    : "rgb(211, 211, 211)"
                 }
               />
             </Rating>
           </label>
         );
       })}
-    </container>
+    </Container>
   );
 };
 
-export default Rate;
+export const PercentageBar = ({bgcolor,progress,height}) => {
 
-// Comment 3
+  const Parentdiv = {
+    display: "flex",
+    verticalAlign: "top",
+    height: height,
+    width: "185px",
+    backgroundColor: 'whitesmoke',
+    borderStyle: "solid",
+    borderColor: "rgb(211, 211, 211)",
+    borderWidth: 1,
+    borderRadius: 3,
+    margin: 7
+  }
+  
+  const Childdiv = {
+    width: `${progress}%`,
+    backgroundColor: bgcolor,
+    borderStyle: "solid",
+    borderColor: "rgb(252, 97, 0)",
+    borderWidth: 1,
+    borderRadius: 1,
+    textAlign: 'right'
+  }
+  
+  return (
+    <div style={Parentdiv}>
+      <div style={Childdiv}>
+      </div>
+    </div>
+    )
+}
