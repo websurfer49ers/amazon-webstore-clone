@@ -1,27 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function QASearchBar(props) {
-    const [updateSearch, setUpdateSearch] = useState("");
+    const [searchText, setSearchText] = useState("");
     const [returnedResults, setReturnedResults] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:3000/api/questions/product/${props.productId}`,{
+         mode: "cors",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            setReturnedResults(data);
+        }
+    )},[]);
     const handleSubmit = (e) => {
         e.preventDefault();
         const result = props.questions.filter((fetchedData) => {
 
-            return fetchedData.question.toLowerCase().includes(updateSearch.toLowerCase());
+            return fetchedData.question.toLowerCase().includes(searchText.toLowerCase());
         });
 
         setReturnedResults(result);
     }
     const handleChange = (e) => {
 
-        setUpdateSearch(e.target.value);
+        setSearchText(e.target.value);
     }
 
     return (
         <div className="searchButton">     
        
             <form onSubmit={handleSubmit}>
-                <input placeholder="Search Q/A Section Here!" input type="text" onChange={handleChange} />
+                <input placeholder="Search Q/A Section Here!"  value={searchText} type="text" onChange={handleChange} />
                 <button type="submit" className="searchButton" >
                     "Click Here to Search"
                 </button>
@@ -40,11 +50,10 @@ function QASearchBar(props) {
                             </tr>
                         </thead>
                         <tbody>
-                           
                             {returnedResults.map((result) => {
                                 return (
-                                    <tr key={result.id}>
-                                        <td>{result.userId}</td>
+                                    <tr key={result.question}>
+                                        <td>{result.answer}</td>
                                         <td>{result.question}</td>
                                     </tr>
                                 )

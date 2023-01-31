@@ -395,7 +395,7 @@ input.navbarSearchBar:focus {
   margin-left: 20px;
 }
 
-.writeReview {
+/* .writeReview {
   width: 300px;
   background-color: #fff;
   border-color: #D5D9D9;
@@ -409,7 +409,7 @@ input.navbarSearchBar:focus {
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   height: 29px;
-}
+} */
 
 .partition {
   margin-top: 32px!important;
@@ -418,3 +418,4 @@ input.navbarSearchBar:focus {
   display: block;
   height: 1px;
 }
+
