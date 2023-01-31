@@ -21,10 +21,10 @@ const App = () => {
   return (
     <>
       <Header />
-      <MainItem />
-      <MainReviews />
-      {/* <Rate /> */}
-      <Footer />
+      <div className="under">
+        <MainItem />
+        <MainReviews />
+      </div>
     </>
   );
 };
