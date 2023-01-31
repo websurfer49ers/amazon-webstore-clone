@@ -518,7 +518,7 @@ input.navbarSearchBar:focus {
   margin-left: 20px;
 }
 
-.writeReview {
+/* .writeReview {
   width: 300px;
   background-color: #fff;
   border-color: #d5d9d9;
@@ -532,7 +532,7 @@ input.navbarSearchBar:focus {
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   height: 29px;
-}
+} */
 
 .soldByDiv,
 .shipsByDiv {
