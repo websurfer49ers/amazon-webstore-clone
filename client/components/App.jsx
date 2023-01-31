@@ -13,7 +13,7 @@ const App = () => {
       <Header />
       <div className="under">
         <MainItem />
-        <QASearchBar/> 
+        <QASearchBar productId={1} /> 
         <MainReviews />
       </div>
     </>
