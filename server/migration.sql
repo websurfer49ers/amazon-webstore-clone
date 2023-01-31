@@ -48,6 +48,7 @@ CREATE TABLE address (
 CREATE TABLE reviews (
   id SERIAL PRIMARY KEY,
   userId INT REFERENCES users(id),
+  productId INT REFERENCES product(id),
   title TEXT,
   content TEXT,
   rating INT
@@ -56,7 +57,8 @@ CREATE TABLE reviews (
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
   userId INT REFERENCES users(id),
-  question TEXT
+  question TEXT,
+  productId INT REFERENCES product(id)
 );
 
 CREATE TABLE answers(
@@ -67,4 +69,3 @@ CREATE TABLE answers(
   answer TEXT
 );
 
--- //Hello

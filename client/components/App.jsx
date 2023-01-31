@@ -13,6 +13,7 @@ const App = () => {
   });
   const [tasks, setTasks] = useRecoilState(tasksState);
 
+<<<<<<< HEAD
   useEffect(() => {
     fetch("http://localhost:5173/api/product/", {
       mode: "cors",
@@ -25,6 +26,18 @@ const App = () => {
   }, []);
 
 
+=======
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/api/tasks", {
+  //     mode: "cors",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((tasks) => {
+  //       setTasks(tasks);
+  //     });
+  // }, []);
+
+>>>>>>> cb7c1021343a021790c60718455d6d97388f48d0
   return (
     <>
       <Header />
