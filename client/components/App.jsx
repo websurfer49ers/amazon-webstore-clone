@@ -11,11 +11,11 @@ const App = () => {
   return (
     <>
       <Header />
-      <MainItem />
-      <MainReviews />
-      <QASearchBar productId={1}/>
-      {/* <Rate /> */}
-      <Footer />
+      <div className="under">
+        <MainItem />
+        <QASearchBar/> 
+        <MainReviews />
+      </div>
     </>
   );
 };
