@@ -6,58 +6,56 @@ function AddToCart() {
       <div className="lazySpacer"></div>
       <div className="addToCartContainer">
         <div>
-          <span style={{ "font-size": "13px" }}>$</span>
-          <span style={{ "font-size": "28px", "vertical-align": "text-top" }}>
+          <span style={{ "fontSize": "13px" }}>$</span>
+          <span style={{ "fontSize": "28px", "verticalAlign": "text-top" }}>
             7
           </span>
-          <span style={{ "font-size": "13px" }}>89</span>
+          <span style={{ "fontSize": "13px" }}>89</span>
         </div>
         <img src="../../logo/primelogo.png"></img> <br></br>
-        <div style={{ "margin-bottom": "5px" }}>
-          <a style={{"text-decoration":"none"}}>FREE Returns</a>
+        <div style={{ "marginBottom": "5px" }}>
+          <a style={{"textDecoration":"none"}}>FREE Returns</a>
         </div>
         <br></br>
         FREE delivery {" "}
-        <span style={{ "font-family": "AmazonEmberBold" }}>
+        <span style={{ "fontFamily": "AmazonEmberBold" }}>
           Wednesday, February 1
         </span>
         . Order within <span style={{ color: "green" }}>3 hrs 17 mins </span>
         <br></br>
-        <div style={{ "margin-top": "12px", display: "flex" }}>
+        <div style={{ "marginTop": "12px", display: "flex" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
             fill="currentColor"
-            class="bi bi-geo-alt"
             viewBox="0 2 16 12"
-            style={{ "margin-right": "3px" }}
+            style={{ "marginRight": "3px" }}
           >
             <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
             <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
           </svg>
-          <a style={{ "font-size": "12px", "text-decoration":"none"}}>
+          <a style={{ "fontSize": "12px", "textDecoration":"none"}}>
 
             Deliver to Websurfer49 - Fakecity 12345
           </a>
         </div>
         <br></br>
-        <span style={{ color: "green", "font-size": "18px" }}>
+        <span style={{ color: "green", "fontSize": "18px" }}>
           In Stock.
         </span>
         <br></br>
         <button className="quantityButton">Qty: 1</button> <br></br>
         <button className="addToCartButton">Add to Cart</button> <br></br>
         <button className="buyNowButton">Buy Now</button> <br></br>
-        <a style={{"text-decoration":"none"}}>
+        <a style={{"textDecoration":"none"}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-lock-fill"
             viewBox="0 0 16 16"
-            style={{ color: "gray", "margin-right": "5px"}}
+            style={{ color: "gray", "marginRight": "5px"}}
           >
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 0 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
           </svg>
@@ -78,7 +76,7 @@ function AddToCart() {
           </div>
         </div>
         Return policy:  {" "}
-        <a style={{"text-decoration":"none"}}>
+        <a style={{"textDecoration":"none"}}>
           Eligible for Return, Refund, or Replacement within 30 days of receipt
         </a>
         <br></br>
