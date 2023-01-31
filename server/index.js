@@ -16,6 +16,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/******************** Get About this item ********************/
+app.get("/api/product/description/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(`SELECT * FROM product where id = ${productId}`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
 /******************** Get all products from the database ********************/
 app.get("/api/product/:id", (req, res) => {
   const {id} = req.params;
@@ -31,7 +43,7 @@ app.get("/api/product/:id", (req, res) => {
 /******************** Get all pictures for a particular product ********************/
 app.get("/api/pictures/:id", (req, res) => {
   const {id} = req.params;
-  pool.query(`SELECT pictureURL FROM pictures where productId = ${id} returning *`)
+  pool.query(`SELECT * FROM pictures where productId = ${id}`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -40,10 +52,22 @@ app.get("/api/pictures/:id", (req, res) => {
   });
 });
 
-/******************** Get average ratings for a particular product ********************/
-app.get("/api/rating/:id", (req, res) => {
-  const {id} = req.params;
-  pool.query(`SELECT ROUND(AVG(rating),1) as AverageRating FROM reviews where productid = ${id}`)
+/******************** Get ALL ratings for a particular product ********************/
+// app.get("/api/rating/:productId", (req, res) => {
+//   const {productId} = req.params;
+//   pool.query(`SELECT * FROM reviews where productid = ${productId}`)
+//   .then((result) => {
+//     res.send(result.rows);
+//   })
+//   .catch((error)=>{
+//     res.send(error.message);
+//   });
+// });
+
+/******************** Get AVERAGE ratings for a particular product ********************/
+app.get("/api/avgrating/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(`SELECT ROUND(AVG(rating),1) as AverageRating FROM reviews where productid = ${productId}`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -52,15 +76,15 @@ app.get("/api/rating/:id", (req, res) => {
   });
 });
 
-/******************** Get all ratings for a particular product by users ********************/
-app.get("/api/rating/product/:id", (req, res) => {
-  const {id} = req.params;
+/******************** Get all ratings for a particular product including usernames ********************/
+app.get("/api/rating/product/:productId", (req, res) => {
+  const {productId} = req.params;
   pool.query(
-    `SELECT reviews.rating, users.firstName, users.lastName
+    `SELECT reviews.*, users.firstName, users.lastName
       FROM reviews
         JOIN users
         ON reviews.userid = users.id
-        where reviews.productid = ${id}
+        where reviews.productid = ${productId}
         `)
   .then((result) => {
     res.send(result.rows);
@@ -74,10 +98,14 @@ app.get("/api/rating/product/:id", (req, res) => {
 app.get("/api/questions/product/:id", (req, res) => {
   const {id} = req.params;
   pool.query(
-    `SELECT questions.question, answers.answer
+    `SELECT
+      questions.id as questionId, questions.question, questions.userid as question_user,
+      answers.id as answersID, answers.answer, answers.userid as answer_user, users.firstName as answers_firstName
       FROM questions
         JOIN answers
-        ON questions.id = answers.questionId
+          ON questions.id = answers.questionId  
+        JOIN users
+          ON answers.id = users.id
         where questions.productId = ${id}
         `)
   .then((result) => {
@@ -87,26 +115,6 @@ app.get("/api/questions/product/:id", (req, res) => {
     res.send(error.message);
   });
 });
-
-/******************** Get questions upon search for particular product ********************/
-// app.get("/api/questions/product/search/:id/:key", (req, res) => {
-//   const {id} = req.params;
-//   pool.query(
-//     `SELECT questions.question, answers.answer
-//     FROM questions
-//       JOIN answers
-//       ON questions.id = answers.questionId
-//       where questions.productId = ${id}
-//       AND questions.question like ${key}
-//       `)
-//   .then((result) => {
-//     res.send(result.rows);
-//   })
-//   .catch((error)=>{
-//     res.send(error.message);
-//   });
-// });
-
 
 
 // app.post("/api/tasks", (req, res) => {
