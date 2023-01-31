@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS address;
 CREATE TABLE product (
   id SERIAL PRIMARY KEY,
   productName TEXT,
-  description VARCHAR,
+  description TEXT[],
   price MONEY,
   sold BOOLEAN
 );
