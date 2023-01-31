@@ -1,7 +1,7 @@
 insert into product
     (productName, description, price)
         values
-        ('squirrel', 'This is a squirrel', 9.99);
+        ('squirrel', 'This is a squirrel', 9.99, 'f');
 
 insert into pictures
     (productId, pictureUrl)
@@ -34,7 +34,7 @@ insert into reviews
         (1, 'Awesome', 'This is an awesome product', 5);
 
 insert into questions
-    (userId, question)
+    (userId, question, productId)
         values 
         (5, 'Can the puppet be worn while performing intricate hand motions in a Cthulhu summoning ritual?', 1);
 
@@ -44,7 +44,7 @@ insert into answers
         (2, 1, 'My squirrel throws intricate gangs signs at foos not repping his set. So i dont see why it cant summon lord Cthulhu. I plan on working a deal with Beelzebub later on my lunch break. Ill lyk how it goes');
 
 insert into reviews
-    (userid, title, content, rating)
+    (userid, productId, title, content, rating)
         values
-        (2, 'Good', 'I gave this to my grandfather for his 100th birthday. He loved it', 4);
+        (2, 1, 'Good', 'I gave this to my grandfather for his 100th birthday. He loved it', 4);
 

@@ -17,18 +17,38 @@ app.use(cors());
 app.use(express.json());
 
 /******************** Get all products from the database ********************/
-app.get("/api/product/", (req, res) => {
-  //const {id} = req.params;
-  pool.query(`SELECT * FROM product`).then((result) => {
+app.get("/api/product/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(`SELECT * FROM product where id = ${id}`)
+  .then((result) => {
     res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
+/******************** Get all pictures for a particular product ********************/
+app.get("/api/pictures/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(`SELECT pictureURL FROM pictures where productId = ${id} returning *`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
   });
 });
 
 /******************** Get average ratings for a particular product ********************/
 app.get("/api/rating/:id", (req, res) => {
   const {id} = req.params;
-  pool.query(`SELECT ROUND(AVG(rating),1) as AverageRating FROM reviews where productid = ${id}`).then((result) => {
+  pool.query(`SELECT ROUND(AVG(rating),1) as AverageRating FROM reviews where productid = ${id}`)
+  .then((result) => {
     res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
   });
 });
 
@@ -44,6 +64,9 @@ app.get("/api/rating/product/:id", (req, res) => {
         `)
   .then((result) => {
     res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
   });
 });
 
@@ -59,8 +82,30 @@ app.get("/api/questions/product/:id", (req, res) => {
         `)
   .then((result) => {
     res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
   });
 });
+
+/******************** Get questions upon search for particular product ********************/
+// app.get("/api/questions/product/search/:id/:key", (req, res) => {
+//   const {id} = req.params;
+//   pool.query(
+//     `SELECT questions.question, answers.answer
+//     FROM questions
+//       JOIN answers
+//       ON questions.id = answers.questionId
+//       where questions.productId = ${id}
+//       AND questions.question like ${key}
+//       `)
+//   .then((result) => {
+//     res.send(result.rows);
+//   })
+//   .catch((error)=>{
+//     res.send(error.message);
+//   });
+// });
 
 
 
