@@ -24,7 +24,6 @@ const App = () => {
       <MainItem />
       <MainReviews />
       {/* <Rate /> */}
-      <Footer />
     </>
   );
 };
