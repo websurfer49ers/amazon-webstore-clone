@@ -106,7 +106,7 @@ app.get("/api/questions/product/:id", (req, res) => {
           ON questions.id = answers.questionId  
         JOIN users
           ON answers.id = users.id
-        where questions.productId = ${id}
+        where questions.productId = ${id} 
         `)
   .then((result) => {
     res.send(result.rows);
@@ -115,6 +115,7 @@ app.get("/api/questions/product/:id", (req, res) => {
     res.send(error.message);
   });
 });
+
 
 
 // app.post("/api/tasks", (req, res) => {
