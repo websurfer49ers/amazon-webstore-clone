@@ -26,7 +26,7 @@ insert into users
 insert into sellers
     (companyName, productId)
         values
-        ('ABC Company', 1);
+        ('Neron Brands', 1);
 
 insert into reviews
     (userId, title, content, rating)
@@ -46,5 +46,10 @@ insert into answers
 insert into reviews
     (userid, productId, title, content, rating)
         values
-        (2, 1, 'Good', 'I gave this to my grandfather for his 100th birthday. He loved it', 4);
+        (4, 1, 'Cute', 'I bought this as a gag gift and it went over well. Silly and cute as described. The thumb portion was a bit small.', 4),
+        (5, 1, 'Adorable and Hilarious', 'Honestly only bought this because I got an Amazon gift card from someone and thought it would be hilarious to bring out around friends. Work from home clearly got to me lol. It''s funny for sure, but unfortunately my hand can''t quite contort right to hold it how it''s supposed to go. Also, the finger holes are a little big, so it slides off sometimes, but it is what it is. I got some laughs out of it and that was enough for me.', 4),
+        (6, 1, 'Arrived Damaged', 'I have purchased this product as a gift twice now and both times they have arrived damaged.', 1);
+
+
+
 
