@@ -3,7 +3,7 @@ import { atom } from "recoil";
 const ImageState = atom({
   key: "image",
   default: [
-    "https://amazon-webstore-clone-bucket.s3.amazonaws.com/613rrhRTmEL._AC_SL1200_.jpg",
+    null
   ],
 });
 
