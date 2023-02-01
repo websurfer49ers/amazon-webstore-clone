@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/******************** Get About this item ********************/
+/******************** Get 'About this item' ********************/
 app.get("/api/product/description/:productId", (req, res) => {
   const {productId} = req.params;
   pool.query(`SELECT * FROM product where id = ${productId}`)
@@ -117,16 +117,18 @@ app.get("/api/questions/product/:id", (req, res) => {
 });
 
 
-
-// app.post("/api/tasks", (req, res) => {
-//   const { description } = req.body;
-//   pool.query("INSERT INTO tasks (description) VALUES ($1) RETURNING *", [
-//       description,
-//     ])
-//     .then((result) => {
-//       res.send(result.rows[0]);
-//     });
-// });
+/******************** Add questions to the product ********************/
+app.post("/api/questions/product/:productId", (req, res) => {
+  const { productId } = req.params;
+  const { userId, question } = req.body;
+  pool.query(`INSERT INTO questions (productId, userId, question) VALUES (${productId},${userId},'${question}') returning *`)
+    .then((result) => {
+      res.send(result.rows[0]);
+    })
+    .catch((error)=>{
+      res.send(error.message);
+    });;
+});
 
 // app.delete("/api/tasks/:id", async (req, res) => {
 //   const { id } = req.params;
