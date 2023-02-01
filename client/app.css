@@ -504,7 +504,6 @@ input.navbarSearchBar:focus {
 
 .reviewsLeft {
   display: inline-block;
-  margin-left: 65px;
   margin-right: 20px;
   width: 300px;
   height: 1010px;
@@ -527,8 +526,8 @@ input.navbarSearchBar:focus {
   margin-left: 5px;
 }
 
+.helpfulButton,
 .writeReview {
-  width: 300px;
   background-color: #fff;
   border-color: #d5d9d9;
   border-style: solid;
@@ -542,6 +541,14 @@ input.navbarSearchBar:focus {
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   height: 29px;
   cursor: pointer;
+}
+
+.writeReview {
+  width: 300px;
+}
+
+.helpfulButton {
+  width: 100px;
 }
 
 .soldByDiv,
@@ -712,4 +719,33 @@ color: #000;
 
 .reviewContent {
   box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+  word-wrap: break-word;
+  color: #0F1111;
+}
+
+.contentWrapper {
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+
+.textSeperator {
+  display: inline-block;
+  width: 1px;
+  background-color: #ddd;
+  height: 14px;
+  vertical-align: middle;
+}
+
+.reportAbuse {
+  color: #565959;
+  margin-top: 4px;
+  margin-left: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  cursor: pointer;
 }

@@ -24,7 +24,14 @@ export function UserReviews() {
                     </div>
                 </Container>
                 <p className="dateReviewed">Reviewed in the United States on March 2, 2019</p>
-                <p className="reviewContent">This product is great. This product is great. This product is great. This product is great. This product is great. This product is great. </p>
+                <div className="contentWrapper">
+                    <p className="reviewContent">This product is great. This product is great. This product is great. This product is great. This product is great. This product is great. </p>
+                </div>
+                <Container>
+                    <button className="helpfulButton">Helpful</button>
+                    <i className="textSperator" role="img"></i>
+                    <span className="reportAbuse">Report Abuse</span>
+                </Container>
             </div>
         </div>
     )
