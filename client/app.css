@@ -14,7 +14,7 @@
 
 .underHeader{
   margin: auto;
-  width: 85%;
+  width: 80%;
 }
 
 a {
@@ -263,7 +263,7 @@ input.navbarSearchBar:focus {
 }
 
 .photoGallery {
-  width: 40%;
+  width: 37%;
   margin-right: 5px;
 }
 
@@ -301,6 +301,8 @@ input.navbarSearchBar:focus {
 
 .evenMoreItems {
   margin-left: 5px;
+  white-space: nowrap;
+
 }
 .galleryThumbnail {
   width: 2vw;
@@ -342,12 +344,12 @@ input.navbarSearchBar:focus {
 }
 
 .itemInfo {
-  width: 45%;
+  width: 43%;
   overflow: hidden;
 }
 
 .addToCart {
-  width: 15%;
+  width: 17%;
   min-width: 200px;
   margin-left: 30px;
 }
