@@ -9,7 +9,6 @@ function Language() {
         width="10"
         height="8"
         fill="currentColor"
-        class="bi bi-caret-down-fill"
         viewBox="0 0 16 9"
         color="rgb(206, 202, 202)"
         className="triangleDown"
