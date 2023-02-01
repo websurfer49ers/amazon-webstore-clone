@@ -12,6 +12,11 @@
   font-family: AmazonEmber;
 }
 
+.underHeader{
+  margin: auto;
+  width: 80%;
+}
+
 a {
   color: #007185;
   cursor: pointer;
@@ -46,7 +51,7 @@ body {
   position: relative;
   height: 38px;
   width: 100%;
-  min-width: 100px;
+  min-width: 200px;
   border-radius: 8px;
   padding-left: 125px;
 }
@@ -165,7 +170,7 @@ input.navbarSearchBar:focus {
 }
 .navbarSearchBarDiv {
   width: 100%;
-  min-width: 20%;
+  min-width: 200px;
   position: relative;
   display: flex;
   align-items: center;
@@ -233,7 +238,6 @@ input.navbarSearchBar:focus {
 .mainItemDiv {
   display: flex;
   width: 100%;
-  height: 800px;
   justify-content: center;
 }
 
@@ -259,7 +263,7 @@ input.navbarSearchBar:focus {
 }
 
 .photoGallery {
-  width: 30%;
+  width: 37%;
   margin-right: 5px;
 }
 
@@ -297,6 +301,8 @@ input.navbarSearchBar:focus {
 
 .evenMoreItems {
   margin-left: 5px;
+  white-space: nowrap;
+
 }
 .galleryThumbnail {
   width: 2vw;
@@ -338,12 +344,12 @@ input.navbarSearchBar:focus {
 }
 
 .itemInfo {
-  width: 35%;
+  width: 43%;
   overflow: hidden;
 }
 
 .addToCart {
-  width: 12%;
+  width: 17%;
   min-width: 200px;
   margin-left: 30px;
 }
@@ -557,4 +563,71 @@ input.navbarSearchBar:focus {
   border-top: 1px solid #e7e7e7;
   display: block;
   height: 1px;
+}
+
+.searchwrapper *{
+  margin: 0;
+  padding: 0;
+}
+.questions-wrapper{
+  margin-bottom: 20px;
+}
+.question-answer{
+  display: flex;
+  /* align-items: center; */
+  margin-bottom: 10px;
+}
+ .searchwrapper h2{
+  color: #0F1111;
+  font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+.question-answer p{
+  color: #007185;
+  font-size: 14px;
+  
+}
+
+.container{
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.question-answer h3{
+margin-right: 50px;
+font-size: 14px;
+font-weight: 700;
+min-width: 70px;
+}
+form{
+  position: relative;
+}
+.searchButton{
+  background-color: transparent;
+  border: none;
+  /* width: 100%; */
+  position: absolute;
+  top: 10px;
+  font-size: 22px;
+  left: 5px;
+}
+
+.searchwrapper{
+  max-width: 800px;
+}
+
+.searchinput {
+  width: 100%;
+  display: block;
+  background-color: #fff;
+  height: 31px;
+  padding: 3px 7px 3px 40px;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.goaheadanswertexthestypingijustsaidyou p{
+color: #000;
 }

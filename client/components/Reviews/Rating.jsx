@@ -11,7 +11,7 @@ export function Rate () {
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label className="starHolder">
+          <label className="starHolder" key={Math.random()*Math.random()}>
             <Radio
               type="radio"
               value={givenRating}
@@ -49,7 +49,7 @@ export const PercentageBar = ({bgcolor,progress,height}) => {
     borderRadius: 3,
     margin: 7
   }
-  
+
   const Childdiv = {
     width: `${progress}%`,
     backgroundColor: bgcolor,
@@ -59,7 +59,7 @@ export const PercentageBar = ({bgcolor,progress,height}) => {
     borderRadius: 1,
     textAlign: 'right'
   }
-  
+
   return (
     <div style={Parentdiv}>
       <div style={Childdiv}>
