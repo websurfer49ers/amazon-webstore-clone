@@ -461,7 +461,6 @@ input.navbarSearchBar:focus {
   margin: 0;
   height: 292px;
   width: 300px;
-  margin-left: 20px;
 }
 
 .barText {
@@ -504,8 +503,12 @@ input.navbarSearchBar:focus {
 }
 
 .reviewsLeft {
+  display: inline-block;
+  margin-left: 65px;
+  margin-right: 20px;
   width: 300px;
   height: 1010px;
+  justify-content: center;
 }
 
 .reviewHeadline {
@@ -521,7 +524,7 @@ input.navbarSearchBar:focus {
 }
 
 .reviewThisMain {
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .writeReview {
@@ -538,6 +541,7 @@ input.navbarSearchBar:focus {
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   height: 29px;
+  cursor: pointer;
 }
 
 .soldByDiv,
@@ -558,7 +562,7 @@ input.navbarSearchBar:focus {
   width: 50%;
 }
 .partition {
-  margin-top: 32px !important;
+  margin-bottom: 24px!important;
   margin-bottom: 24px !important;
   border-top: 1px solid #e7e7e7;
   display: block;
@@ -588,6 +592,7 @@ input.navbarSearchBar:focus {
   color: #007185;
   font-size: 14px;
   
+
 }
 
 .container{
@@ -630,4 +635,81 @@ form{
 
 .goaheadanswertexthestypingijustsaidyou p{
 color: #000;
+}
+.reviewText {
+  margin: 0px;
+}
+
+.reviewsRight {
+  display: inline-block;
+}
+
+.mainReviewDiv {
+  display: flex;
+}
+
+.userReviewDisplay {
+  margin-left: 65px;
+}
+
+.topReviewsDiv {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.topReviews {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-rendering: optimizeLegibility;
+}
+
+.userImageWrapper {
+  padding-right: 9px;
+  width: 30px;
+}
+
+.userImage{
+  border-radius: 34px;
+  border: 2px solid #fff;
+  width: 100%;
+  vertical-align: top;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.userName {
+  min-height: 34px;
+  display: border-box;
+  box-sizing: border-box;
+  font-size: 13px;
+  line-height: 30px;
+  cursor: pointer;
+  color: #0f1111;
+}
+
+.userStars {
+  height: 18px;
+  width: 80px;
+}
+
+.reviewTitle {
+  margin-left: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.dateReviewed {
+  margin: 0px;
+  color: #565959!important;
+  font-size: 14px!important;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+
+.reviewContent {
+  box-sizing: border-box;
 }

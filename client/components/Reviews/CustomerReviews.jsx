@@ -7,7 +7,7 @@ export function CustomerReviews() {
     return (
         <span className="customerReviews">
             <div className="customerReviewDiv">
-                <h2>Customer Reviews</h2>
+                <h2 className="reviewText">Customer reviews</h2>
                 <Container>
                     <Rate className="calculatedStars"/>
                     <span className="starHolder">4.6 out of 5</span>
@@ -45,6 +45,7 @@ export function CustomerReviews() {
     )
 }
 
+// Button requires more styling (cursor on hover)
 export function ReviewThisProduct() {
     return (
         <div className="reviewThisMain">
