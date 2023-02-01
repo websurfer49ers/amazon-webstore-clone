@@ -46,7 +46,7 @@ function QASearchBar(props) {
 
                     {returnedResults.map((result) => {
                         return (
-                            <div className="questions-wrapper" key={result.question}>
+                            <div className="questions-wrapper" key={Math.random() * Math.random()}>
                                 <div className="question-answer">
                                     <h3>
                                         Question:
