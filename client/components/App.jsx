@@ -7,13 +7,12 @@ import QASearchBar from "./QASearchBar.jsx";
 
 const App = () => {
 
-  
   return (
     <>
       <Header />
-      <div className="under">
+      <div className="underHeader">
         <MainItem />
-        <QASearchBar productId={1} /> 
+        <QASearchBar productId={1} />
         <MainReviews />
       </div>
     </>

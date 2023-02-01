@@ -18,7 +18,7 @@ function QASearchBar(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const result = returnedResults.filter((fetchedData) => {
-            // filtered reluts. can be what you display when someone does a search. it will use all the reults, stored in returned results. and keep them there. and then when somenoe does a filter, you . if someone clears the fiter ande hits enter again, you can just return fromt eh database. pre4vents you from havingt to make the fetch request more then once. Another stater for the filtered questions. data format. want id for answer and question. to make it easy to use key. figure out. 
+            // filtered reluts. can be what you display when someone does a search. it will use all the reults, stored in returned results. and keep them there. and then when somenoe does a filter, you . if someone clears the fiter ande hits enter again, you can just return fromt eh database. pre4vents you from havingt to make the fetch request more then once. Another stater for the filtered questions. data format. want id for answer and question. to make it easy to use key. figure out.
             return fetchedData.question.toLowerCase().includes(searchText.toLowerCase());
         });
 
@@ -77,4 +77,4 @@ function QASearchBar(props) {
     );
 }
 
-export default QASearchBar; 
+export default QASearchBar;
