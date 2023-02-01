@@ -1,30 +1,21 @@
-import React, { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import React from "react";
 import Header from "./navbar/Header.jsx";
 import MainItem from "./main-item/MainItem.jsx";
 import MainReviews from "./Reviews/MainReviews.jsx";
 import Footer from "./Footer.jsx";
+import QASearchBar from "./QASearchBar.jsx";
 
 const App = () => {
-  // const [tasks, setTasks] = useRecoilState(tasksState);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/api/tasks", {
-  //     mode: "cors",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((tasks) => {
-  //       setTasks(tasks);
-  //     });
-  // }, []);
-
+  
   return (
     <>
       <Header />
-      <MainItem />
-      <MainReviews />
-      {/* <Rate /> */}
-      <Footer />
+      <div className="under">
+        <MainItem />
+        <QASearchBar productId={1} /> 
+        <MainReviews />
+      </div>
     </>
   );
 };

@@ -8,13 +8,26 @@
   src: url("./fonts/Ember/AmazonEmber_Bd.ttf");
 }
 
+* {
+  font-family: AmazonEmber;
+}
+
+a {
+  color: #007185;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}
+
 html {
   overflow-x: scroll;
 }
 body {
   outline: 1px solid black;
   margin: auto;
-  font-family: AmazonEmber;
 }
 
 .navbarSubCategories,
@@ -35,7 +48,6 @@ body {
   width: 100%;
   min-width: 100px;
   border-radius: 8px;
-  font-family: AmazonEmber;
   padding-left: 125px;
 }
 .chooseDepartment {
@@ -50,7 +62,6 @@ body {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   font-size: 12px;
-  font-family: AmazonEmber;
   border-right: 1px solid lightgray;
   color: rgb(72, 72, 72);
 }
@@ -69,7 +80,7 @@ body {
   border-bottom-left-radius: 0;
 }
 
-.submitSearch:hover{
+.submitSearch:hover {
   background-color: rgba(252, 169, 2, 1);
 }
 
@@ -78,6 +89,7 @@ input.navbarSearchBar:focus {
   outline: none;
 }
 
+.viewCartDiv,
 .deliverToDiv,
 .userOptionsDiv,
 .returnsOrdersDiv,
@@ -91,20 +103,32 @@ input.navbarSearchBar:focus {
   margin: 5px;
   line-height: 50px;
   border-radius: 1px;
+  position:relative;
 }
 
+.viewCartDiv{
+  min-width: 90px;
+  width: 90px;
+}
+
+
+.viewCartDiv:hover,
 .deliverToDiv:hover,
 .userOptionsDiv:hover,
 .returnsOrdersDiv:hover,
-.searchBarContents:hover{
+.searchBarContents:hover {
   outline: solid white 1px;
+}
 
+.viewCartDiv {
+  text-align: baseline;
+  line-height: 65px;
 }
 
 .chooseDepartment {
   cursor: pointer;
 }
-.chooseDepartment:hover{
+.chooseDepartment:hover {
   background-color: rgb(206, 202, 202);
   color: black;
 }
@@ -115,10 +139,10 @@ input.navbarSearchBar:focus {
 .logoDiv {
   min-width: 130px;
   justify-content: center;
-  display:flex;
+  display: flex;
   align-items: center;
 }
-.returnsOrdersDiv{
+.returnsOrdersDiv {
   width: auto;
   min-width: 70px;
 }
@@ -137,6 +161,7 @@ input.navbarSearchBar:focus {
 }
 .secondLineDiv {
   font-family: AmazonEmberBold;
+  font-size: 14px;
 }
 .navbarSearchBarDiv {
   width: 100%;
@@ -154,12 +179,19 @@ input.navbarSearchBar:focus {
   height: 39px;
   background-color: #232f3e;
 }
-
+.AmazonChoiceTriangle {
+  width: 0;
+  height: 0;
+  border-top: 23px solid;
+  border-right: 11px solid transparent;
+  color: #232f3e;
+  float: left !important;
+}
 .navbarSubCategories {
   justify-content: start;
   height: 33px;
   background-color: #fafafa;
-  color: black;
+  color: rgb(31, 31, 31);
   border-bottom: 1px solid rgb(216, 215, 215);
 }
 .navbarCategoryItem,
@@ -173,19 +205,19 @@ input.navbarSearchBar:focus {
   margin-top: 2px;
 }
 
-.navbarCategoryItem{
-  margin:auto;
+.navbarCategoryItem {
+  margin: auto;
 }
 
 .navbarSubCategoryItem {
   margin-left: 15px;
 }
 
-.allItemCategory{
+.allItemCategory {
   font-family: AmazonEmberBold;
 }
 
-.navbarCategoryItem:hover{
+.navbarCategoryItem:hover {
   outline: 1px solid white;
 }
 
@@ -193,8 +225,8 @@ input.navbarSearchBar:focus {
   font-size: 12px;
 }
 
-.navbarSubCategoryItem:hover{
-  color:rgba(255, 157, 0, 1);
+.navbarSubCategoryItem:hover {
+  color: rgba(255, 157, 0, 1);
   border-bottom: 3px solid rgba(255, 157, 0, 1);
 }
 
@@ -206,29 +238,46 @@ input.navbarSearchBar:focus {
 }
 
 .MainInfoPrice,
-.MainInfoProductName{
+.MainInfoProductName {
   margin: 0;
   font-weight: 100;
 }
 
+.MainInfoProductName {
+  font-size: 24px;
+}
+
+.MainInfoProductNameDiv {
+  font-size: 12px;
+}
+.MainInfoProductNameDiv,
+.MainInfoDetails {
+  font-size: 14px;
+}
+.MainInfoAboutThisItem {
+  font-size: 16px;
+}
+
 .photoGallery {
-  width: 32%;
-  margin-right: 50px;
+  width: 30%;
+  margin-right: 5px;
 }
-.lazySpacer{
-  height:35px;
+
+.lazySpacer {
+  height: 35px;
 }
-.shareButton{
-  width:36px;
-  height:36px;
+.shareButton {
+  width: 36px;
+  height: 36px;
   border-radius: 100%;
   border: 1px solid lightgray;
   cursor: pointer;
   background-color: #f6f4f4;
+  margin-left: -10px;
 }
 
-.thumbnailAndMainPhoto{
-  display:flex;
+.thumbnailAndMainPhoto {
+  display: flex;
 }
 
 .galleryThumbnailContainer {
@@ -239,14 +288,14 @@ input.navbarSearchBar:focus {
   align-items: center;
 }
 
-.evenMoreCategories{
+.evenMoreCategories {
   display: flex;
-  color:rgb(91, 91, 91);
+  color: rgb(91, 91, 91);
   font-size: 12px;
-  margin: 10px;
+  margin: 10px 10px 10px 0px;
 }
 
-.evenMoreItems{
+.evenMoreItems {
   margin-left: 5px;
 }
 .galleryThumbnail {
@@ -256,12 +305,10 @@ input.navbarSearchBar:focus {
   margin: 5px;
   padding: 5px;
   border-radius: 8px;
-
 }
 
-.galleryThumbnail:hover{
+.galleryThumbnail:hover {
   box-shadow: 0px 0px 6px rgb(0, 179, 255);
-
 }
 
 .thumbnailImage {
@@ -271,52 +318,120 @@ input.navbarSearchBar:focus {
 }
 .mainPhotoContainer {
   width: 440px;
-  outline: solid 1px black;
 }
 
 .mainPhoto {
   width: 100%;
-  outline: solid 2px red;
 }
 
 .zoomedContainer {
-  max-height: 800px;
-  margin: 5px;
+  width: 36%;
+  position:absolute;
+  height: 720px;
   overflow: hidden;
-  box-shadow: 0px 0px 5px black;
+  box-shadow: 0px 0px 6px rgb(105, 104, 104);
+  background-color:white;
 }
 .zoomedPhoto {
   position: relative;
-  outline: solid 2px red;
-  z-index: -1;
+  z-index: 5;
 }
 
 .itemInfo {
-  width: 40%;
+  width: 35%;
   overflow: hidden;
 }
 
-.addToCart{
-  width:15%;
+.addToCart {
+  width: 12%;
+  min-width: 200px;
+  margin-left: 30px;
+}
+
+.addToCartContainer {
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 14px;
+}
+.buyNowButton,
+.addToCartButton {
+  cursor: pointer;
+  height: 29px;
+  border-radius: 15px;
+  border: none;
+  margin: 4px 0px 4px 0px;
+  width: 100%;
+  background-color: rgb(249, 225, 11);
+}
+
+.addToCartButton:hover {
+  background-color: rgb(238, 203, 3);
+}
+.whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes {
+  font-size: 14px;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.addToRegistry,
+.addToListButton {
+  box-shadow: 0px 0px 5px rgb(208, 208, 208);
+  border: 1px solid rgb(154, 153, 153);
+  border-radius: 3px;
+  text-align: left;
+  margin: 4px 0px 4px 0px;
+  width: 100%;
+  cursor: pointer;
+  height: 31px;
+}
+
+.addToRegistry:hover {
+  background-color: #e1e0e0;
+}
+.addToRegistry:click {
+  box-shadow: 0px 0px 6px rgb(0, 179, 255);
+}
+.MainItemDividerColor {
+  background-color: rgb(215, 215, 215);
+  height: 1px;
+  border: 0;
+}
+.quantityButton,
+.addToRegistry {
+  border: 1px solid rgb(182, 181, 181);
+  border-radius: 7px;
+  box-shadow: 0px 1px 3px rgb(181, 180, 180);
+}
+.quantityButton {
+  font-size: 11px;
+  margin: 15px 0px 10px 0px;
+  height: 20px;
+}
+.buyNowButton {
+  background-color: orange;
+}
+.buyNowButton:hover {
+  background-color: darkorange;
 }
 .chooseLanguage {
   font-family: AmazonEmberBold;
   width: 5%;
   margin-top: 12px;
-  position:relative;
+  position: relative;
 }
 
-.flagForLanguage{
-  position:relative;
-  width:18px;
-  height:11px;
+.flagForLanguage {
+  position: relative;
+  width: 18px;
+  height: 11px;
   margin-right: 2px;
 }
-.triangleDown{
+.triangleDown {
   margin-left: 3px;
 }
 
-.mainSubCatItem{
+.mainSubCatItem {
   font-family: AmazonEmberBold;
 }
 .footer {
@@ -344,10 +459,10 @@ input.navbarSearchBar:focus {
 
 .barText {
   color: #0089a1;
-  font-family: Arial,sans-serif;
+  font-family: Arial, sans-serif;
   box-sizing: border-box;
-  font-size: 14px!important;
-  line-height: 20px!important;
+  font-size: 14px !important;
+  line-height: 20px !important;
   white-space: nowrap;
   border-collapse: collapse;
   text-indent: initial;
@@ -356,21 +471,29 @@ input.navbarSearchBar:focus {
 }
 
 .starHolder {
-  color: #0F1111!important;;
+  color: #0f1111 !important;
   text-rendering: optimizeLegibility;
-  font-size: 18px!important;
-  line-height: 24px!important;
+  font-size: 18px !important;
+  line-height: 24px !important;
   box-sizing: border-box;
   white-space: nowrap;
-  font-family: Arial,sans-serif;
+  font-family: Arial, sans-serif;
   margin-left: 1px;
 }
 
+.MainInfoGrid {
+  border-spacing: 50px 10px;
+  margin-left: -50px;
+}
+
+.MainInfoGridInfo {
+  font-family: AmazonEmberBold;
+}
 .globalRatings {
   margin-left: 7px;
   font-size: 14px;
   font-family: AmazonEmber;
-  color: #565959!important;
+  color: #565959 !important;
 }
 
 .reviewsLeft {
@@ -382,7 +505,7 @@ input.navbarSearchBar:focus {
 }
 
 .reviewHeadline {
-  margin-bottom: 8px!important;
+  margin-bottom: 8px !important;
   font-weight: 700;
   font-size: 18px;
 }
@@ -400,7 +523,7 @@ input.navbarSearchBar:focus {
 .writeReview {
   width: 300px;
   background-color: #fff;
-  border-color: #D5D9D9;
+  border-color: #d5d9d9;
   border-style: solid;
   border-width: 1px;
   text-align: center;
@@ -414,8 +537,27 @@ input.navbarSearchBar:focus {
   cursor: pointer;
 }
 
+.soldByDiv,
+.shipsByDiv {
+  font-size: 12px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.soldByDiv {
+  margin: 5px 0px 15px 0px;
+}
+
+.shipsByContent {
+  width: 50%;
+}
+.shipsByContent {
+  width: 50%;
+}
 .partition {
   margin-bottom: 24px!important;
+  margin-top: 32px !important;
+  margin-bottom: 24px !important;
   border-top: 1px solid #e7e7e7;
   display: block;
   height: 1px;
