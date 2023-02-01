@@ -130,6 +130,18 @@ app.post("/api/questions/product/:productId", (req, res) => {
     });;
 });
 
+/******************** Add answers to the question ********************/
+app.post("/api/answers", (req, res) => {
+  const { userId, questionId, answer } = req.body;
+  pool.query(`INSERT INTO answers (userId, questionId, answer) VALUES (${userId},${questionId},'${answer}') returning *`)
+    .then((result) => {
+      res.send(result.rows[0]);
+    })
+    .catch((error)=>{
+      res.send(error.message);
+    });;
+});
+
 // app.delete("/api/tasks/:id", async (req, res) => {
 //   const { id } = req.params;
 
