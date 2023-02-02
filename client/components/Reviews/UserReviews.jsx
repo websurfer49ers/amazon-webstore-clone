@@ -1,5 +1,5 @@
 import React from "react";
-import { Rate } from "./Rating";
+import { Rate, Rated } from "./Rating";
 import { Container, Rating } from "./RatingStyles";
 
 export function UserReviews() {
@@ -17,15 +17,22 @@ export function UserReviews() {
                 </Container>
                 <Container>
                     <div className="userStars">
-                        <Rate></Rate>
+                        <Rated></Rated>
                     </div>
                     <div className="reviewTitle">
                         <span>This is the best product</span>
                     </div>
                 </Container>
                 <p className="dateReviewed">Reviewed in the United States on March 2, 2019</p>
-                <p className="reviewContent">This product is great. This product is great. This product is great. This product is great. This product is great. This product is great. </p>
+                <div className="contentWrapper">
+                    <p className="reviewContent">This product is great. This product is great. This product is great. This product is great. This product is great. This product is great. </p>
+                </div>
+                <Container>
+                    <button className="helpfulButton">Helpful</button>
+                    <i className="textSperator" role="img"></i>
+                    <span className="reportAbuse">Report Abuse</span>
+                </Container>
             </div>
         </div>
-    )
-}
+    );
+};

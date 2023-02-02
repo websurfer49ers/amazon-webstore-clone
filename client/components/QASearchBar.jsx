@@ -67,12 +67,11 @@ function QASearchBar(props) {
 
                                     </div>
 
-                                    <div className="questions-wrapper" key={result.question}>
+                                    <div className="questions-wrapper" key={Math.random() * Math.random()}>
                                         <div className="question-answer">
                                             <h3>Question:</h3>
                                             <p>{result.question}</p>
                                         </div>
-
                                         <div className="question-answer goaheadanswertexthestypingijustsaidyou">
                                             <h3>Answer:</h3>
                                             <p>{result.answer}</p>

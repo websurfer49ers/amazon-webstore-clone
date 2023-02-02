@@ -1,6 +1,5 @@
 import React from "react";
 import { CustomerReviews, ReviewThisProduct } from "./CustomerReviews.jsx";
-import { Container } from "./RatingStyles.jsx";
 import { UserReviews } from "./UserReviews.jsx";
 
 function MainReviews(){
@@ -12,10 +11,10 @@ function MainReviews(){
                 <ReviewThisProduct />
             </div>
             <div className="reviewsRight">
-                <UserReviews></UserReviews>
+                <UserReviews />
             </div>
         </span>
-    )
-}
+    );
+};
 
-export default MainReviews
+export default MainReviews;

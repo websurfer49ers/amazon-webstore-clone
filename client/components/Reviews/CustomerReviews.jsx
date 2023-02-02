@@ -1,19 +1,48 @@
-import React from "react";
-import { Rate, PercentageBar } from "./Rating.jsx"
+import React, { useState, useEffect } from "react";
+import { Rate, PercentageBar, } from "./Rating.jsx";
 import { Container } from "./RatingStyles.jsx";
 
 
-export function CustomerReviews() {
+export function CustomerReviews(props) {
+    const [rate, setRate] = useState(0);
+    const [returnedRatings, setReturnedRatings] = useState([])
+
+    useEffect(() => {
+        fetch("/api/avgrating/1", {
+          mode: "cors",
+        })
+        .then((res) => res.json())
+        .then((ratings) => {
+          setRate(ratings[0])
+        });
+      }, []);
+    
+    useEffect(() => {
+        fetch("/api/rating/product/1", {
+          mode: "cors",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            setReturnedRatings(data)
+        });
+      }, []);
+
+    const productRating = Math.round(rate.averagerating)
+    const numOfRatings = returnedRatings.length
+    const allRatings = returnedRatings.rating
+    console.log(allRatings)
+
     return (
         <span className="customerReviews">
             <div className="customerReviewDiv">
                 <h2 className="reviewText">Customer reviews</h2>
                 <Container>
                     <Rate className="calculatedStars"/>
-                    <span className="starHolder">4.6 out of 5</span>
+                    <span className="starHolder">{productRating} out of 5</span>
                 </Container>
                 <span className="globalRatings">
-                    4 global ratings
+                    {numOfRatings} global ratings
                 </span>
                 <Container>
                     <p className="barText">5 star</p>
@@ -42,8 +71,8 @@ export function CustomerReviews() {
                 </Container>
             </div>
         </span>
-    )
-}
+    );
+};
 
 // Button requires more styling (cursor on hover)
 export function ReviewThisProduct() {
@@ -55,5 +84,5 @@ export function ReviewThisProduct() {
                 <button className="writeReview">Write a customer review</button>
             </div>
         </div>
-    )
-}
+    );
+};
