@@ -2,7 +2,21 @@
 --     (productId, pictureUrl)
 --         values
 --         (1, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/613rrhRTmEL._AC_SL1200_.jpg'),
---         (1, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/71YegV7wcQL._AC_SL1200_.jpg');
+--         (1, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/71YegV7wcQL._AC_SL1200_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/61CMjcAl-1L._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71BVNra%2BxeL._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71G4IhlP2sL._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71LFV4LJZlL._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71m126Sdd0L._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71OV0koOycL._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71To%2B10s9%2BL._AC_SL1500_.jpg'),
+--         (2, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product2/71UJDoeCsEL._AC_SL1500_.jpg'),
+--         (3, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product3/61-ao884nPL._AC_UX679_.jpg'),
+--         (3, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product3/617Hyl7kEjL._AC_UX679_.jpg'),
+--         (3, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product3/61ed1yNoAOL._AC_UX679_.jpg'),
+--         (3, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product3/61soArKV9yL._AC_UX679_.jpg'),
+--         (3, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product3/61U2Sqnh3gL._AC_UX679_.jpg'),
+--         (3, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product3/71N2QBUwtpL._AC_UX679_.jpg');
 
 -- insert into users
 --     (firstName, lastName, phone)
@@ -33,19 +47,39 @@
 -- insert into questions
 --     (userId, question, productId)
 --         values 
---         (5, 'Can the puppet be worn while performing intricate hand motions in a Cthulhu summoning ritual?', 1);
+--         (5, 'Can the puppet be worn while performing intricate hand motions in a Cthulhu summoning ritual?', 1),
+--         (5, 'Do you have one with no glitter?', 2),
+--         (6, 'Are the baby really smaller than the bigger fingerlings?', 2),
+--         (7, 'What size batteries do these Fingerlings use?', 2),
+--         (8, 'Do they have ant bad rubber smell ?', 3),
+--         (9, 'How mant dinosaurs are included in this package?', 3),
+--         (10, 'It shows 10 different dinos. The answers from people says only five. So which is it, 10 dinos or 5 dinos?', 3);
 
 -- insert into answers
 --     (userId, questionID, answer)
 --         values
---         (2, 1, 'My squirrel throws intricate gangs signs at foos not repping his set. So i dont see why it cant summon lord Cthulhu. I plan on working a deal with Beelzebub later on my lunch break. Ill lyk how it goes');
+--         (2, 1, 'My squirrel throws intricate gangs signs at foos not repping his set. So i dont see why it cant summon lord Cthulhu. I plan on working a deal with Beelzebub later on my lunch break. Ill lyk how it goes'),
+--         (1, 8, 'Not a panda'),
+--         (2, 9, 'This is not a baby one, but yes the babies are smaller'),
+--         (3, 10, 'Fingerlings require 4 LR44/AG13 button cell batteries but they come with batteries and ready to play with.'),
+--         (1, 11, 'Nop no smell at all'),
+--         (2, 12, 'Yes, there are five sets in it, which can satisfy five dinosaur states'),
+--         (3, 13, 'I received all 10 - all different. The little dinosaur enthusiast I gave them to LOVED them. She would put all the carnivores on one hand and the herbivores on the other hand and have Dinosaur Family Feuds.');
 
 -- insert into reviews
 --     (userid, productId, title, content, rating)
 --         values
 --         (4, 1, 'Cute', 'I bought this as a gag gift and it went over well. Silly and cute as described. The thumb portion was a bit small.', 4),
 --         (5, 1, 'Adorable and Hilarious', 'Honestly only bought this because I got an Amazon gift card from someone and thought it would be hilarious to bring out around friends. Work from home clearly got to me lol. It''s funny for sure, but unfortunately my hand can''t quite contort right to hold it how it''s supposed to go. Also, the finger holes are a little big, so it slides off sometimes, but it is what it is. I got some laughs out of it and that was enough for me.', 4),
---         (6, 1, 'Arrived Damaged', 'I have purchased this product as a gift twice now and both times they have arrived damaged.', 1);
+--         (6, 1, 'Arrived Damaged', 'I have purchased this product as a gift twice now and both times they have arrived damaged.', 1),
+--         (4, 2, 'Happy five year old‼️‼️', 'I must admit that I was pleasantly surprised with this because I had a totally different image of it in my head and my five year old is just ecstatic with it so I will be ordering more of them now that I see they''re worth the price ☺️', 5),
+--         (5, 2, 'Glitter is rough and limited responses', 'Cute but the main issue I have is with the glitter. It''s gritty and rough. You really cant comfortably put this on your finger. I didnt realize the glitter was exposed like this and I assumed it was under a smooth clear coat. And yes, the glitter sheds. Also, these are advertised to have like 40 responses and it actually only does a couple things. Blowing into the mouth sensor doesnt make it blow us a kiss back like our other fingerling does.', 3),
+--         (6, 2, 'My daughter loves!', 'My daughter loves this! It came within 2 days and already had batteries', 5),
+--         (7, 3, 'Much Nicer Than Expected', 'I was afraid that they might be made of thin rubber, but no. The heads are thick enough to hold their shapes even when they are not on a finger.
+--
+-- Painting is just as nice as the catalog picture. Right size for smallish fingers - and ten is the perfect number for a kid to put on a dinosaur war.', 5),
+--         (8, 3, 'Great', 'Great quality. My son is going to love these', 5),
+--         (9, 3, 'Worth it!', 'Super cute, 2 year old loves it! Good material!', 4);
 
 -- insert into address
 --     (sellerid, userid, street, city, state, zipcode)
@@ -101,36 +135,3 @@
 --             'Christmas',
 --             '2.5 x 2.18 x 3.9 inches'
 --         );
-
--- insert into questions
---     (userId, question, productId)
---         values 
---         (5, 'Do you have one with no glitter?', 2),
---         (6, 'Are the baby really smaller than the bigger fingerlings?', 2),
---         (7, 'What size batteries do these Fingerlings use?', 2),
---         (8, 'Do they have ant bad rubber smell ?', 3),
---         (9, 'How mant dinosaurs are included in this package?', 3),
---         (10, 'It shows 10 different dinos. The answers from people says only five. So which is it, 10 dinos or 5 dinos?', 3);
-
-
--- insert into answers
---     (userId, questionID, answer)
---         values
---         (1, 8, 'Not a panda'),
---         (2, 9, 'This is not a baby one, but yes the babies are smaller'),
---         (3, 10, 'Fingerlings require 4 LR44/AG13 button cell batteries but they come with batteries and ready to play with.'),
---         (1, 11, 'Nop no smell at all'),
---         (2, 12, 'Yes, there are five sets in it, which can satisfy five dinosaur states'),
---         (3, 13, 'I received all 10 - all different. The little dinosaur enthusiast I gave them to LOVED them. She would put all the carnivores on one hand and the herbivores on the other hand and have Dinosaur Family Feuds.');
-
--- insert into reviews
---     (userid, productId, title, content, rating)
---         values
---         (4, 2, 'Happy five year old‼️‼️', 'I must admit that I was pleasantly surprised with this because I had a totally different image of it in my head and my five year old is just ecstatic with it so I will be ordering more of them now that I see they''re worth the price ☺️', 5),
---         (5, 2, 'Glitter is rough and limited responses', 'Cute but the main issue I have is with the glitter. It''s gritty and rough. You really cant comfortably put this on your finger. I didnt realize the glitter was exposed like this and I assumed it was under a smooth clear coat. And yes, the glitter sheds. Also, these are advertised to have like 40 responses and it actually only does a couple things. Blowing into the mouth sensor doesnt make it blow us a kiss back like our other fingerling does.', 3),
---         (6, 2, 'My daughter loves!', 'My daughter loves this! It came within 2 days and already had batteries', 5),
---         (7, 3, 'Much Nicer Than Expected', 'I was afraid that they might be made of thin rubber, but no. The heads are thick enough to hold their shapes even when they are not on a finger.
-
--- Painting is just as nice as the catalog picture. Right size for smallish fingers - and ten is the perfect number for a kid to put on a dinosaur war.', 5),
---         (8, 3, 'Great', 'Great quality. My son is going to love these', 5),
---         (9, 3, 'Worth it!', 'Super cute, 2 year old loves it! Good material!', 4);
