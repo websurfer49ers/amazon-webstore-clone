@@ -34,7 +34,7 @@ app.get("/api/product", (req, res) => {
 /******************** Get 'About this item' ********************/
 app.get("/api/product/description/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`SELECT * FROM product where id = ${productId}`)
+  pool.query(`SELECT desciption FROM product where id = ${productId}`)
   .then((result) => {
     res.send(result.rows);
   })
