@@ -1,17 +1,17 @@
-import { findByLabelText } from "@testing-library/react";
+//import { findByLabelText } from "@testing-library/react";
 import React, { useState } from "react";
-import {  FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "./RatingStyles";
 
 
-export function Rate () {
+export function Rate() {
   const [rate, setRate] = useState(0);
   return (
     <Container>
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label className="starHolder" key={Math.random()*Math.random()}>
+          <label className="starHolder" key={Math.random() * Math.random()}>
             <Radio
               type="radio"
               value={givenRating}
@@ -35,7 +35,7 @@ export function Rate () {
   );
 };
 
-export const PercentageBar = ({bgcolor,progress,height}) => {
+export const PercentageBar = ({ bgcolor, progress, height }) => {
 
   const Parentdiv = {
     display: "flex",
@@ -65,5 +65,5 @@ export const PercentageBar = ({bgcolor,progress,height}) => {
       <div style={Childdiv}>
       </div>
     </div>
-    )
+  )
 }
