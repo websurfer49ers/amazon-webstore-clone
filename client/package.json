@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "npm install"
+    "build": "vite build"
   },
   "dependencies": {
     "react-icons": "^4.7.1",
