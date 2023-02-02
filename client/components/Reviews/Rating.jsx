@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import {  FaStar } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
+
 import { Container, Radio, Rating } from "./RatingStyles";
 
 // Calculated Ratings from all reviews displayed by stars
 
-export function Rate () {
+export function Rate() {
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export function Rated () {
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label className="starHolder" key={Math.random()*Math.random()}>
+          <label className="starHolder" key={Math.random() * Math.random()}>
             <Radio
               type="radio"
               value={givenRating}
@@ -111,5 +112,5 @@ export const PercentageBar = ({bgcolor,progress,height}) => {
       <div style={Childdiv}>
       </div>
     </div>
-    )
+  )
 }
