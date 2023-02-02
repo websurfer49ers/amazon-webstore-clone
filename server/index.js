@@ -52,6 +52,18 @@ app.get("/api/pictures/:id", (req, res) => {
   });
 });
 
+/******************** Get seller for a particular product ********************/
+app.get("/api/sellers/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(`SELECT * FROM sellers where productId = ${id}`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
 /******************** Get ALL ratings for a particular product ********************/
 // app.get("/api/rating/:productId", (req, res) => {
 //   const {productId} = req.params;
@@ -103,10 +115,10 @@ app.get("/api/questions/product/:id", (req, res) => {
       answers.id as answersID, answers.answer, answers.userid as answer_user, users.firstName as answers_firstName
       FROM questions
         JOIN answers
-          ON questions.id = answers.questionId  
+          ON questions.id = answers.questionId
         JOIN users
           ON answers.id = users.id
-        where questions.productId = ${id} 
+        where questions.productId = ${id}
         `)
   .then((result) => {
     res.send(result.rows);
