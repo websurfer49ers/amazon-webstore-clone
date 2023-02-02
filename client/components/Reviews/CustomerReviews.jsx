@@ -8,7 +8,7 @@ export function CustomerReviews(props) {
     const [returnedRatings, setReturnedRatings] = useState([])
 
     useEffect(() => {
-        fetch("https://amazoom.onrender.com/api/avgrating/1", {
+        fetch("/api/avgrating/1", {
           mode: "cors",
         })
         .then((res) => res.json())
@@ -18,7 +18,7 @@ export function CustomerReviews(props) {
       }, []);
     
     useEffect(() => {
-        fetch("https://amazon-webstore.onrender.com/api/rating/product/1", {
+        fetch("/api/rating/product/1", {
           mode: "cors",
         })
         .then((res) => res.json())

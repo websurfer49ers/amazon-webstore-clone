@@ -8,7 +8,7 @@ export function Rate () {
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
-    fetch("https://amazon-webstore.onrender.com/api/avgrating/1", {
+    fetch("/api/avgrating/1", {
       mode: "cors",
     })
     .then((res) => res.json())
