@@ -1,5 +1,5 @@
 import React from "react";
-import { Rate } from "./Rating";
+import { Rate, Rated } from "./Rating";
 import { Container, Rating } from "./RatingStyles";
 
 export function UserReviews() {
@@ -17,7 +17,7 @@ export function UserReviews() {
                 </Container>
                 <Container>
                     <div className="userStars">
-                        <Rate></Rate>
+                        <Rated></Rated>
                     </div>
                     <div className="reviewTitle">
                         <span>This is the best product</span>
@@ -34,5 +34,5 @@ export function UserReviews() {
                 </Container>
             </div>
         </div>
-    )
-}
+    );
+};

@@ -1,10 +1,54 @@
-import { findByLabelText } from "@testing-library/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {  FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "./RatingStyles";
 
+// Calculated Ratings from all reviews displayed by stars
 
 export function Rate () {
+  const [rate, setRate] = useState(0);
+
+  useEffect(() => {
+    fetch("https://amazon-webstore.onrender.com/api/avgrating/1", {
+      mode: "cors",
+    })
+    .then((res) => res.json())
+    .then((ratings) => {
+      setRate(ratings[0])
+    });
+  }, []);
+
+  const avgRating = Math.round(rate.averagerating);
+
+  return (
+    <Container>
+      {[...Array(5)].map((item, index) => {
+        const givenRating = index + 1;
+        return (
+          <label className="starHolder" key={Math.random()*Math.random()}>
+            <Radio
+              type="radio"
+              value={avgRating}
+            />
+            <Rating>
+              <FaStar
+                color={
+                  givenRating < avgRating || givenRating === avgRating
+                    ? "rgb(255, 153, 0)"
+                    : "rgb(211, 211, 211)"
+                }
+              />
+            </Rating>
+          </label>
+        );
+      })}
+    </Container>
+  );
+};
+
+
+
+// Specific Rating set by user displayed by stars
+export function Rated () {
   const [rate, setRate] = useState(0);
   return (
     <Container>
@@ -35,6 +79,8 @@ export function Rate () {
   );
 };
 
+// Rating percentage bars by star ratings
+export const starArray = []
 export const PercentageBar = ({bgcolor,progress,height}) => {
 
   const Parentdiv = {
