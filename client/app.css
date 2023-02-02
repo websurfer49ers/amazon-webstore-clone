@@ -12,7 +12,7 @@
   font-family: AmazonEmber;
 }
 
-.underHeader{
+.underHeader {
   margin: auto;
   width: 80%;
 }
@@ -30,6 +30,7 @@ a:hover {
 html {
   overflow-x: scroll;
 }
+
 body {
   outline: 1px solid black;
   margin: auto;
@@ -55,6 +56,7 @@ body {
   border-radius: 8px;
   padding-left: 125px;
 }
+
 .chooseDepartment {
   position: absolute;
   margin-left: 2px;
@@ -108,10 +110,10 @@ input.navbarSearchBar:focus {
   margin: 5px;
   line-height: 50px;
   border-radius: 1px;
-  position:relative;
+  position: relative;
 }
 
-.viewCartDiv{
+.viewCartDiv {
   min-width: 90px;
   width: 90px;
 }
@@ -133,6 +135,7 @@ input.navbarSearchBar:focus {
 .chooseDepartment {
   cursor: pointer;
 }
+
 .chooseDepartment:hover {
   background-color: rgb(206, 202, 202);
   color: black;
@@ -147,10 +150,12 @@ input.navbarSearchBar:focus {
   display: flex;
   align-items: center;
 }
+
 .returnsOrdersDiv {
   width: auto;
   min-width: 70px;
 }
+
 .deliverToDiv,
 .userOptionsDiv,
 .returnsOrdersDiv {
@@ -161,13 +166,16 @@ input.navbarSearchBar:focus {
   font-size: 12px;
   color: rgb(195, 194, 194);
 }
+
 .firstLineDiv {
   font-size: 12px;
 }
+
 .secondLineDiv {
   font-family: AmazonEmberBold;
   font-size: 14px;
 }
+
 .navbarSearchBarDiv {
   width: 100%;
   min-width: 200px;
@@ -180,10 +188,12 @@ input.navbarSearchBar:focus {
   height: 28px;
   width: 120px;
 }
+
 .navbarCategories {
   height: 39px;
   background-color: #232f3e;
 }
+
 .AmazonChoiceTriangle {
   width: 0;
   height: 0;
@@ -192,6 +202,7 @@ input.navbarSearchBar:focus {
   color: #232f3e;
   float: left !important;
 }
+
 .navbarSubCategories {
   justify-content: start;
   height: 33px;
@@ -199,6 +210,7 @@ input.navbarSearchBar:focus {
   color: rgb(31, 31, 31);
   border-bottom: 1px solid rgb(216, 215, 215);
 }
+
 .navbarCategoryItem,
 .navbarSubCategoryItem {
   text-align: baseline;
@@ -254,10 +266,12 @@ input.navbarSearchBar:focus {
 .MainInfoProductNameDiv {
   font-size: 12px;
 }
+
 .MainInfoProductNameDiv,
 .MainInfoDetails {
   font-size: 14px;
 }
+
 .MainInfoAboutThisItem {
   font-size: 16px;
 }
@@ -270,6 +284,7 @@ input.navbarSearchBar:focus {
 .lazySpacer {
   height: 35px;
 }
+
 .shareButton {
   width: 36px;
   height: 36px;
@@ -304,6 +319,7 @@ input.navbarSearchBar:focus {
   white-space: nowrap;
 
 }
+
 .galleryThumbnail {
   width: 2vw;
   height: 2vw;
@@ -322,6 +338,7 @@ input.navbarSearchBar:focus {
   height: 100%;
   object-fit: scale-down;
 }
+
 .mainPhotoContainer {
   width: 440px;
 }
@@ -332,12 +349,13 @@ input.navbarSearchBar:focus {
 
 .zoomedContainer {
   width: 36%;
-  position:absolute;
+  position: absolute;
   height: 720px;
   overflow: hidden;
   box-shadow: 0px 0px 6px rgb(105, 104, 104);
-  background-color:white;
+  background-color: white;
 }
+
 .zoomedPhoto {
   position: relative;
   z-index: 5;
@@ -360,6 +378,7 @@ input.navbarSearchBar:focus {
   padding: 15px;
   font-size: 14px;
 }
+
 .buyNowButton,
 .addToCartButton {
   cursor: pointer;
@@ -374,6 +393,7 @@ input.navbarSearchBar:focus {
 .addToCartButton:hover {
   background-color: rgb(238, 203, 3);
 }
+
 .whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes {
   font-size: 14px;
   padding-left: 0;
@@ -395,31 +415,38 @@ input.navbarSearchBar:focus {
 .addToRegistry:hover {
   background-color: #e1e0e0;
 }
+
 .addToRegistry:click {
   box-shadow: 0px 0px 6px rgb(0, 179, 255);
 }
+
 .MainItemDividerColor {
   background-color: rgb(215, 215, 215);
   height: 1px;
   border: 0;
 }
+
 .quantityButton,
 .addToRegistry {
   border: 1px solid rgb(182, 181, 181);
   border-radius: 7px;
   box-shadow: 0px 1px 3px rgb(181, 180, 180);
 }
+
 .quantityButton {
   font-size: 11px;
   margin: 15px 0px 10px 0px;
   height: 20px;
 }
+
 .buyNowButton {
   background-color: orange;
 }
+
 .buyNowButton:hover {
   background-color: darkorange;
 }
+
 .chooseLanguage {
   font-family: AmazonEmberBold;
   width: 5%;
@@ -433,6 +460,7 @@ input.navbarSearchBar:focus {
   height: 11px;
   margin-right: 2px;
 }
+
 .triangleDown {
   margin-left: 3px;
 }
@@ -440,6 +468,7 @@ input.navbarSearchBar:focus {
 .mainSubCatItem {
   font-family: AmazonEmberBold;
 }
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -495,6 +524,7 @@ input.navbarSearchBar:focus {
 .MainInfoGridInfo {
   font-family: AmazonEmberBold;
 }
+
 .globalRatings {
   margin-left: 7px;
   font-size: 14px;
@@ -565,58 +595,84 @@ input.navbarSearchBar:focus {
 .shipsByContent {
   width: 50%;
 }
+
 .shipsByContent {
   width: 50%;
 }
+
 .partition {
-  margin-bottom: 24px!important;
+  margin-bottom: 24px !important;
   margin-bottom: 24px !important;
   border-top: 1px solid #e7e7e7;
   display: block;
   height: 1px;
 }
 
-.searchwrapper *{
+.searchwrapper * {
   margin: 0;
   padding: 0;
 }
-.questions-wrapper{
+
+.questions-wrapper {
   margin-bottom: 20px;
+  /* padding-left: 10px; */
+  position: relative;
+  /* border-left: 1px solid #000; */
+  /* border-right: 10px solid #000; */
+  margin-left: 20px;
+  padding-top: 10px;
 }
-.question-answer{
+
+.questions-wrapper::before{
+content: "";
+position: absolute;
+
+background-color: #DDDDDD;
+width: 2px;
+height: 72px;
+top: 10px;
+}
+
+
+.question-answer {
   display: flex;
   /* align-items: center; */
   margin-bottom: 10px;
+  margin-left: 10px;
 }
- .searchwrapper h2{
+
+.searchwrapper h2 {
   color: #0F1111;
   font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 20px;
 }
-.question-answer p{
+
+.question-answer p {
   color: #007185;
   font-size: 14px;
-  
+
 
 }
 
-.container{
+.container {
   max-width: 80%;
   margin: 0 auto;
 }
 
-.question-answer h3{
-margin-right: 50px;
-font-size: 14px;
-font-weight: 700;
-min-width: 70px;
+.question-answer h3 {
+  margin-right: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 70px;
 }
-form{
+
+form {
   position: relative;
 }
-.searchButton{
+
+.searchButton {
   background-color: transparent;
   border: none;
   /* width: 100%; */
@@ -626,7 +682,7 @@ form{
   left: 5px;
 }
 
-.searchwrapper{
+.searchwrapper {
   max-width: 800px;
 }
 
@@ -640,9 +696,10 @@ form{
   margin-bottom: 20px;
 }
 
-.goaheadanswertexthestypingijustsaidyou p{
-color: #000;
+.goaheadanswertexthestypingijustsaidyou p {
+  color: #000;
 }
+
 .reviewText {
   margin: 0px;
 }
@@ -676,7 +733,7 @@ color: #000;
   width: 30px;
 }
 
-.userImage{
+.userImage {
   border-radius: 34px;
   border: 2px solid #fff;
   width: 100%;
@@ -711,14 +768,49 @@ color: #000;
 
 .dateReviewed {
   margin: 0px;
-  color: #565959!important;
-  font-size: 14px!important;
+  color: #565959 !important;
+  font-size: 14px !important;
   line-height: 20px;
   box-sizing: border-box;
 }
 
 .reviewContent {
   box-sizing: border-box;
+}
+
+.xmarksthespot {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  font-size: 22px;
+}
+
+.votes svg {
+  font-size: 35px;
+}
+
+.votescontainer {
+  display: flex;
+}
+
+.votes * {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Arial, sans-serif;
+  display: block;
+}
+
+.votes p {
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+
+.arrowdown svg {
+  position: relative;
+  top: -18px;
   font-size: 14px;
   line-height: 20px;
   word-wrap: break-word;
