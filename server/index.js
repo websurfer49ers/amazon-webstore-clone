@@ -16,6 +16,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/******************** Get all products with description and pictures ********************/
+app.get("/api/product", (req, res) => {
+  pool.query(
+    `SELECT product.*, pictures.pictureURL FROM product 
+      JOIN pictures 
+      ON product.id = pictures.productid 
+    `)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
 /******************** Get 'About this item' ********************/
 app.get("/api/product/description/:productId", (req, res) => {
   const {productId} = req.params;
