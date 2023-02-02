@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 
 import { Container, Radio, Rating } from "./RatingStyles";
