@@ -116,7 +116,6 @@ app.get("/api/questions/product/:id", (req, res) => {
   });
 });
 
-
 /******************** Add questions to the product ********************/
 app.post("/api/questions/product/:productId", (req, res) => {
   const { productId } = req.params;
