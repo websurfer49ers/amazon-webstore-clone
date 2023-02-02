@@ -28,7 +28,7 @@ a:hover {
 }
 
 html {
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 body {
@@ -178,7 +178,7 @@ input.navbarSearchBar:focus {
 
 .navbarSearchBarDiv {
   width: 100%;
-  min-width: 200px;
+  min-width: 331px;
   position: relative;
   display: flex;
   align-items: center;
@@ -209,6 +209,8 @@ input.navbarSearchBar:focus {
   background-color: #fafafa;
   color: rgb(31, 31, 31);
   border-bottom: 1px solid rgb(216, 215, 215);
+  left: 0;
+
 }
 
 .navbarCategoryItem,
@@ -220,6 +222,7 @@ input.navbarSearchBar:focus {
   cursor: pointer;
   white-space: nowrap;
   margin-top: 2px;
+  min-width: auto;
 }
 
 .navbarCategoryItem {
@@ -363,7 +366,6 @@ input.navbarSearchBar:focus {
 
 .itemInfo {
   width: 43%;
-  overflow: hidden;
 }
 
 .addToCart {
@@ -534,7 +536,6 @@ input.navbarSearchBar:focus {
 
 .reviewsLeft {
   display: inline-block;
-  margin-left: 65px;
   margin-right: 20px;
   width: 300px;
   height: 1010px;
@@ -557,8 +558,8 @@ input.navbarSearchBar:focus {
   margin-left: 5px;
 }
 
+.helpfulButton,
 .writeReview {
-  width: 300px;
   background-color: #fff;
   border-color: #d5d9d9;
   border-style: solid;
@@ -572,6 +573,14 @@ input.navbarSearchBar:focus {
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   height: 29px;
   cursor: pointer;
+}
+
+.writeReview {
+  width: 300px;
+}
+
+.helpfulButton {
+  width: 100px;
 }
 
 .soldByDiv,
@@ -804,4 +813,33 @@ form {
 .arrowdown svg {
   position: relative;
   top: -18px;
+  font-size: 14px;
+  line-height: 20px;
+  word-wrap: break-word;
+  color: #0F1111;
+}
+
+.contentWrapper {
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+
+.textSeperator {
+  display: inline-block;
+  width: 1px;
+  background-color: #ddd;
+  height: 14px;
+  vertical-align: middle;
+}
+
+.reportAbuse {
+  color: #565959;
+  margin-top: 4px;
+  margin-left: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  cursor: pointer;
 }

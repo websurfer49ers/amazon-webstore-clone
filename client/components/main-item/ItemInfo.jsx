@@ -8,7 +8,7 @@ import {
 } from "../../state.js";
 import { useRecoilValue } from "recoil";
 
-function ItemInfo() {
+function ItemInfo(props) {
   const boolean = useRecoilValue(imageIsSelected);
   const view = useRecoilValue(imageState);
   const position = useRecoilValue(defaultPosition);
@@ -16,6 +16,16 @@ function ItemInfo() {
   const [testMouse, setTestMouse] = useState({});
   const zoomedImg = React.useRef(null);
   const zoomedContainer = React.useRef(null);
+  const {
+    productname,
+    brand,
+    price,
+    material,
+    size,
+    theme,
+    item_dimensions,
+    description,
+  } = props.item;
 
   function moveWithin(event) {
     setTestMouse({
@@ -54,8 +64,8 @@ function ItemInfo() {
 
       <>
         <div className="MainInfoProductNameDiv">
-          <h2 className="MainInfoProductName">Mcphee Archie Handi Squirrel</h2>
-          <a>Brand: Mcphee</a>
+          <h2 className="MainInfoProductName">{productname}</h2>
+          <a>Brand: {brand}</a>
           <br></br>
           <div style={{ display: "flex", marginTop: "5px" }}>
             <span style={{ margin: "0px 5px 0px -2px" }}>
@@ -78,16 +88,21 @@ function ItemInfo() {
             Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
           </span>
           <span className="AmazonChoiceTriangle"></span> for "
-          <a>archie mcphee</a>"<br></br>
+          <a>{productname ? productname.toLowerCase():null}</a>"<br></br>
         </div>
         <hr className="MainItemDividerColor"></hr>
         <div className="MainInfoDetails">
-          <div>
+          <div className="priceDiv">
             <span style={{ fontSize: "13px" }}>$</span>
             <span style={{ fontSize: "28px", verticalAlign: "text-top" }}>
-              7
+              {price ? price.slice(1, price.length - 3) : null}
             </span>
-            <span style={{ fontSize: "13px" }}>89</span>
+            <span style={{ fontSize: "13px" }}>
+              {price
+                ? price.charAt(price.length - 2) +
+                  price.charAt(price.length - 1)
+                : null}
+            </span>
           </div>
           <img src="../../logo/primelogo.png"></img> <br></br>
           <a>FREE Returns</a> <br></br>
@@ -95,33 +110,43 @@ function ItemInfo() {
           <a>
             Thank you for being a Prime member. Get a $100 Gift Card: Pay $0.00
             upon approval for the Amazon Prime Rewards Visa Card. No annual fee.
-          </a>{" "}
+          </a>
           <br></br>
           <br></br>
           May be available at a lower price from <a>other sellers</a>,
           potentially without free Prime shipping.
           <table className="MainInfoGrid">
             <tbody>
-              <tr>
-                <td className="MainInfoGridInfo">Brand</td>
-                <td>Mcphee</td>
-              </tr>
-              <tr>
-                <td className="MainInfoGridInfo">Material</td>
-                <td>Cotton</td>
-              </tr>
-              <tr>
-                <td className="MainInfoGridInfo">Size</td>
-                <td>8"</td>
-              </tr>
-              <tr>
-                <td className="MainInfoGridInfo">Theme</td>
-                <td>Animal</td>
-              </tr>
-              <tr>
-                <td className="MainInfoGridInfo">Item Dimensions LxWxH</td>
-                <td>5.52 x 4.06 x 1.73 inches</td>
-              </tr>
+              {brand ? (
+                <tr>
+                  <td className="MainInfoGridInfo">Brand</td>
+                  <td>{brand}</td>
+                </tr>
+              ) : null}
+              {material ? (
+                <tr>
+                  <td className="MainInfoGridInfo">Material</td>
+                  <td>{material}</td>
+                </tr>
+              ) : null}
+              {size ? (
+                <tr>
+                  <td className="MainInfoGridInfo">Size</td>
+                  <td>{size}</td>
+                </tr>
+              ) : null}
+              {theme ? (
+                <tr>
+                  <td className="MainInfoGridInfo">Theme</td>
+                  <td>{theme}</td>
+                </tr>
+              ) : null}
+              {item_dimensions ? (
+                <tr>
+                  <td className="MainInfoGridInfo">Item Dimensions LxWxH</td>
+                  <td>{item_dimensions}</td>
+                </tr>
+              ) : null}
             </tbody>
           </table>
         </div>
@@ -129,9 +154,11 @@ function ItemInfo() {
         <div className="MainInfoAboutThisItemDiv">
           <h4 className="MainInfoAboutThisItem">About this item</h4>
           <ul className="whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes">
-            <li>Set of 5 finger puppets</li>
-            <li>Includes 4 paws & 1 head</li>
-            <li>Transforms hand into a squirrel</li>
+            {description
+              ? description.map((bullet) => {
+                  return <li key={Math.random()*Math.random()}>{bullet}</li>;
+                })
+              : null}
           </ul>
         </div>
         <hr className="MainItemDividerColor"></hr>

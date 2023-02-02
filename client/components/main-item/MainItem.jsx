@@ -2,29 +2,28 @@ import React, { useEffect, useState } from "react";
 import PhotoGallery from "./PhotoGallery.jsx";
 import ItemInfo from "./ItemInfo.jsx";
 import AddToCart from "./AddToCart.jsx";
-import imageState from "../../state.js";
 
 function MainItem() {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/product/1", {
+    fetch("/api/product/1", {
       mode: "cors",
     })
       .then((res) => res.json())
-      .then((item) => {
-        setItem(item[0]);
+      .then((fetched) => {
+        setItem(fetched[0]);
       });
   }, []);
-
-  console.log(item);
+  const price = item.price;
+  const soldout = item.soldout;
 
   return (
     <>
       <div className="mainItemDiv">
         <PhotoGallery />
-        <ItemInfo />
-        <AddToCart />
+        <ItemInfo item={item}/>
+        <AddToCart price={price} soldout={soldout}/>
       </div>
       <hr
         style={{

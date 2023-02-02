@@ -16,10 +16,25 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/******************** Get all products with description and pictures ********************/
+app.get("/api/product", (req, res) => {
+  pool.query(
+    `SELECT product.*, pictures.pictureURL FROM product 
+      JOIN pictures 
+      ON product.id = pictures.productid 
+    `)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
 /******************** Get 'About this item' ********************/
 app.get("/api/product/description/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`SELECT * FROM product where id = ${productId}`)
+  pool.query(`SELECT desciption FROM product where id = ${productId}`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -44,6 +59,18 @@ app.get("/api/product/:id", (req, res) => {
 app.get("/api/pictures/:id", (req, res) => {
   const {id} = req.params;
   pool.query(`SELECT * FROM pictures where productId = ${id}`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
+/******************** Get seller for a particular product ********************/
+app.get("/api/sellers/:id", (req, res) => {
+  const {id} = req.params;
+  pool.query(`SELECT * FROM sellers where productId = ${id}`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -103,10 +130,10 @@ app.get("/api/questions/product/:id", (req, res) => {
       answers.id as answersID, answers.answer, answers.userid as answer_user, users.firstName as answers_firstName
       FROM questions
         JOIN answers
-          ON questions.id = answers.questionId  
+          ON questions.id = answers.questionId
         JOIN users
           ON answers.id = users.id
-        where questions.productId = ${id} 
+        where questions.productId = ${id}
         `)
   .then((result) => {
     res.send(result.rows);

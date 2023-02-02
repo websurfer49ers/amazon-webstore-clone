@@ -7,7 +7,8 @@
         "dev": "concurrently \"npm:dev:*\"",
         "dev:client": "vite serve",
         "dev:server": "nodemon server/index.js",
-        "test": "vitest"
+        "test": "vitest",
+        "start": "node server/index.js"
     },
     "devDependencies": {
         "@testing-library/react": "^13.3.0",
