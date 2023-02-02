@@ -88,7 +88,7 @@ function ItemInfo(props) {
             Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
           </span>
           <span className="AmazonChoiceTriangle"></span> for "
-          <a>archie mcphee</a>"<br></br>
+          <a>{productname ? productname.toLowerCase():null}</a>"<br></br>
         </div>
         <hr className="MainItemDividerColor"></hr>
         <div className="MainInfoDetails">

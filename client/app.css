@@ -28,7 +28,7 @@ a:hover {
 }
 
 html {
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 body {
@@ -178,7 +178,7 @@ input.navbarSearchBar:focus {
 
 .navbarSearchBarDiv {
   width: 100%;
-  min-width: 200px;
+  min-width: 331px;
   position: relative;
   display: flex;
   align-items: center;
@@ -209,6 +209,8 @@ input.navbarSearchBar:focus {
   background-color: #fafafa;
   color: rgb(31, 31, 31);
   border-bottom: 1px solid rgb(216, 215, 215);
+  left: 0;
+
 }
 
 .navbarCategoryItem,
@@ -220,6 +222,7 @@ input.navbarSearchBar:focus {
   cursor: pointer;
   white-space: nowrap;
   margin-top: 2px;
+  min-width: auto;
 }
 
 .navbarCategoryItem {
@@ -363,7 +366,6 @@ input.navbarSearchBar:focus {
 
 .itemInfo {
   width: 43%;
-  overflow: hidden;
 }
 
 .addToCart {
