@@ -14,6 +14,8 @@ function ItemInfo(props) {
   const position = useRecoilValue(defaultPosition);
   const properties = useRecoilValue(imageProperties);
   const [testMouse, setTestMouse] = useState({});
+  const [freeReturnBox, setFreeReturnBox] = useState(false);
+  const [smallBusinessBox, setSmallBusinessBox] = useState(false);
   const zoomedImg = React.useRef(null);
   const zoomedContainer = React.useRef(null);
   const {
@@ -34,6 +36,22 @@ function ItemInfo(props) {
     });
   }
   // console.log(properties);
+
+  function openFreeReturnBox() {
+    setFreeReturnBox(true);
+  }
+
+  function closeFreeReturnBox() {
+    setFreeReturnBox(false);
+  }
+
+  function openSmallBusinessBox() {
+    setSmallBusinessBox(true);
+  }
+
+  function closeSmallBusinessBox() {
+    setSmallBusinessBox(false);
+  }
 
   return (
     <div className="itemInfo" onMouseMove={moveWithin}>
@@ -88,7 +106,7 @@ function ItemInfo(props) {
             Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
           </span>
           <span className="AmazonChoiceTriangle"></span> for "
-          <a>{productname ? productname.toLowerCase():null}</a>"<br></br>
+          <a>{productname ? productname.toLowerCase() : null}</a>"<br></br>
         </div>
         <hr className="MainItemDividerColor"></hr>
         <div className="MainInfoDetails">
@@ -105,11 +123,43 @@ function ItemInfo(props) {
             </span>
           </div>
           <img src="../../logo/primelogo.png"></img> <br></br>
-          <a>FREE Returns</a> <br></br>
+          <div className="messageBoxWrapper">
+            <a onClick={openFreeReturnBox}>FREE Returns</a>
+            {freeReturnBox ? (
+              <>
+                <div
+                  className="messageBoxOverlay"
+                  onClick={closeFreeReturnBox}
+                >
+                  {" "}
+                </div>
+                <div className="messageBox">
+                  <button
+                    className="closeMessageBox"
+                    onClick={closeFreeReturnBox}
+                  >
+                    <b>X</b>
+                  </button>
+                  <b>Return this item for free</b> <br></br>
+                  <br></br>
+                  Free returns are available for the shipping address you chose.
+                  You can return the item for any reason in new and unused
+                  condition: no shipping charges.
+                  <br></br>
+                  <a>Learn more about free returns.</a> <br></br>
+                  <a>How to return the item?</a>
+                  <div className="boxTriangle"></div>
+                  <div className="boxTriangleOuter"></div>
+                </div>
+              </>
+            ) : null}
+          </div>
+          <br></br>
           <br></br>
           <a>
             Thank you for being a Prime member. Get a $100 Gift Card: Pay $0.00
-            upon approval for the Amazon Prime Rewards Visa Card. No annual fee.
+            upon approval for the Amazoom Prime Rewards Visa Card. No annual
+            fee.
           </a>
           <br></br>
           <br></br>
@@ -156,7 +206,7 @@ function ItemInfo(props) {
           <ul className="whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes">
             {description
               ? description.map((bullet) => {
-                  return <li key={Math.random()*Math.random()}>{bullet}</li>;
+                  return <li key={Math.random() * Math.random()}>{bullet}</li>;
                 })
               : null}
           </ul>
@@ -182,9 +232,39 @@ function ItemInfo(props) {
               <span style={{ color: "#565959" }}>
                 This product is from a small business brand. Support small.{" "}
               </span>
-              <a>Learn more</a>
+              <div className="messageBoxWrapper">
+                <a onClick={openSmallBusinessBox}>Learn more</a>
+                {smallBusinessBox ? (
+                  <>
+                    <div
+                      className="messageBoxOverlay"
+                      onClick={closeSmallBusinessBox}
+                    >
+                      {" "}
+                    </div>
+                    <div className="messageBox">
+                      <button
+                        className="closeMessageBox"
+                        onClick={closeSmallBusinessBox}
+                      >
+                        <b>X</b>
+                      </button>
+                      <b>Small Business</b> <br></br>
+                      <br></br>
+                      Shop products from small business brands sold in Amazon’s
+                      store. Discover more about the small businesses partnering
+                      with Amazon and Amazon’s commitment to empowering them.
+                      <br></br>
+                      <br></br>
+                      <a>Learn more.</a> <br></br>
+                      <div className="boxTriangle"></div>
+                      <div className="boxTriangleOuter"></div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
             </div>
-          </div>{" "}
+          </div>
           <br></br>
         </div>
       </>

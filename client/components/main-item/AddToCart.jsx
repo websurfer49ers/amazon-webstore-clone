@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
-import day, { month, twoDaysFromNow, hoursLeft, minLeft } from "./DateShenanigans.js";
+import day, {
+  month,
+  twoDaysFromNow,
+  hoursLeft,
+  minLeft,
+} from "./DateShenanigans.js";
 
 function AddToCart(props) {
   const [seller, setSeller] = useState("");
+  const [freeReturnBox, setFreeReturnBox] = useState(false);
+  const [returnPolicyBox, setReturnPolicyBox] = useState(false);
   const price = props.price;
 
   useEffect(() => {
@@ -14,6 +21,22 @@ function AddToCart(props) {
         setSeller(fetched[0]);
       });
   }, []);
+
+  function openFreeReturnBox() {
+    setFreeReturnBox(true);
+  }
+
+  function closeFreeReturnBox() {
+    setFreeReturnBox(false);
+  }
+
+  function openReturnPolicyBox() {
+    setReturnPolicyBox(true);
+  }
+
+  function closeReturnPolicyBox() {
+    setReturnPolicyBox(false);
+  }
 
   return (
     <div className="addToCart">
@@ -32,12 +55,44 @@ function AddToCart(props) {
         </div>
         <img src="../../logo/primelogo.png"></img> <br></br>
         <div style={{ marginBottom: "5px" }}>
-          <a style={{ textDecoration: "none" }}>FREE Returns</a>
+          <div className="messageBoxWrapper">
+            <a onClick={openFreeReturnBox}>FREE Returns</a>
+            {freeReturnBox ? (
+              <>
+                <div className="messageBoxOverlay" onClick={closeFreeReturnBox}>
+                  {" "}
+                </div>
+                <div className="messageBox">
+                  <button
+                    className="closeMessageBox"
+                    onClick={closeFreeReturnBox}
+                  >
+                    <b>X</b>
+                  </button>
+                  <b>Return this item for free</b> <br></br>
+                  <br></br>
+                  Free returns are available for the shipping address you chose.
+                  You can return the item for any reason in new and unused
+                  condition: no shipping charges.
+                  <br></br>
+                  <a>Learn more about free returns.</a> <br></br>
+                  <a>How to return the item?</a>
+                  <div className="boxTriangle"></div>
+                  <div className="boxTriangleOuter"></div>
+                </div>
+              </>
+            ) : null}
+          </div>
         </div>
         <br></br>
         FREE delivery{" "}
-        <span style={{ fontFamily: "AmazonEmberBold" }}>{day}, {month} {twoDaysFromNow}</span>. Order
-        within <span style={{ color: "green" }}>{hoursLeft} hrs {minLeft} mins</span>
+        <span style={{ fontFamily: "AmazonEmberBold" }}>
+          {day}, {month} {twoDaysFromNow}
+        </span>
+        . Order within{" "}
+        <span style={{ color: "green" }}>
+          {hoursLeft} hrs {minLeft} mins
+        </span>
         <br></br>
         <div style={{ marginTop: "12px", display: "flex" }}>
           <svg
@@ -93,17 +148,40 @@ function AddToCart(props) {
           </div>
         </div>
         Return policy:{" "}
-        <a style={{ textDecoration: "none" }}>
-          Eligible for Return, Refund, or Replacement within 30 days of receipt
-        </a>
-        <br></br>
-        <input type="checkbox"></input> Add a gift receipt for easy returns
-        <br></br>
-        <hr className="MainItemDividerColor"></hr>
-        <button className="addToListButton">Add to List</button> <br></br>
-        <button className="addToRegistry">Add to Registry & Gifting</button>
-        <br></br>
+        <div className="messageBoxWrapper">
+          <a onClick={openReturnPolicyBox}>
+            Eligible for Return, Refund or Replacement within 30 days of receipt
+          </a>
+          {returnPolicyBox ? (
+            <>
+              <div className="messageBoxOverlay" onClick={closeReturnPolicyBox}>
+                {" "}
+              </div>
+              <div className="policyBox">
+                <button
+                  className="closeMessageBox"
+                  onClick={closeReturnPolicyBox}
+                >
+                  <b>X</b>
+                </button>
+                This item can be returned in its original condition for a full
+                refund or replacement within 30 days of receipt.
+                <br></br>
+                <a>Read full return policy</a>
+                <div className="boxTriangle"></div>
+                <div className="boxTriangleOuter"></div>
+              </div>
+            </>
+          ) : null}
+        </div>
       </div>
+      <br></br>
+      <input type="checkbox"></input> Add a gift receipt for easy returns
+      <br></br>
+      <hr className="MainItemDividerColor"></hr>
+      <button className="addToListButton">Add to List</button> <br></br>
+      <button className="addToRegistry">Add to Registry & Gifting</button>
+      <br></br>
     </div>
   );
 }
