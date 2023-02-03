@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
-import { imageProperties } from "../../state";
 import { Container, Radio, Rating } from "./RatingStyles";
 
 // Calculated Ratings from all reviews displayed by stars
