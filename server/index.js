@@ -67,6 +67,18 @@ app.get("/api/pictures/:id", (req, res) => {
   });
 });
 
+/******************** Get 1 pictureURL from pictures ********************/
+app.get("/api/sponsored/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(`select * from pictures where productid = ${productId} limit 1`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
 /******************** Get seller for a particular product ********************/
 app.get("/api/sellers/:id", (req, res) => {
   const {id} = req.params;
@@ -184,6 +196,10 @@ app.post("/api/answers", (req, res) => {
 //   );
 //   res.send(result.rows[0]);
 // });
+
+
+
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
