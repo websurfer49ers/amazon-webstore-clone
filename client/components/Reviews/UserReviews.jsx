@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import { Rate, Rated } from "./Rating";
 import { Container, Rating } from "./RatingStyles";
 
+
+
 export function UserReviews() {
     const [returnedResults, setReturnedResults] = useState([])
 
@@ -15,6 +17,7 @@ export function UserReviews() {
         });
     }, []);
 
+    console.log(returnedResults)
 
     return (
         <div className="userReviewsMain">
@@ -33,7 +36,7 @@ export function UserReviews() {
                             </Container>
                             <Container>
                                 <div className="userStars">
-                                    <Rated></Rated>
+                                    <Rated userStars={data.rating}/>
                                 </div>
                                 <div className="reviewTitle">
                                     <span>{data.title}</span>
