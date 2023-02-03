@@ -5,6 +5,7 @@ import {
   imageIsSelected,
   defaultPosition,
   imageProperties,
+  numOfRatingsRecoil
 } from "../../state.js";
 import { useRecoilValue } from "recoil";
 
@@ -13,6 +14,7 @@ function ItemInfo(props) {
   const view = useRecoilValue(imageState);
   const position = useRecoilValue(defaultPosition);
   const properties = useRecoilValue(imageProperties);
+  const numOfRatings = useRecoilValue(numOfRatingsRecoil);
   const [testMouse, setTestMouse] = useState({});
   const [freeReturnBox, setFreeReturnBox] = useState(false);
   const [smallBusinessBox, setSmallBusinessBox] = useState(false);
@@ -89,7 +91,7 @@ function ItemInfo(props) {
             <span style={{ margin: "0px 5px 0px -2px" }}>
               <Rate />
             </span>
-            <a style={{ marginRight: "5px" }}>3,496 ratings</a>{" "}
+            <a style={{ marginRight: "5px" }}>{numOfRatings} ratings</a>{" "}
             <span style={{ color: "gray", marginRight: "5px" }}>|</span>
             <a>14 answered questions</a>
           </div>
