@@ -772,6 +772,8 @@ form {
 
 .reviewContent {
   box-sizing: border-box;
+  margin-top: 7px;
+  margin-bottom: 14px;
 }
 
 .xmarksthespot {

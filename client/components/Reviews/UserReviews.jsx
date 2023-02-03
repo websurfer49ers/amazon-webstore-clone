@@ -3,7 +3,6 @@ import { Rate, Rated } from "./Rating";
 import { Container, Rating } from "./RatingStyles";
 
 
-
 export function UserReviews() {
     const [returnedResults, setReturnedResults] = useState([])
 
@@ -17,7 +16,8 @@ export function UserReviews() {
         });
     }, []);
 
-    console.log(returnedResults)
+    const year = [2019, 2020, 2021, 2022, 2023]
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
     return (
         <div className="userReviewsMain">
@@ -42,7 +42,7 @@ export function UserReviews() {
                                     <span>{data.title}</span>
                                 </div>
                             </Container>
-                            <p className="dateReviewed">Reviewed in the United States on March 2, 2019</p>
+                            <p className="dateReviewed">Reviewed in the United States on {month[Math.ceil(Math.random() * 11)]} {Math.ceil(Math.random() * 28)}, {year[Math.ceil(Math.random() * 5)]}</p>
                             <div className="contentWrapper">
                                 <p className="reviewContent">{data.content}</p>
                             </div>
