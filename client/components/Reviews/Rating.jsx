@@ -50,6 +50,18 @@ export function Rate() {
 // Specific Rating set by user displayed by stars
 export function Rated () {
   const [rate, setRate] = useState(0);
+
+  useEffect(() => {
+    fetch("/api/rating/product/1", {
+      mode: "cors",
+    })
+    .then((res) => res.json())
+    .then((ratings) => {
+      setRate(ratings[0])
+    });
+  }, []);
+
+
   return (
     <Container>
       {[...Array(5)].map((item, index) => {

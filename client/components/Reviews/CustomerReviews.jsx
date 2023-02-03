@@ -26,7 +26,6 @@ export function CustomerReviews(props) {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
             setReturnedRatings(data)
         });
       }, []);
@@ -34,7 +33,6 @@ export function CustomerReviews(props) {
     const productRating = Math.round(rate.averagerating)
     const numOfRatings = returnedRatings.length
 
-    console.log(returnedRatings)
 
 
     let fiveStar = 0;
@@ -78,8 +76,6 @@ export function CustomerReviews(props) {
     };
 
     addStars(returnedRatings);
-    console.log(fiveStar)
-    console.log(fivePercent)
 
     return (
         <span className="customerReviews">
