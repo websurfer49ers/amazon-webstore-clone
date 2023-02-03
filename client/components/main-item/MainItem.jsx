@@ -7,7 +7,7 @@ function MainItem() {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    fetch("/api/product/1", {
+    fetch("http://localhost:3000/api/product/4", {
       mode: "cors",
     })
       .then((res) => res.json())

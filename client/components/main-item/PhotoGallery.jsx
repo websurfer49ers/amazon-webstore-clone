@@ -16,7 +16,7 @@ function PhotoGallery() {
   const imgElement = React.useRef(null);
 
   useEffect(() => {
-    fetch("/api/pictures/1", {
+    fetch("http://localhost:3000/api/pictures/4", {
       mode: "cors",
     })
       .then((res) => res.json())

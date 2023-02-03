@@ -6,13 +6,15 @@ import QASearchBar from "./QASearchBar.jsx";
 
 const App = () => {
 
+  const [productId, setProductId] = useState(2)
+
   return (
     <>
       <Header />
       <div className="underHeader">
-        <MainItem />
-        <QASearchBar productId={1} />
-        <MainReviews />
+        <MainItem productId={productId} />
+        <QASearchBar productId={productId} />
+        <MainReviews productId={productId} />
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import {
   imageIsSelected,
   defaultPosition,
   imageProperties,
-  numOfRatingsRecoil
+  numOfRatingsRecoil,
 } from "../../state.js";
 import { useRecoilValue } from "recoil";
 
@@ -29,8 +29,32 @@ function ItemInfo(props) {
     theme,
     item_dimensions,
     description,
+    amazon_choice,
+    item_form,
+    diet_type,
+    flavor,
+    special_ingredients,
+    pkg_info,
+    unit_count,
+    num_of_items,
+    dosage_form,
+    color,
+    plant_animal_product,
+    use_for_product
   } = props.item;
 
+  const iterableObj = {
+    "Brand": brand,
+    "Material": material,
+    "Size": size,
+    "Theme": theme,
+    "Item Dimensions": item_dimensions,
+    "Item Form": item_form,
+    "Diet Type": vegan,
+    "Flavor": flavor,
+    "Special Ingredients": special_ingredients,
+    "Package Information": pkg_info,
+  }
   function moveWithin(event) {
     setTestMouse({
       x: event.pageX,
@@ -96,19 +120,21 @@ function ItemInfo(props) {
             <a>14 answered questions</a>
           </div>
           <br></br>
-          <span
-            style={{
-              backgroundColor: "#232f3e",
-              color: "white",
-              padding: "4px",
-              fontSize: "12px",
-              float: "left",
-            }}
-          >
-            Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
-          </span>
-          <span className="AmazonChoiceTriangle"></span> for "
-          <a>{productname ? productname.toLowerCase() : null}</a>"<br></br>
+          {amazon_choice ? <>
+            <span
+              style={{
+                backgroundColor: "#232f3e",
+                color: "white",
+                padding: "4px",
+                fontSize: "12px",
+                float: "left",
+              }}
+            >
+              Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
+            </span>
+            <span className="AmazonChoiceTriangle"></span> for "
+            <a>{productname ? productname.toLowerCase() : null}</a>"<br></br>
+          </> : null}
         </div>
         <hr className="MainItemDividerColor"></hr>
         <div className="MainInfoDetails">
@@ -129,10 +155,7 @@ function ItemInfo(props) {
             <a onClick={openFreeReturnBox}>FREE Returns</a>
             {freeReturnBox ? (
               <>
-                <div
-                  className="messageBoxOverlay"
-                  onClick={closeFreeReturnBox}
-                >
+                <div className="messageBoxOverlay" onClick={closeFreeReturnBox}>
                   {" "}
                 </div>
                 <div className="messageBox">
