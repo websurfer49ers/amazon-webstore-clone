@@ -135,3 +135,80 @@
 --             'Christmas',
 --             '2.5 x 2.18 x 3.9 inches'
 --         );
+
+
+-- insert into product
+--     (productName, price, soldout, brand, item_form, diet_type, flavor, special_ingredients, pkg_info, unit_count, num_of_items, dosage_form, color)
+--     values(
+--         'BEARVANA Gummies for You Herbal Blue - Supplement for Women - Delicious Berry Gummy Pills - 60 Gummies',
+--         '26.98',
+--         'false',
+--         'BEARVANA',
+--         'Gummy',
+--         'Vegan',
+--         'Berry',
+--         'Amino Acid',
+--         'Bottle, Jar',
+--         60.00,
+--         1,
+--         'Gummy',
+--         'Blue Herbal');
+
+-- update product set description=
+--     '{
+--         "Not your average bear! These gummies work by boosting the body''s estrogen level in an organic way. Bearvana gummies help you enhance and show off your womanly figure more naturally.",
+--         "DELICIOUS BERRY FLAVORED GUMMY: Bearvana gummies are delicious and easy to eat. Boost your confidence and rock that bold dress you bought by taking only two gummies a day! One jar contains 60 gummies, which are good for a one month supply.",
+--         "SAFE, NATURAL INGREDIENTS: Bearvana gummies are vegan, gluten-free, soy-free, and cruelty-free gummies. Made from 9 exotic herbal extracts plus vitamins, these yummy gummies are ideal for a woman.",
+--         "NO DANGEROUS PROCEDURES: Not everyone can afford surgical implants to increase their bottom size. Bearvana gummies will help women without fake implants, and prefer a more vegan-friendly way.",
+--         "IMPROVES HAIR HEALTH: They also contain essential vitamins and nutrients that contribute to beautiful hair. It''s the perfect solution for a woman who wants to enhance her feminine side."
+--     }'
+--     where id = 4;
+
+
+-- insert into product
+--     (productName, price, soldout, brand, material, category, sub_category, amazon_choice, color, plant_animal_product, use_for_product)
+--     values(
+--         'Whaline 300 Pieces Artificial Autumn Maple Leaves Mixed Fall Colored Leaf for Weddings, Events, Art Scrapbooking and Thanksgiving Day Decorations (Red)',
+--         7.99,
+--         'false',
+--         'Whaline',
+--         'Polyester',
+--         'Home & Kitchen',
+--         'Home Décor Products',
+--         'true',
+--         'Red',
+--         'Maple',
+--         'Party, Wedding'
+--     )
+
+        
+
+-- insert into pictures
+--     (productId, pictureURL)
+--     values
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/616F%2B8kisjL._AC_SL1500_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/51vuA8wemGL._AC_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/61SR-lSKcTL._AC_SL1280_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/61nFAO2IV2L._AC_SL1500_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/711Jp3nlwXL._AC_SL1500_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/719gziVuerL._AC_SL1500_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/71FCZCchUdL._AC_SL1500_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/71TKHA2S2bL._AC_SL1500_.jpg'),
+--         (4, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product4/product4/71jk986vccL._AC_SL1374_.jpg'),
+--         (5, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product5/71iRI-QAooL._AC_SL1500_.jpg'),
+--         (5, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product5/81-PRSL49NL._AC_SL1500_.jpg'),
+--         (5, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product5/81s0cg4JKYL._AC_SL1500_.jpg'),
+--         (5, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product5/81yN08EMEHL._AC_SL1500_.jpg'),
+--         (5, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product5/91HU9Noax%2BL._AC_SL1500_.jpg'),
+--         (5, 'https://amazon-webstore-clone-bucket.s3.amazonaws.com/product5/91u88C6A9nL._AC_SL1500_.jpg')
+
+-- update product set description=
+--     '{
+--         "Polyester",
+--         "Different shades of color – 300 pieces of maple leaves are assorted in 6 colors mixed together, each color has 50 leaves",
+--         "Leaves Size – Range from 2.48-3.39inch/ 6.3-8.6cm wide, and you can pick a handful of unified or mixed colors to create more fun",
+--         "Suitable for different occasions – These artificial maple leaves can be served as decorations for your wedding, festival, house, bars, party, banquet, stores or other occasions. And you sticking on the wall, write wishes on it as a card, serve as scatters for your wedding and so on",
+--         "Durable material – Made with durable and eco-friendly polyester material, It''s not easy to fade or fall, and can be applied repeatedly",
+--         "Vivid artificial autumn leaves – Color realistic, these fall leaves are conducive to providing visual enjoyment and creating a warm atmosphere"
+--     }'
+--     where id = 5;
