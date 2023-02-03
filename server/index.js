@@ -9,7 +9,7 @@ console.log(process.env.DB_NAME);
 const pool = new pg.Pool({connectionString: process.env.DB_NAME});
 
 // const pool = new pg.Pool({database: 'amazon-webstore'});
-const port = 3000;
+const port = 3006;
 
 const app = express();
 
