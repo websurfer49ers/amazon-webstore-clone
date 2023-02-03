@@ -8,7 +8,7 @@ export function Rate() {
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
-    fetch("/api/avgrating/1", {
+    fetch("http://localhost:3000/api/avgrating/1", {
       mode: "cors",
     })
     .then((res) => res.json())

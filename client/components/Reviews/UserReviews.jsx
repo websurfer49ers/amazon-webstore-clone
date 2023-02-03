@@ -8,7 +8,7 @@ export function UserReviews() {
     const [returnedResults, setReturnedResults] = useState([])
 
     useEffect(() => {
-        fetch("/api/rating/product/1", {
+        fetch("http://localhost:3000/api/rating/product/1", {
             mode: "cors",
         })
         .then((res) => res.json())
