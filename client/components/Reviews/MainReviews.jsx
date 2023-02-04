@@ -3,6 +3,8 @@ import { CustomerReviews, ReviewThisProduct } from "./CustomerReviews.jsx";
 import { UserReviews } from "./UserReviews.jsx";
 import { Sponsored } from "./Sponsored.jsx";
 
+
+
 function MainReviews(){
     return (
         <span className="mainReviewDiv">
@@ -17,7 +19,7 @@ function MainReviews(){
                 <UserReviews />
             </div>
         </span>
-    );
+    );<hr style="background-color: rgb(180, 180, 180); height: 1px; border: 0px;"></hr>
 };
 
 export default MainReviews;
