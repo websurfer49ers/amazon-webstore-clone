@@ -1,6 +1,7 @@
 import React from "react";
 import { CustomerReviews, ReviewThisProduct } from "./CustomerReviews.jsx";
 import { UserReviews } from "./UserReviews.jsx";
+import { Sponsored } from "./Sponsored.jsx";
 
 
 
@@ -11,6 +12,8 @@ function MainReviews(){
                 <CustomerReviews />
                 <div className="partition"></div>
                 <ReviewThisProduct />
+                <div className="partitions"></div>
+                <Sponsored />
             </div>
             <div className="reviewsRight">
                 <UserReviews />
