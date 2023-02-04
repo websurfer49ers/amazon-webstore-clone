@@ -32,12 +32,24 @@ app.get("/api/product", (req, res) => {
 });
 
 /******************** Get all p ********************/
-app.get("/api/product", (req, res) => {
+// app.get("/api/product", (req, res) => {
+//   pool.query(
+//     `SELECT product.*, pictures.pictureURL FROM product
+//       JOIN pictures
+//       ON product.id = pictures.productid
+//     `)
+//   .then((result) => {
+//     res.send(result.rows);
+//   })
+//   .catch((error)=>{
+//     res.send(error.message);
+//   });
+// });
+
+/******************** Get all product IDs ********************/
+app.get("/api/productIds", (req, res) => {
   pool.query(
-    `SELECT product.*, pictures.pictureURL FROM product
-      JOIN pictures
-      ON product.id = pictures.productid
-    `)
+    `SELECT id FROM product ORDER BY id ASC`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -85,7 +97,7 @@ app.get("/api/pictures/:id", (req, res) => {
 /******************** Get 1 pictureURL from pictures ********************/
 app.get("/api/sponsored/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`select * from pictures where productid = ${productId} limit 1`)
+  pool.query(`select * from pictures limit 1`)
   .then((result) => {
     res.send(result.rows);
   })

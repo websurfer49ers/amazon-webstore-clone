@@ -14,7 +14,7 @@ export function CustomerReviews(props) {
   const [returnedRatings, setReturnedRatings] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/avgrating/4", {
+    fetch("http://localhost:3000/api/avgrating/1", {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -24,7 +24,7 @@ export function CustomerReviews(props) {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/rating/product/4", {
+    fetch("http://localhost:3000/api/rating/product/1", {
       mode: "cors",
     })
       .then((res) => res.json())

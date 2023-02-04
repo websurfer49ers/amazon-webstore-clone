@@ -13,7 +13,7 @@ function AddToCart(props) {
   const price = props.price;
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/sellers/3", {
+    fetch(`http://localhost:3000/api/sellers/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())

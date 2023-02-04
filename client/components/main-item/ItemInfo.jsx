@@ -50,7 +50,7 @@ function ItemInfo(props) {
     "Theme": theme,
     "Item Dimensions": item_dimensions,
     "Item Form": item_form,
-    "Diet Type": vegan,
+    "Diet Type": diet_type,
     "Flavor": flavor,
     "Special Ingredients": special_ingredients,
     "Package Information": pkg_info,

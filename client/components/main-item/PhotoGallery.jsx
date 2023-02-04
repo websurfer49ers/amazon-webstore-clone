@@ -7,7 +7,7 @@ import {
   imageProperties,
 } from "../../state.js";
 
-function PhotoGallery() {
+function PhotoGallery(props) {
   const [selectedImage, setImage] = useRecoilState(imageState);
   const [isSelected, setIsSelected] = useRecoilState(imageIsSelected);
   const [mousePosition, setMousePosition] = useRecoilState(defaultPosition);
@@ -16,7 +16,7 @@ function PhotoGallery() {
   const imgElement = React.useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/pictures/4", {
+    fetch(`http://localhost:3000/api/pictures/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
