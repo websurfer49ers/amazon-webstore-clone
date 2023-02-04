@@ -97,7 +97,7 @@ app.get("/api/pictures/:id", (req, res) => {
 /******************** Get 1 pictureURL from pictures ********************/
 app.get("/api/sponsored/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`select * from pictures limit 1`)
+  pool.query(`select * from pictures WHERE productId = ${productId} limit 1`)
   .then((result) => {
     res.send(result.rows);
   })
