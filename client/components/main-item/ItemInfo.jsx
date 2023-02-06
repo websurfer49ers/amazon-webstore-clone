@@ -121,7 +121,7 @@ function ItemInfo(props) {
           <br></br>
           <div style={{ display: "flex", marginTop: "5px" }}>
             <span style={{ margin: "0px 5px 0px -2px" }}>
-              <Rate />
+              <Rate productId={props.productId}/>
             </span>
             <a style={{ marginRight: "5px" }}>{numOfRatings} ratings</a>{" "}
             <span style={{ color: "gray", marginRight: "5px" }}>|</span>

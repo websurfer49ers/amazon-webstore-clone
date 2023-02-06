@@ -13,14 +13,14 @@ function AddToCart(props) {
   const price = props.price;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/sellers/${props.productId}`, {
+    fetch(`http://localhost:3006/api/sellers/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
       .then((fetched) => {
         setSeller(fetched[0]);
       });
-  }, []);
+  }, [props.productId]);
 
   function openFreeReturnBox() {
     setFreeReturnBox(true);

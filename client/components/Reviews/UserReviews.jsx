@@ -4,18 +4,18 @@ import { Container, Rating } from "./RatingStyles";
 
 
 
-export function UserReviews() {
+export function UserReviews(props) {
     const [returnedResults, setReturnedResults] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/rating/product/1", {
+        fetch(`http://localhost:3006/api/rating/product/${props.productId}`, {
             mode: "cors",
         })
         .then((res) => res.json())
         .then((data) => {
             setReturnedResults(data)
         });
-    }, []);
+    }, [props.productId]);
 
     // console.log(returnedResults)
 
