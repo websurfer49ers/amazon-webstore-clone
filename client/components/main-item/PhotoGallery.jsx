@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import imageState from "../../state.js";
 import {
   imageIsSelected,
   defaultPosition,
   imageProperties,
+  itemCategories
 } from "../../state.js";
 
-function PhotoGallery() {
+function PhotoGallery(props) {
   const [selectedImage, setImage] = useRecoilState(imageState);
   const [isSelected, setIsSelected] = useRecoilState(imageIsSelected);
   const [mousePosition, setMousePosition] = useRecoilState(defaultPosition);
   const [imageProps, setImageProps] = useRecoilState(imageProperties);
   const [thumbnails, setThumbnails] = useState([]);
+  const [mainCategory, subCategory] = useRecoilValue(itemCategories);
   const imgElement = React.useRef(null);
 
   useEffect(() => {
-    fetch("/api/pictures/1", {
+    fetch(`http://localhost:3000/api/pictures/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -59,11 +61,9 @@ function PhotoGallery() {
   return (
     <div className="photoGallery">
       <div className="evenMoreCategories">
-        <div className="evenMoreItems">Toys & Games</div>
+        <div className="evenMoreItems">{mainCategory}</div>
         <div className="evenMoreItems">›</div>
-        <div className="evenMoreItems">Puppets & Puppet Theaters</div>
-        <div className="evenMoreItems">›</div>
-        <div className="evenMoreItems">Finger Puppets</div>
+        <div className="evenMoreItems">{subCategory}</div>
       </div>
       <div className="thumbnailAndMainPhoto">
         <div className="galleryThumbnailContainer">
