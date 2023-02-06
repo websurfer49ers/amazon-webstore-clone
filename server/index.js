@@ -182,10 +182,10 @@ app.get("/api/questions/product/:id", (req, res) => {
   });
 });
 
-/******************** Get number of questions for particular product ********************/
+/******************** Get total number of questions for particular product ********************/
 app.get("/api/countquestions/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`SELECT count(id) from questions where productId = ${productId}`)
+  pool.query(`SELECT count(id) as totalQuestions from questions where productId = ${productId}`)
   .then((result) => {
     res.send(result.rows[0]);
   })
