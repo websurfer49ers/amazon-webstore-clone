@@ -97,7 +97,10 @@ app.get("/api/pictures/:id", (req, res) => {
 /******************** Get 1 pictureURL from pictures ********************/
 app.get("/api/sponsored/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`select * from pictures WHERE productId = ${productId} limit 1`)
+  pool.query(`select product.productName, pictures.* from pictures 
+  JOIN product 
+  on pictures.productId = product.id
+  WHERE productId = ${productId} limit 1`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -176,6 +179,18 @@ app.get("/api/questions/product/:id", (req, res) => {
         `)
   .then((result) => {
     res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
+/******************** Get total number of questions for particular product ********************/
+app.get("/api/countquestions/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(`SELECT count(id) as totalQuestions from questions where productId = ${productId}`)
+  .then((result) => {
+    res.send(result.rows[0]);
   })
   .catch((error)=>{
     res.send(error.message);

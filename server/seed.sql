@@ -214,3 +214,43 @@
 --         "Vivid artificial autumn leaves – Color realistic, these fall leaves are conducive to providing visual enjoyment and creating a warm atmosphere"
 --     }'
 --     where id = 5;
+
+-- insert into questions
+--     (productId, userId, question)
+--         values
+--         (4, 1, 'Do they make me gain the weight?'),
+--         (4, 2, 'If you stop taking them will your body go back to its original form??'),
+--         (4, 3, 'Can your butt be bigger with it ?'),
+--         (4, 4, 'Por favor cuál es la diferencia entre la azul y la de color rosa?');
+
+-- insert into questions
+--     (productId, userId, question)
+--         values
+--         (5, 5, 'Is there a metal wire in the leaves?'),
+--         (5, 6, 'I am looking for something to stamp clay. Will these leave an imprint?'),
+--         (5, 7, 'It says I received my leaves when all that was in my package was my mini bulletin board.'),
+--         (5, 8, 'Can these be painted on and have hot glue or glitter for a project? I''m looking to pain them white with adding hot glue and glitter for a project.');
+
+-- insert into answers
+--     (userId, questionId, answer)
+--         values
+--         (5, 14, 'It''s been a year since I''ve been taking them I never gained weight. I''ve lost weight and fee other people mentioned something about losing weight. Also the gummies makes me very sleepy'),
+--         (6, 15, 'It doesn’t work at all'),
+--         (7, 16, 'No'),
+--         (8, 17, 'Ellas son las mismas'),
+--         (1, 18, 'No it’s all plastic'),
+--         (2, 19, 'The decoration is OK, but if you want to find products with better quality and more family style, you can go to 》𝒃𝒍𝒐𝒐𝒎𝟳𝟳𝟳/ᴄᴏᴍ《 Look, I bought it. The quality is much better.'),
+--         (3, 20, 'You needed to report missing product right away.'),
+--         (4, 21, 'I did add glitter to some of them for a project and it worked using a glue gun. I did not paint any but the material is polyester so paint probably could work. They wash easily as some of mine got dirty on outside project and I just washed them in warm water and mild dis detergent. Hope this helps. Good luck with your project.');
+
+insert into reviews
+    (userId, productId, title, content, rating)
+        values
+        (1, 4, 'it taste good', 'It do taste good I just got done taking them honestly I gained weight while taking them but I don’t think in the butt area . I mean it’s good and all but I don’t think I see results', 4),
+        (2, 4, 'Yes and no', 'The flavor and texture is not the best', 4),
+        (3, 4, 'it was okay.', 'i dont know whats all the hype about these gummies but i don''t see results even when i work out every week.', 3),
+        (4, 4, 'Ok', 'ok', 5),
+        (5, 5, 'Great value', 'This was exactly what I needed for my tree costume for Halloween. These do smell very bad when first opened. However, I opened them all up and laid them out over night which got rid of the smell. Also they hold up great to hot glue!', 5),
+        (6, 5, 'EXACTLY AS DESCRIBED!!', 'They did stink a little but I mean all fake leaves do for some reason lol. Anyway they were perfectly separated into colors and in bags. I liked that so then i could use an even amount of all the colors! They are super cute too for decorating! Definitely a good value for your money!', 5),
+        (7, 5, 'Great for crafters!', 'I did not notice much of a scent. This product was great for crafting or just sprinkling across a table for a look of fallen leaves! I have plenty left over for future projects! Great value for the money!', 5),
+        (8, 5, 'Cute for price', 'These were great for decorating my mantle piece for the fall. Very cute, nice detail. The only thing is that they had a weird fishy smell when I first opened the package but it didn’t linger. Would be great for crafting or decor.', 4);
