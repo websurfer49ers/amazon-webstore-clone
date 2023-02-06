@@ -17,7 +17,7 @@ export function UserReviews() {
         });
     }, []);
 
-    console.log(returnedResults)
+    // console.log(returnedResults)
 
     return (
         <div className="userReviewsMain">

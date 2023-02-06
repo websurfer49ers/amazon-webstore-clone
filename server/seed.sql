@@ -20,7 +20,7 @@
 
 -- insert into users
 --     (firstName, lastName, phone)
---         values  
+--         values
 --         ('Michael', 'Long', 6356155660),
 --         ('Nathaniel', 'Hammond', 9705128733),
 --         ('Robert', 'Parker', 7177358970),
@@ -37,16 +37,18 @@
 --         values
 --         ('Neron Brands', 1),
 --         ('BG Health', 2),
---         ('CrayproFG Direct', 3);
+--         ('CrayproFG Direct', 3),
+--         ('BEARVANA', 4),
+--         ('Whale Online US', 5);
 
 -- insert into reviews
 --     (userId, title, content, rating)
---         values  
+--         values
 --         (1, 'Awesome', 'This is an awesome product', 5);
 
 -- insert into questions
 --     (userId, question, productId)
---         values 
+--         values
 --         (5, 'Can the puppet be worn while performing intricate hand motions in a Cthulhu summoning ritual?', 1),
 --         (5, 'Do you have one with no glitter?', 2),
 --         (6, 'Are the baby really smaller than the bigger fingerlings?', 2),
@@ -181,7 +183,7 @@
 --         'Party, Wedding'
 --     )
 
-        
+
 
 -- insert into pictures
 --     (productId, pictureURL)
