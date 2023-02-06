@@ -13,14 +13,14 @@ function AddToCart(props) {
   const price = props.price;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/sellers/${props.productId}`, {
+    fetch(`/api/sellers/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
       .then((fetched) => {
         setSeller(fetched[0]);
       });
-  }, []);
+  }, [props.productId]);
 
   function openFreeReturnBox() {
     setFreeReturnBox(true);
@@ -119,9 +119,9 @@ function AddToCart(props) {
             Deliver to Websurfer49 - Fakecity 12345
           </a>
         </div>
+        <br></br>
         {props.soldout ? (
           <>
-            <br></br>
             <span style={{ color: "rgb(185, 48, 48)", fontSize: "18px" }}>
               Temporarily out of stock.
             </span>

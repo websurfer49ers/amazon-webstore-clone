@@ -65,14 +65,14 @@ function ItemInfo(props) {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/countquestions/${props.productId}`, {
+    fetch(`/api/countquestions/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
       .then((fetched) => {
         setQuestions(fetched.totalquestions);
       });
-  }, []);
+  }, [props.productId]);
 
   function moveWithin(event) {
     setTestMouse({
@@ -132,9 +132,9 @@ function ItemInfo(props) {
           <br></br>
           <div style={{ display: "flex", marginTop: "5px" }}>
             <span style={{ margin: "0px 5px 0px -2px" }}>
-              <Rate />
+              <Rate productId={props.productId}/>
             </span>
-            <a style={{ marginRight: "5px" }} href="#mainReviewDiv">{numOfRatings} ratings</a>{" "}
+            <a style={{ marginRight: "5px" }} href="#mainReviewsDiv">{numOfRatings} ratings</a>{" "}
             {questions ? (
               <>
                 <span style={{ color: "gray", marginRight: "5px" }}>|</span>

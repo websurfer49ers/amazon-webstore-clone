@@ -3,21 +3,19 @@ import { CustomerReviews, ReviewThisProduct } from "./CustomerReviews.jsx";
 import { UserReviews } from "./UserReviews.jsx";
 import { Sponsored } from "./Sponsored.jsx";
 
-function MainReviews(props) {
-  return (
-    <span className="mainReviewDiv" id="mainReviewDiv">
-      <div className="reviewsLeft">
-        <CustomerReviews />
-        <div className="partition"></div>
-        <ReviewThisProduct />
-        <div className="partitions"></div>
-        <Sponsored productIdArr={props.productIdArr} />
-      </div>
-      <div className="reviewsRight">
-        <UserReviews />
-      </div>
-    </span>
-  );
-}
+function MainReviews(props){
+    return (
+        <span className="mainReviewDiv" id="mainReviewsDiv">
+            <div className="reviewsLeft">
+                 <CustomerReviews productId={props.productId}/>
+                <div className="partition"></div>
+                <ReviewThisProduct />
+            </div>
+            <div className="reviewsRight">
+                <UserReviews productId={props.productId}/>
+            </div>
+        </span>
+    );
+};
 
 export default MainReviews;

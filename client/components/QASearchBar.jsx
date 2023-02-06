@@ -10,7 +10,7 @@ function QASearchBar(props) {
 
     useEffect(() => {
         newerFetch();
-    }, []);
+    }, [props.productId]);
     const newerFetch = () => {
         fetch(`/api/questions/product/${props.productId}`, {
             mode: "cors",
