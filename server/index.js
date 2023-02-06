@@ -61,7 +61,7 @@ app.get("/api/productIds", (req, res) => {
 /******************** Get 'About this item' ********************/
 app.get("/api/product/description/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`SELECT desciption FROM product where id = ${productId}`)
+  pool.query(`SELECT description FROM product where id = ${productId}`)
   .then((result) => {
     res.send(result.rows);
   })
