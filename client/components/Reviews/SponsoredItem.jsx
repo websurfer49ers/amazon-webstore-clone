@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-function SponsoredItem(props){
+function SponsoredItem(props) {
   const [url, setUrl] = useState("");
-  const [productName, setProductname] = useState("")
+  const [productName, setProductname] = useState("");
   console.log(props.productId);
   useEffect(() => {
-    fetch(`http://localhost:3006/api/sponsored/${props.productId}`, {
+    fetch(`/api/sponsored/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -15,14 +15,17 @@ function SponsoredItem(props){
       });
   }, [props.productId]);
 
-
   function SponsoredHandler(id) {
-    props.setProductId(id)
-    console.log("clicked")
+    props.setProductId(id);
+    console.log("clicked");
   }
 
-    return (
-      <img onClick={() => {SponsoredHandler(props.productId)}}
+  return (
+    <a href="#topOfPage">
+      <img
+        onClick={() => {
+          SponsoredHandler(props.productId);
+        }}
         src={url}
         style={{
           maxHeight: "160px",
@@ -31,7 +34,8 @@ function SponsoredItem(props){
           border: 0,
         }}
       ></img>
-    );
+    </a>
+  );
 }
 
-export default SponsoredItem
+export default SponsoredItem;

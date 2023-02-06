@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import imageState from "../../state.js";
 import { Rate } from "../Reviews/Rating.jsx";
 import {
@@ -18,6 +18,7 @@ function ItemInfo(props) {
   const numOfRatings = useRecoilValue(numOfRatingsRecoil);
   const [testMouse, setTestMouse] = useState({});
   const [freeReturnBox, setFreeReturnBox] = useState(false);
+  const [questions, setQuestions] = useState(0);
   const [smallBusinessBox, setSmallBusinessBox] = useState(false);
   const zoomedImg = React.useRef(null);
   const zoomedContainer = React.useRef(null);
@@ -44,7 +45,6 @@ function ItemInfo(props) {
     use_for_product,
   } = props.item;
 
-
   const iterableObj = {
     Brand: brand,
     Material: material,
@@ -63,6 +63,17 @@ function ItemInfo(props) {
     "Plant or Animal Product": plant_animal_product,
     "Specific Uses For Product": use_for_product,
   };
+
+  useEffect(() => {
+    fetch(`/api/countquestions/${props.productId}`, {
+      mode: "cors",
+    })
+      .then((res) => res.json())
+      .then((fetched) => {
+        setQuestions(fetched.totalquestions);
+      });
+  }, [props.productId]);
+
   function moveWithin(event) {
     setTestMouse({
       x: event.pageX,
@@ -123,9 +134,13 @@ function ItemInfo(props) {
             <span style={{ margin: "0px 5px 0px -2px" }}>
               <Rate productId={props.productId}/>
             </span>
-            <a style={{ marginRight: "5px" }}>{numOfRatings} ratings</a>{" "}
-            <span style={{ color: "gray", marginRight: "5px" }}>|</span>
-            <a>14 answered questions</a>
+            <a style={{ marginRight: "5px" }} href="#mainReviewsDiv">{numOfRatings} ratings</a>{" "}
+            {questions ? (
+              <>
+                <span style={{ color: "gray", marginRight: "5px" }}>|</span>
+                <a href="#QASearchBar">{questions} answered questions</a>
+              </>
+            ) : null}
           </div>
           <br></br>
           {amazon_choice ? (
@@ -202,11 +217,11 @@ function ItemInfo(props) {
           potentially without free Prime shipping.
           <table className="MainInfoGrid">
             <tbody>
-              {Object.entries(iterableObj).map(([key, value]) => {
+              {Object.entries(iterableObj).map(([keys, value]) => {
                 if (value != null) {
                   return (
-                    <tr>
-                      <td className="MainInfoGridInfo">{key}</td>
+                    <tr key={productname + keys}>
+                      <td className="MainInfoGridInfo">{keys}</td>
                       <td>{value}</td>
                     </tr>
                   );
