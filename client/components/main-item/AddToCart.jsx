@@ -13,7 +13,7 @@ function AddToCart(props) {
   const price = props.price;
 
   useEffect(() => {
-    fetch("/api/sellers/1", {
+    fetch(`http://localhost:3000/api/sellers/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -144,7 +144,7 @@ function AddToCart(props) {
             Sold by
           </div>
           <div className="shipsByContent">
-            <a>{seller.companyname}</a>
+            {seller.companyname ? <a>{seller.companyname}</a> : null}
           </div>
         </div>
         Return policy:{" "}
