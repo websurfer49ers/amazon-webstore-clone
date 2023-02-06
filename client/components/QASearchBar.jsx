@@ -42,7 +42,7 @@ function QASearchBar(props) {
     }
 
     return (
-        <div className="container">
+        <div className="container" id="QASearchBar">
             <div className="searchwrapper">
                 <h2>Looking for specific info?</h2>
                 <form onSubmit={handleSubmit}>

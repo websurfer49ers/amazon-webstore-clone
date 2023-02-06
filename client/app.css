@@ -437,8 +437,20 @@ input.navbarSearchBar:focus {
   font-size: 11px;
   margin: 15px 0px 10px 0px;
   height: 20px;
+  padding-left: 30px;
 }
 
+.quantityButton:focus{
+  box-shadow: 0px 0px 6px rgb(0, 179, 255);
+  outline: none;
+}
+
+.qtyNext{
+  position:absolute;
+  font-size: 11px;
+  margin-top: 18px;
+  margin-left: 6px;
+}
 .buyNowButton {
   background-color: orange;
 }

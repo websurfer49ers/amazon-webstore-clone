@@ -26,7 +26,7 @@ function MainItem(props) {
     <>
       <div className="mainItemDiv">
         <PhotoGallery productId={props.productId} />
-        <ItemInfo item={item} />
+        <ItemInfo item={item} productId={props.productId}/>
         <AddToCart
           price={price}
           soldout={soldout}

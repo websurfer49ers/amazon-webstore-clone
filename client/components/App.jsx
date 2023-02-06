@@ -5,7 +5,7 @@ import MainReviews from "./Reviews/MainReviews.jsx";
 import QASearchBar from "./QASearchBar.jsx";
 
 const App = () => {
-  const [productId, setProductId] = useState(5);
+  const [productId, setProductId] = useState(1);
   const [productIdArr, setProdIdArr] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,6 @@ const App = () => {
         setProdIdArr(fetched);
       });
   }, []);
-
 
   return (
     <>

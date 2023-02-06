@@ -63,7 +63,7 @@ CREATE TABLE questions (
 
 CREATE TABLE answers(
 
-  id SERIAL PRIMARY KEY, 
+  id SERIAL PRIMARY KEY,
   userId INT REFERENCES users(id),
   questionID INT REFERENCES questions(id),
   answer TEXT
