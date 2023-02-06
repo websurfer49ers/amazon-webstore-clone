@@ -18,7 +18,7 @@ function PhotoGallery(props) {
   const imgElement = React.useRef(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/pictures/${props.productId}`, {
+    fetch(`/api/pictures/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -26,7 +26,7 @@ function PhotoGallery(props) {
         setThumbnails(fetched);
         setImage(fetched[0].pictureurl);
       });
-  }, []);
+  }, [props.productId]);
 
   function enterThumbnail(event) {
     setImage(event.target.getAttribute("src"));

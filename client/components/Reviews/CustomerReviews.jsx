@@ -14,24 +14,24 @@ export function CustomerReviews(props) {
   const [returnedRatings, setReturnedRatings] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/avgrating/1", {
+    fetch(`/api/avgrating/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
       .then((ratings) => {
         setRate(ratings[0]);
       });
-  }, []);
+  }, [props.productId]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/rating/product/1", {
+    fetch(`/api/rating/product/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
       .then((data) => {
         setReturnedRatings(data);
       });
-  }, []);
+  }, [props.productId]);
 
   const productRating = Math.round(rate.averagerating);
   const numOfRatings = returnedRatings.length;
@@ -83,7 +83,7 @@ export function CustomerReviews(props) {
       <div className="customerReviewDiv">
         <h2 className="reviewText">Customer reviews</h2>
         <Container>
-          <Rate className="calculatedStars" />
+          <Rate productId={props.productId} className="calculatedStars" />
           <span className="starHolder">{productRating} out of 5</span>
         </Container>
         <span className="globalRatings">{numOfRatings} global ratings</span>

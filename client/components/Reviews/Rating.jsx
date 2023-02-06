@@ -4,18 +4,18 @@ import { Container, Radio, Rating } from "./RatingStyles";
 
 // Calculated Ratings from all reviews displayed by stars
 
-export function Rate() {
+export function Rate(props) {
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/avgrating/1", {
+    fetch(`/api/avgrating/${props.productId}`, {
       mode: "cors",
     })
     .then((res) => res.json())
     .then((ratings) => {
       setRate(ratings[0])
     });
-  }, []);
+  }, [props.productId]);
 
   const avgRating = Math.round(rate.averagerating);
 
