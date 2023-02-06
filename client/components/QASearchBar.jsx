@@ -84,6 +84,7 @@ function QASearchBar(props) {
                     )}
                 </div>
             </div>
+         <hr className="MainItemDividerColor"></hr>
         </div>
     );
 }
