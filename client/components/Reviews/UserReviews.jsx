@@ -7,14 +7,14 @@ export function UserReviews() {
     const [returnedResults, setReturnedResults] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/rating/product/1", {
+        fetch(`/api/rating/product/${props.productId}`, {
             mode: "cors",
         })
         .then((res) => res.json())
         .then((data) => {
             setReturnedResults(data)
         });
-    }, []);
+    }, [props.productId]);
 
     const year = [2019, 2020, 2021, 2022, 2023]
     const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]

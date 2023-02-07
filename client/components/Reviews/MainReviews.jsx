@@ -3,23 +3,19 @@ import { CustomerReviews, ReviewThisProduct } from "./CustomerReviews.jsx";
 import { UserReviews } from "./UserReviews.jsx";
 import { Sponsored } from "./Sponsored.jsx";
 
-
-
-function MainReviews(){
+function MainReviews(props){
     return (
-        <span className="mainReviewDiv">
+        <span className="mainReviewDiv" id="mainReviewsDiv">
             <div className="reviewsLeft">
-                <CustomerReviews />
+                 <CustomerReviews productId={props.productId}/>
                 <div className="partition"></div>
                 <ReviewThisProduct />
-                <div className="partitions"></div>
-                <Sponsored />
             </div>
             <div className="reviewsRight">
-                <UserReviews />
+                <UserReviews productId={props.productId}/>
             </div>
         </span>
-    );<hr style="background-color: rgb(180, 180, 180); height: 1px; border: 0px;"></hr>
+    );
 };
 
 export default MainReviews;

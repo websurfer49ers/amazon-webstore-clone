@@ -9,7 +9,7 @@ console.log(process.env.DB_NAME);
 const pool = new pg.Pool({connectionString: process.env.DB_NAME});
 
 // const pool = new pg.Pool({database: 'amazon-webstore'});
-const port = 3000;
+const port = 3006;
 
 const app = express();
 
@@ -19,10 +19,37 @@ app.use(express.json());
 /******************** Get all products with description and pictures ********************/
 app.get("/api/product", (req, res) => {
   pool.query(
-    `SELECT product.*, pictures.pictureURL FROM product 
-      JOIN pictures 
-      ON product.id = pictures.productid 
+    `SELECT product.*, pictures.pictureURL FROM product
+      JOIN pictures
+      ON product.id = pictures.productid
     `)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
+/******************** Get all p ********************/
+// app.get("/api/product", (req, res) => {
+//   pool.query(
+//     `SELECT product.*, pictures.pictureURL FROM product
+//       JOIN pictures
+//       ON product.id = pictures.productid
+//     `)
+//   .then((result) => {
+//     res.send(result.rows);
+//   })
+//   .catch((error)=>{
+//     res.send(error.message);
+//   });
+// });
+
+/******************** Get all product IDs ********************/
+app.get("/api/productIds", (req, res) => {
+  pool.query(
+    `SELECT id FROM product ORDER BY id ASC`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -34,7 +61,7 @@ app.get("/api/product", (req, res) => {
 /******************** Get 'About this item' ********************/
 app.get("/api/product/description/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`SELECT desciption FROM product where id = ${productId}`)
+  pool.query(`SELECT description FROM product where id = ${productId}`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -70,7 +97,10 @@ app.get("/api/pictures/:id", (req, res) => {
 /******************** Get 1 pictureURL from pictures ********************/
 app.get("/api/sponsored/:productId", (req, res) => {
   const {productId} = req.params;
-  pool.query(`select * from pictures where productid = ${productId} limit 1`)
+  pool.query(`select product.productName, pictures.* from pictures
+  JOIN product
+  on pictures.productId = product.id
+  WHERE productId = ${productId} limit 1`)
   .then((result) => {
     res.send(result.rows);
   })
@@ -149,6 +179,18 @@ app.get("/api/questions/product/:id", (req, res) => {
         `)
   .then((result) => {
     res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
+
+/******************** Get total number of questions for particular product ********************/
+app.get("/api/countquestions/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(`SELECT count(id) as totalQuestions from questions where productId = ${productId}`)
+  .then((result) => {
+    res.send(result.rows[0]);
   })
   .catch((error)=>{
     res.send(error.message);

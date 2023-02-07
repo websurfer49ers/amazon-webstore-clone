@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import imageState from "../../state.js";
 import { Rate } from "../Reviews/Rating.jsx";
 import {
   imageIsSelected,
   defaultPosition,
   imageProperties,
-  numOfRatingsRecoil
+  numOfRatingsRecoil,
+  itemCategories,
 } from "../../state.js";
 import { useRecoilValue } from "recoil";
 
@@ -17,6 +18,7 @@ function ItemInfo(props) {
   const numOfRatings = useRecoilValue(numOfRatingsRecoil);
   const [testMouse, setTestMouse] = useState({});
   const [freeReturnBox, setFreeReturnBox] = useState(false);
+  const [questions, setQuestions] = useState(0);
   const [smallBusinessBox, setSmallBusinessBox] = useState(false);
   const zoomedImg = React.useRef(null);
   const zoomedContainer = React.useRef(null);
@@ -29,7 +31,48 @@ function ItemInfo(props) {
     theme,
     item_dimensions,
     description,
+    amazon_choice,
+    item_form,
+    diet_type,
+    flavor,
+    special_ingredients,
+    pkg_info,
+    unit_count,
+    num_of_items,
+    dosage_form,
+    color,
+    plant_animal_product,
+    use_for_product,
   } = props.item;
+
+  const iterableObj = {
+    Brand: brand,
+    Material: material,
+    Size: size,
+    Theme: theme,
+    "Item Dimensions": item_dimensions,
+    "Item Form": item_form,
+    "Diet Type": diet_type,
+    Flavor: flavor,
+    "Special Ingredients": special_ingredients,
+    "Package Information": pkg_info,
+    "Unit Count": unit_count,
+    "Number of Items": num_of_items,
+    "Dosage Form": dosage_form,
+    Color: color,
+    "Plant or Animal Product": plant_animal_product,
+    "Specific Uses For Product": use_for_product,
+  };
+
+  useEffect(() => {
+    fetch(`/api/countquestions/${props.productId}`, {
+      mode: "cors",
+    })
+      .then((res) => res.json())
+      .then((fetched) => {
+        setQuestions(fetched.totalquestions);
+      });
+  }, [props.productId]);
 
   function moveWithin(event) {
     setTestMouse({
@@ -73,10 +116,10 @@ function ItemInfo(props) {
             style={{
               top:
                 -position.y * (properties.naturalHeight / properties.height) +
-                600,
+                700,
               left:
                 -position.x * (properties.naturalWidth / properties.width) +
-                700,
+                1000,
             }}
           ></img>
         </div>
@@ -89,26 +132,34 @@ function ItemInfo(props) {
           <br></br>
           <div style={{ display: "flex", marginTop: "5px" }}>
             <span style={{ margin: "0px 5px 0px -2px" }}>
-              <Rate />
+              <Rate productId={props.productId}/>
             </span>
-            <a style={{ marginRight: "5px" }}>{numOfRatings} ratings</a>{" "}
-            <span style={{ color: "gray", marginRight: "5px" }}>|</span>
-            <a>14 answered questions</a>
+            <a style={{ marginRight: "5px" }} href="#mainReviewsDiv">{numOfRatings} ratings</a>{" "}
+            {questions ? (
+              <>
+                <span style={{ color: "gray", marginRight: "5px" }}>|</span>
+                <a href="#QASearchBar">{questions} answered questions</a>
+              </>
+            ) : null}
           </div>
           <br></br>
-          <span
-            style={{
-              backgroundColor: "#232f3e",
-              color: "white",
-              padding: "4px",
-              fontSize: "12px",
-              float: "left",
-            }}
-          >
-            Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
-          </span>
-          <span className="AmazonChoiceTriangle"></span> for "
-          <a>{productname ? productname.toLowerCase() : null}</a>"<br></br>
+          {amazon_choice ? (
+            <>
+              <span
+                style={{
+                  backgroundColor: "#232f3e",
+                  color: "white",
+                  padding: "4px",
+                  fontSize: "12px",
+                  float: "left",
+                }}
+              >
+                Amazoom's <span style={{ color: "darkorange" }}>Choice</span>
+              </span>
+              <span className="AmazonChoiceTriangle"></span> for "
+              <a>{productname ? productname.toLowerCase() : null}</a>"<br></br>
+            </>
+          ) : null}
         </div>
         <hr className="MainItemDividerColor"></hr>
         <div className="MainInfoDetails">
@@ -129,10 +180,7 @@ function ItemInfo(props) {
             <a onClick={openFreeReturnBox}>FREE Returns</a>
             {freeReturnBox ? (
               <>
-                <div
-                  className="messageBoxOverlay"
-                  onClick={closeFreeReturnBox}
-                >
+                <div className="messageBoxOverlay" onClick={closeFreeReturnBox}>
                   {" "}
                 </div>
                 <div className="messageBox">
@@ -169,36 +217,16 @@ function ItemInfo(props) {
           potentially without free Prime shipping.
           <table className="MainInfoGrid">
             <tbody>
-              {brand ? (
-                <tr>
-                  <td className="MainInfoGridInfo">Brand</td>
-                  <td>{brand}</td>
-                </tr>
-              ) : null}
-              {material ? (
-                <tr>
-                  <td className="MainInfoGridInfo">Material</td>
-                  <td>{material}</td>
-                </tr>
-              ) : null}
-              {size ? (
-                <tr>
-                  <td className="MainInfoGridInfo">Size</td>
-                  <td>{size}</td>
-                </tr>
-              ) : null}
-              {theme ? (
-                <tr>
-                  <td className="MainInfoGridInfo">Theme</td>
-                  <td>{theme}</td>
-                </tr>
-              ) : null}
-              {item_dimensions ? (
-                <tr>
-                  <td className="MainInfoGridInfo">Item Dimensions LxWxH</td>
-                  <td>{item_dimensions}</td>
-                </tr>
-              ) : null}
+              {Object.entries(iterableObj).map(([keys, value]) => {
+                if (value != null) {
+                  return (
+                    <tr key={productname + keys}>
+                      <td className="MainInfoGridInfo">{keys}</td>
+                      <td>{value}</td>
+                    </tr>
+                  );
+                }
+              })}
             </tbody>
           </table>
         </div>

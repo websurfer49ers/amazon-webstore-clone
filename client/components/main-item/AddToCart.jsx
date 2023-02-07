@@ -13,14 +13,14 @@ function AddToCart(props) {
   const price = props.price;
 
   useEffect(() => {
-    fetch("/api/sellers/1", {
+    fetch(`/api/sellers/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
       .then((fetched) => {
         setSeller(fetched[0]);
       });
-  }, []);
+  }, [props.productId]);
 
   function openFreeReturnBox() {
     setFreeReturnBox(true);
@@ -38,6 +38,11 @@ function AddToCart(props) {
     setReturnPolicyBox(false);
   }
 
+  function addToCartHandler() {}
+  const quantity = [];
+  for (let i = 1; i <= 100; i++) {
+    quantity.push(i);
+  }
   return (
     <div className="addToCart">
       <div className="lazySpacer"></div>
@@ -84,16 +89,20 @@ function AddToCart(props) {
             ) : null}
           </div>
         </div>
-        <br></br>
-        FREE delivery{" "}
-        <span style={{ fontFamily: "AmazonEmberBold" }}>
-          {day}, {month} {twoDaysFromNow}
-        </span>
-        . Order within{" "}
-        <span style={{ color: "green" }}>
-          {hoursLeft} hrs {minLeft} mins
-        </span>
-        <br></br>
+        {!props.soldout ? (
+          <>
+            <br></br>
+            FREE delivery{" "}
+            <span style={{ fontFamily: "AmazonEmberBold" }}>
+              {day}, {month} {twoDaysFromNow}
+            </span>
+            . Order within{" "}
+            <span style={{ color: "green" }}>
+              {hoursLeft} hrs {minLeft} mins
+            </span>
+            <br></br>
+          </>
+        ) : null}
         <div style={{ marginTop: "12px", display: "flex" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,13 +121,30 @@ function AddToCart(props) {
         </div>
         <br></br>
         {props.soldout ? (
-          <span style={{ color: "red", fontSize: "18px" }}>Out of Stock.</span>
+          <>
+            <span style={{ color: "rgb(185, 48, 48)", fontSize: "18px" }}>
+              Temporarily out of stock.
+            </span>
+            <br></br>
+            Order now and we'll deliver when available.
+          </>
         ) : (
           <span style={{ color: "green", fontSize: "18px" }}>In Stock.</span>
         )}
         <br></br>
-        <button className="quantityButton">Qty: 1</button> <br></br>
-        <button className="addToCartButton">Add to Cart</button> <br></br>
+        <div className="qtyNext">Qty:</div>
+        <select className="quantityButton">
+          {quantity.map((i) => (
+            <option value={i} key={`quantity${i}`}>
+              {i}
+            </option>
+          ))}
+        </select>
+        <br></br>
+        <button className="addToCartButton" onClick={addToCartHandler}>
+          Add to Cart
+        </button>{" "}
+        <br></br>
         <button className="buyNowButton">Buy Now</button> <br></br>
         <a style={{ textDecoration: "none" }}>
           <svg
@@ -144,7 +170,7 @@ function AddToCart(props) {
             Sold by
           </div>
           <div className="shipsByContent">
-            <a>{seller.companyname}</a>
+            {seller.companyname ? <a>{seller.companyname}</a> : null}
           </div>
         </div>
         Return policy:{" "}
