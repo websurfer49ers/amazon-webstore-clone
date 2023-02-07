@@ -20,6 +20,7 @@
 a {
   color: #007185;
   cursor: pointer;
+  text-decoration: none;
 }
 
 a:hover {
@@ -437,8 +438,20 @@ input.navbarSearchBar:focus {
   font-size: 11px;
   margin: 15px 0px 10px 0px;
   height: 20px;
+  padding-left: 30px;
 }
 
+.quantityButton:focus {
+  box-shadow: 0px 0px 6px rgb(0, 179, 255);
+  outline: none;
+}
+
+.qtyNext {
+  position: absolute;
+  font-size: 11px;
+  margin-top: 18px;
+  margin-left: 6px;
+}
 .buyNowButton {
   background-color: orange;
 }
@@ -916,7 +929,6 @@ form {
   margin-bottom: 34px;
 }
 
-
 /* element.style {
   background-color: rgb(180, 180, 180);
   height: 1px;
@@ -931,8 +943,7 @@ element.style {
 * {
   font-family: AmazonEmber;
 }
-user agent stylesheet
-hr {
+user agent stylesheet hr {
   display: block;
   unicode-bidi: isolate;
   margin-block-start: 0.5em;
@@ -942,4 +953,24 @@ hr {
   overflow: hidden;
   border-style: inset;
   border-width: 1px;
+}
+
+.backToTop {
+  background-color: #37475a;
+  height: 49px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
+
+.backToTop:hover {
+  background-color: #425967;
+}
+
+.backToTopA {
+  text-decoration: none!important;
+
 }

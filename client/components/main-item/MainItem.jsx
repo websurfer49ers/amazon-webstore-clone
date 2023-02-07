@@ -10,7 +10,7 @@ function MainItem(props) {
   const [mainCatAndSub, setItemCategories] = useRecoilState(itemCategories);
 
   useEffect(() => {
-    fetch(`http://localhost:3006/api/product/${props.productId}`, {
+    fetch(`/api/product/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())

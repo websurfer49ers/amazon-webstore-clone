@@ -3,15 +3,16 @@ import Header from "./navbar/Header.jsx";
 import MainItem from "./main-item/MainItem.jsx";
 import MainReviews from "./Reviews/MainReviews.jsx";
 import QASearchBar from "./QASearchBar.jsx";
+import Footer from "./Footer.jsx";
 import { Sponsored } from "./Reviews/Sponsored.jsx";
 
 
 const App = () => {
-  const [productId, setProductId] = useState(5);
+  const [productId, setProductId] = useState(1);
   const [productIdArr, setProdIdArr] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3006/api/productIds`, {
+    fetch(`/api/productIds`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -19,7 +20,6 @@ const App = () => {
         setProdIdArr(fetched);
       });
   }, []);
-
 
   return (
     <>
@@ -30,6 +30,7 @@ const App = () => {
         <Sponsored productIdArr={productIdArr} setProductId={setProductId} />
         <MainReviews productIdArr={productIdArr} productId={productId} />
       </div>
+      <Footer />
     </>
   );
 };

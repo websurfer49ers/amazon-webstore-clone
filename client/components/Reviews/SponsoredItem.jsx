@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-function SponsoredItem(props){
+function SponsoredItem(props) {
   const [url, setUrl] = useState("");
-  const [productName, setProductname] = useState("")
+  const [productName, setProductname] = useState("");
   console.log(props.productId);
   useEffect(() => {
-    fetch(`http://localhost:3006/api/sponsored/${props.productId}`, {
+    fetch(`/api/sponsored/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -15,7 +15,6 @@ function SponsoredItem(props){
         console.log(sponsored);
       });
   }, [props.productId]);
-
 
   function SponsoredHandler(id) {
     props.setProductId(id)
@@ -59,4 +58,4 @@ function SponsoredItem(props){
     );
 }
 
-export default SponsoredItem
+export default SponsoredItem;

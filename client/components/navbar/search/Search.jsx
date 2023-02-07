@@ -8,7 +8,7 @@ import Cart from "./Cart.jsx";
 
 function Search() {
   return (
-    <div className="navbarSearch">
+    <div className="navbarSearch" id="topOfPage">
       <div className="searchBarContents logoDiv">
         <img src="../../logo/amazoom.png" className="logo"></img>
       </div>
