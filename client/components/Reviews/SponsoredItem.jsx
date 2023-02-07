@@ -11,6 +11,7 @@ function SponsoredItem(props){
       .then((res) => res.json())
       .then((sponsored) => {
         setUrl(sponsored[0].pictureurl);
+        setProductname(sponsored[0].productname)
         console.log(sponsored);
       });
   }, [props.productId]);
@@ -18,19 +19,43 @@ function SponsoredItem(props){
 
   function SponsoredHandler(id) {
     props.setProductId(id)
-    console.log("clicked")
   }
 
     return (
-      <img onClick={() => {SponsoredHandler(props.productId)}}
-        src={url}
-        style={{
-          maxHeight: "160px",
-          maxWidth: "160px",
-          verticalAlign: top,
-          border: 0,
-        }}
-      ></img>
+      <div classname="sponsoredItem" 
+      style={{
+        flex: "20%",
+        textAlign:"center",
+        padding: "10px"
+      }}> 
+        <div className="inner">
+            <img onClick={() => {SponsoredHandler(props.productId)}}
+              src={url}
+              style={{
+                maxHeight: "160px",
+                maxWidth: "160px",
+                verticalAlign: top,
+                border: 0,
+              }}
+            ></img>
+          </div>
+          <div className="text" 
+          style={{
+            textAlign: "left",
+            whiteSpace: "normal",
+            letterSpacing: "normal",
+            textDecoration: "none",
+            fontSize: "15px"
+          }}>
+            <a onClick={() => {SponsoredHandler(props.productId)}} href="#" 
+            style={{
+              textDecoration: "none"
+            }}>
+              {productName}</a>
+          </div>
+        </div>
+        
+        
     );
 }
 

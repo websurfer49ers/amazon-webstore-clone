@@ -7,21 +7,26 @@ export function Sponsored(props) {
   const [sponsoredArr, setSponsoredArr] = useState([]);
   const [iteratingNum, setIteratingNum] = useState(0);
 
-
-
   const arrOfImages = props.productIdArr;
-  console.log("hello")
   console.log(arrOfImages);
-  console.log("hello")
-
-
-
 
   return (
     <div>
-      {arrOfImages.map((data) => (
-        <SponsoredItem productId={data.id} setProductId={props.setProductId} />
-      ))}
+        <h1 className="sponsored"
+            style={{
+            color: "#C60",
+            fontSize: "16px",
+            fontFamily: "verdana,arial,helvetica,sans-serif",
+            boxSizing: "bprder-box",
+            }}>Popular products based on this item</h1>
+        <div 
+        style={{
+            display: "flex",
+        }}>
+        {arrOfImages.map((data) => (
+            <SponsoredItem productId={data.id} setProductId={props.setProductId} />
+        ))}
+        </div>
     </div>
   );
 
