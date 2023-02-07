@@ -5,7 +5,7 @@ function SponsoredItem(props) {
   const [productName, setProductname] = useState("");
   console.log(props.productId);
   useEffect(() => {
-    fetch(`/api/sponsored/${props.productId}`, {
+    fetch(`http://localhost:3000/api/sponsored/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())

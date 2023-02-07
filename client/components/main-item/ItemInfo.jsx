@@ -65,7 +65,7 @@ function ItemInfo(props) {
   };
 
   useEffect(() => {
-    fetch(`/api/countquestions/${props.productId}`, {
+    fetch(`http://localhost:3000/api/countquestions/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())

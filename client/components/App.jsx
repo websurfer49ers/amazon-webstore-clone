@@ -12,7 +12,7 @@ const App = () => {
   const [productIdArr, setProdIdArr] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/productIds`, {
+    fetch(`http://localhost:3000/api/productIds`, {
       mode: "cors",
     })
       .then((res) => res.json())
