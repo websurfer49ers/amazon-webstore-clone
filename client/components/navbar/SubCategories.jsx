@@ -4,7 +4,6 @@ import { itemCategories } from "../../state.js";
 
 function SubCategories() {
   const category = useRecoilValue(itemCategories)[0];
-  console.log(category);
 
   if (category == "Toys & Games") {
     return (
