@@ -9,6 +9,28 @@ import {
 } from "../../state.js";
 
 function PhotoGallery(props) {
+  /**********************************************************************************************************************************
+   * - There is a ton going on in PhotoGallery.
+   *
+   * - IMPORTANT: there can be three images of the same photo: 1) thumbnail 2) "main photo" - which the photo that is displayed
+   * after hovering over a thumbnail 3) "zoomed photo" - which is displayed in the ItemInfo component if the mouse is
+   * hovering over the "main photo"
+   *
+   * - In a top-down order of the various Recoil states, values, and regular state below:
+   * 1) selectedImage (Recoil value (RV) dubbed imageState) = string; the src of the photo you hover over in the thumbnail. Simultaneously gets displayed as the selected photo
+   * in PhotoGallery component to the right of the thumbnails. Also gets sent to ItemInfo (to be able to be used as the zoomed
+   * photo) via the Recoil way.
+   * 2) isSelected (RV imageIsSelected)= boolean; used for toggling on and off if the mouse is over the main photo. Sent to ItemInfo
+   * 3) mousePosition (RV defaultPosition)= object; x and y position values of the mouse within the main photo; sent to ItemInfo
+   * 4) imageProps (RV imageProperties) = height and width of the main photo (main photo is actually shrunken down); natural height and width of the
+   * actual photo (which is used as the zoomed photo); x and y values of the actual photo (top and left)
+   * 5) thumbnails = array of the images (strings) retrieved from the fetch request, mapped out as thumbnaisl.
+   * 6) mainCategory, subCategory (RV itemCategories) = the same Recoil values from of the main/sub categories set during MainItem; I also use these here
+   * 7) imgElement = used as a reference for the main photo. It's pretty much allowing event.target.value, so that I can use the
+   * current values for the values listed in imageProps.
+   *
+   * There are handler functions to use these states in the way I described them above, so I won't get into them.
+   **********************************************************************************************************************************/
   const [selectedImage, setImage] = useRecoilState(imageState);
   const [isSelected, setIsSelected] = useRecoilState(imageIsSelected);
   const [mousePosition, setMousePosition] = useRecoilState(defaultPosition);

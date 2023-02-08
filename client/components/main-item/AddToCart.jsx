@@ -7,6 +7,25 @@ import day, {
 } from "./DateShenanigans.js";
 
 function AddToCart(props) {
+  /***************************************************************************************************
+   * - There's a lot less things going on here.
+   *
+   * - DateShenangians: is just a js file to calculate the delivery date and "order before x to get free
+   * shipping." Thanks StackOverflow lol.
+   *
+   * - consts:
+   * 1) seller = the seller name retrieved from the fetch request below
+   * 2) freeReturnBox = boolean for message box used in the same way in ItemInfo
+   * 3) returnPolicyBox = same thing
+   * 4) price = price that was passed on from MainItem
+   *
+   * - Just a quick explaination of the addToCartHandler(): it's just a for loop to programmatically generate
+   * 100 options for the qty dropdown box.
+   *
+   * - Like with ItemInfo, information is dynamically displayed based on the data.
+   *
+   * No more comments below
+   ***************************************************************************************************/
   const [seller, setSeller] = useState("");
   const [freeReturnBox, setFreeReturnBox] = useState(false);
   const [returnPolicyBox, setReturnPolicyBox] = useState(false);

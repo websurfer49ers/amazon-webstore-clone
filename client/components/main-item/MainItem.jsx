@@ -6,6 +6,16 @@ import { useRecoilState } from "recoil";
 import { itemCategories } from "../../state.js";
 
 function MainItem(props) {
+  /*************************************************************************************************************************
+  * - MainItem is the parent component for (left to right) PhotoGallery, ItemInfo, and AddToCart.
+  *
+  *
+  *
+  * - The fetch request to /api/product/x returns an object with everything associated with the product in an object. It is
+  * saved as the useState variable, item.
+  * - (I use a recoilState to capture the main/sub categories of the item because I have to ship it to the Navbar component.)
+  * - The fetched object, item, is sent to: everything -> ItemInfo, item.price and item.soldout -> AddToCart.
+  **************************************************************************************************************************/
   const [item, setItem] = useState({});
   const [mainCatAndSub, setItemCategories] = useRecoilState(itemCategories);
 
