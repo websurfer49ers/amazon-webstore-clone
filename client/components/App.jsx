@@ -9,6 +9,7 @@ import { Sponsored } from "./Reviews/Sponsored.jsx";
 const App = () => {
   /******************************************************************************************************************************
   * - Below are codes to make the products dynamically retrievable:
+  *
   * - The useState variable, productId, is spread out all over this app and all the fetch requests that are made are dynamically
   * generated from whatever the value it is.
   * - There is a fetch request to a route that returns all productIds in an array. this array is passed to the Sponsored component
