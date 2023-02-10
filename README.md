@@ -13,7 +13,7 @@ https://amazoom.onrender.com/#topOfPage
 
 ## Local Testing
 
-Create and seed the database using Postgres and link the database using an .env file. Write the database name to the .env as DB_NAME=your_database_name?ssl=true
+Create and seed the database using Postgres and link the database using an .env file. Write the database name to the .env as DB_NAME=your_database_name
 
 ```bash
 ./AMAZON-WEBSTORE-CLONE: npm install --save
