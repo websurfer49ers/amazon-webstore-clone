@@ -3,6 +3,7 @@ import { CustomerReviews, ReviewThisProduct } from "./CustomerReviews.jsx";
 import { UserReviews } from "./UserReviews.jsx";
 import { Sponsored } from "./Sponsored.jsx";
 
+// Main DOM component for all review components
 function MainReviews(props){
     return (
         <span className="mainReviewDiv" id="mainReviewsDiv">
