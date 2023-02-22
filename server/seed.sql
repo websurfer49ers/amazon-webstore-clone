@@ -243,14 +243,14 @@
 --         (3, 20, 'You needed to report missing product right away.'),
 --         (4, 21, 'I did add glitter to some of them for a project and it worked using a glue gun. I did not paint any but the material is polyester so paint probably could work. They wash easily as some of mine got dirty on outside project and I just washed them in warm water and mild dis detergent. Hope this helps. Good luck with your project.');
 
-insert into reviews
-    (userId, productId, title, content, rating)
-        values
-        (1, 4, 'it taste good', 'It do taste good I just got done taking them honestly I gained weight while taking them but I don’t think in the butt area . I mean it’s good and all but I don’t think I see results', 4),
-        (2, 4, 'Yes and no', 'The flavor and texture is not the best', 4),
-        (3, 4, 'it was okay.', 'i dont know whats all the hype about these gummies but i don''t see results even when i work out every week.', 3),
-        (4, 4, 'Ok', 'ok', 5),
-        (5, 5, 'Great value', 'This was exactly what I needed for my tree costume for Halloween. These do smell very bad when first opened. However, I opened them all up and laid them out over night which got rid of the smell. Also they hold up great to hot glue!', 5),
-        (6, 5, 'EXACTLY AS DESCRIBED!!', 'They did stink a little but I mean all fake leaves do for some reason lol. Anyway they were perfectly separated into colors and in bags. I liked that so then i could use an even amount of all the colors! They are super cute too for decorating! Definitely a good value for your money!', 5),
-        (7, 5, 'Great for crafters!', 'I did not notice much of a scent. This product was great for crafting or just sprinkling across a table for a look of fallen leaves! I have plenty left over for future projects! Great value for the money!', 5),
-        (8, 5, 'Cute for price', 'These were great for decorating my mantle piece for the fall. Very cute, nice detail. The only thing is that they had a weird fishy smell when I first opened the package but it didn’t linger. Would be great for crafting or decor.', 4);
+-- insert into reviews
+--     (userId, productId, title, content, rating)
+--         values
+--         (1, 4, 'it taste good', 'It do taste good I just got done taking them honestly I gained weight while taking them but I don’t think in the butt area . I mean it’s good and all but I don’t think I see results', 4),
+--         (2, 4, 'Yes and no', 'The flavor and texture is not the best', 4),
+--         (3, 4, 'it was okay.', 'i dont know whats all the hype about these gummies but i don''t see results even when i work out every week.', 3),
+--         (4, 4, 'Ok', 'ok', 5),
+--         (5, 5, 'Great value', 'This was exactly what I needed for my tree costume for Halloween. These do smell very bad when first opened. However, I opened them all up and laid them out over night which got rid of the smell. Also they hold up great to hot glue!', 5),
+--         (6, 5, 'EXACTLY AS DESCRIBED!!', 'They did stink a little but I mean all fake leaves do for some reason lol. Anyway they were perfectly separated into colors and in bags. I liked that so then i could use an even amount of all the colors! They are super cute too for decorating! Definitely a good value for your money!', 5),
+--         (7, 5, 'Great for crafters!', 'I did not notice much of a scent. This product was great for crafting or just sprinkling across a table for a look of fallen leaves! I have plenty left over for future projects! Great value for the money!', 5),
+--         (8, 5, 'Cute for price', 'These were great for decorating my mantle piece for the fall. Very cute, nice detail. The only thing is that they had a weird fishy smell when I first opened the package but it didn’t linger. Would be great for crafting or decor.', 4);
