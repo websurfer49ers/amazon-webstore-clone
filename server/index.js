@@ -7,9 +7,11 @@ import mongoose from 'mongoose';
 import { MongoClient } from 'mongodb';
 
 dotenv.config();
+
 // const pool = new pg.Pool({connectionString: process.env.DB_NAME}); //remote database in render for amazoom project
 const pool = new pg.Pool({database: 'amazoom'}); //local database
 const port = 3006;
+
 
 const app = express();
 app.use(cors());
