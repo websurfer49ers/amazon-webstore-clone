@@ -11,10 +11,10 @@ export function Rate(props) {
     fetch(`/api/avgrating/${props.productId}`, {
       mode: "cors",
     })
-    .then((res) => res.json())
-    .then((ratings) => {
-      setRate(ratings[0])
-    });
+      .then((res) => res.json())
+      .then((ratings) => {
+        setRate(ratings[0])
+      });
   }, [props.productId]);
 
   const avgRating = Math.round(rate.averagerating);
@@ -24,7 +24,7 @@ export function Rate(props) {
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label className="starHolder" key={Math.random()*Math.random()}>
+          <label className="starHolder" key={Math.random() * Math.random()}>
             <Radio
               type="radio"
               value={avgRating}
@@ -48,7 +48,7 @@ export function Rate(props) {
 
 
 // Specific Rating set by user displayed by stars
-export function Rated (prop) {
+export function Rated(prop) {
   const userStars = prop.userStars
   return (
     <Container>
@@ -78,7 +78,7 @@ export function Rated (prop) {
 
 // Rating percentage bars by star ratings
 export const starArray = []
-export const PercentageBar = ({bgcolor,progress,height}) => {
+export const PercentageBar = ({ bgcolor, progress, height }) => {
 
   const Parentdiv = {
     display: "flex",

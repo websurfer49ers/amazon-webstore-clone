@@ -7,8 +7,8 @@ import mongoose from 'mongoose';
 import { MongoClient } from 'mongodb';
 
 dotenv.config();
-// const pool = new pg.Pool({connectionString: process.env.DB_NAME}); //remote database in render for amazoom project
-const pool = new pg.Pool({database: 'amazoom'}); //local database
+const pool = new pg.Pool({connectionString: process.env.DB_NAME}); //remote database in render for amazoom project
+// const pool = new pg.Pool({database: 'amazoom'}); //local database
 const port = 3006;
 
 const app = express();
@@ -29,18 +29,18 @@ app.use(express.json());
 // db.once('open', () => console.log("Connected to MongoDB Database"))
 
 
-app.get("/reviews/:id", async function (req, res) {
-  //const dbConnect = dbo.getDb();
-  const {id} = req.params;
-   db.collection("new_reviews").find({productid: `${id}`})
-     .toArray(function (err, result) {
-       if (err) {
-         res.status(400).send("Error fetching listings!");
-      } else {
-         res.json(result);
-       }
-     });
- });
+// app.get("/reviews/:id", async function (req, res) {
+//   //const dbConnect = dbo.getDb();
+//   const {id} = req.params;
+//    db.collection("new_reviews").find({productid: `${id}`})
+//      .toArray(function (err, result) {
+//        if (err) {
+//          res.status(400).send("Error fetching listings!");
+//       } else {
+//          res.json(result);
+//        }
+//      });
+//  });
 
 
 /******************** Get all products with description and pictures ********************/
