@@ -20,7 +20,7 @@ function MainItem(props) {
   const [mainCatAndSub, setItemCategories] = useRecoilState(itemCategories);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/product/${props.productId}`, {
+    fetch(`/api/product/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -36,7 +36,7 @@ function MainItem(props) {
     <>
       <div className="mainItemDiv">
         <PhotoGallery productId={props.productId} />
-        <ItemInfo item={item} productId={props.productId}/>
+        <ItemInfo item={item} productId={props.productId} />
         <AddToCart
           price={price}
           soldout={soldout}
