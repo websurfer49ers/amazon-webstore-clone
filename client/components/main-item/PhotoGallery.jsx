@@ -40,7 +40,7 @@ function PhotoGallery(props) {
   const imgElement = React.useRef(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/pictures/${props.productId}`, {
+    fetch(`api/pictures/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -91,16 +91,16 @@ function PhotoGallery(props) {
         <div className="galleryThumbnailContainer">
           {thumbnails
             ? thumbnails.map((picture) => {
-                return (
-                  <div className="galleryThumbnail" key={picture.pictureurl}>
-                    <img
-                      src={picture.pictureurl}
-                      className="thumbnailImage"
-                      onMouseEnter={enterThumbnail}
-                    ></img>
-                  </div>
-                );
-              })
+              return (
+                <div className="galleryThumbnail" key={picture.pictureurl}>
+                  <img
+                    src={picture.pictureurl}
+                    className="thumbnailImage"
+                    onMouseEnter={enterThumbnail}
+                  ></img>
+                </div>
+              );
+            })
             : null}
         </div>
         <div className="mainPhotoContainer">

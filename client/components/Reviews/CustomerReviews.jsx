@@ -14,7 +14,7 @@ export function CustomerReviews(props) {
   const [returnedRatings, setReturnedRatings] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/avgrating/${props.productId}`, {
+    fetch(`/api/avgrating/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())

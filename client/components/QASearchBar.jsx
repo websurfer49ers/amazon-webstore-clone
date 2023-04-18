@@ -12,7 +12,7 @@ function QASearchBar(props) {
     newerFetch();
   }, [props.productId]);
   const newerFetch = () => {
-    fetch(`http://localhost:3000/api/questions/product/${props.productId}`, {
+    fetch(`/api/questions/product/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())

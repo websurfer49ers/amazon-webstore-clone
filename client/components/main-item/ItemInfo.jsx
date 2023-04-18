@@ -95,7 +95,7 @@ function ItemInfo(props) {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/countquestions/${props.productId}`, {
+    fetch(`api/countquestions/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -220,7 +220,7 @@ function ItemInfo(props) {
             <span style={{ fontSize: "13px" }}>
               {price
                 ? price.charAt(price.length - 2) +
-                  price.charAt(price.length - 1)
+                price.charAt(price.length - 1)
                 : null}
             </span>
           </div>
@@ -294,8 +294,8 @@ function ItemInfo(props) {
           <ul className="whyDoesThisULNeedASeparateClassCSSIsAnnoyingSometimes">
             {description
               ? description.map((bullet) => {
-                  return <li key={Math.random() * Math.random()}>{bullet}</li>;
-                })
+                return <li key={Math.random() * Math.random()}>{bullet}</li>;
+              })
               : null}
           </ul>
         </div>
