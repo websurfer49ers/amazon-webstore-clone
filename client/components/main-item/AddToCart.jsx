@@ -32,7 +32,7 @@ function AddToCart(props) {
   const price = props.price;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/sellers/${props.productId}`, {
+    fetch(`/api/sellers/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -57,7 +57,7 @@ function AddToCart(props) {
     setReturnPolicyBox(false);
   }
 
-  function addToCartHandler() {}
+  function addToCartHandler() { }
   const quantity = [];
   for (let i = 1; i <= 100; i++) {
     quantity.push(i);

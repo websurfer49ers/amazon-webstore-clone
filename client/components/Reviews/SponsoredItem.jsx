@@ -17,7 +17,7 @@ function SponsoredItem(props) {
   const [url, setUrl] = useState("");
   const [productName, setProductname] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:3000/api/sponsored/${props.productId}`, {
+    fetch(`/api/sponsored/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
