@@ -11,6 +11,29 @@ import {
 import { useRecoilValue } from "recoil";
 
 function ItemInfo(props) {
+  /*****************************************************************************************************************************
+   * - There is also a lot going on in here. Also there's more comments below.
+   *
+   * In the same fashion, explanation of the the numerous const below:
+   *
+   * FOR THE ZOOMED IMAGE
+   * 1) boolean = boolean from imageIsSelected, to toggle on/off the zoomed picture
+   * 2) view = value from Recoil value (RV) imageState, stored via selectedImage from PhotoGallery (PG)
+   * 3) position = RV defaultPosition, stored via mousePosition from PG
+   * 4) properties = RV imageProperties, stored via imageProps from PG
+   *
+   * MISC
+   * 5) numOfRatings = RV numOfRatingsRecoil, stored via numOfRatingsForRecoil (yes, confusing name schema) from CustomerReviews
+   * 6) testMouse = forgot to comment out: shows me the position of where my mouse is
+   * 7) freeReturnBox = boolean; for toggling message boxes
+   * 8) questions = number of questions for a product, retrieved from the fetch route
+   * 9) smallBusinessBox = boolean; also for toggling message boxes
+   *
+   * FOR THE ZOOMED IMAGE AS WELL
+   * 10) zoomedImg = reference to retrieve current values of zoomed image
+   * 11) zoomedContainer = not sure why I didn't remove this; doesn't do anything. Probably written when I was first exploring on
+   * how to go about this.
+   * ***************************************************************************************************************************/
   const boolean = useRecoilValue(imageIsSelected);
   const view = useRecoilValue(imageState);
   const position = useRecoilValue(defaultPosition);
@@ -21,7 +44,14 @@ function ItemInfo(props) {
   const [questions, setQuestions] = useState(0);
   const [smallBusinessBox, setSmallBusinessBox] = useState(false);
   const zoomedImg = React.useRef(null);
-  const zoomedContainer = React.useRef(null);
+
+  /********************************************************************
+   * - Below, I destructured item to variables that I can use.
+   * Then I used those variables to put them into key:value pairs, with the keys being the bolded words explaining of what the values are.
+   * So i.e., (key) Brand: (value) Mcphee Archie Squirrel
+   *
+   * - Keep going down for more comments
+   ********************************************************************/
   const {
     productname,
     brand,
@@ -65,7 +95,7 @@ function ItemInfo(props) {
   };
 
   useEffect(() => {
-    fetch(`/api/countquestions/${props.productId}`, {
+    fetch(`http://localhost:3000/api/countquestions/${props.productId}`, {
       mode: "cors",
     })
       .then((res) => res.json())
@@ -98,6 +128,23 @@ function ItemInfo(props) {
     setSmallBusinessBox(false);
   }
 
+  /***********************************************************************************************
+   * - The logic for the in-line style that sets top and right for the zoomed image is as follows:
+   * 1) As the mouse moves up (position.y), the zoomed image displayed has to be inverted. Same goes
+   * for going left and right. The reason is because as the mouse moves up, the center of the zoomed
+   * image must come down. If the mouse goes right, the center of the image must come left. The mouse
+   * is the camera, so the image should display where the camera is.
+   *
+   * 2) The position is multiplied by properties.naturalHeight (remember, this is the height of the zoomed image)
+   * divided by the properties.height (main, selected image in the PhotoGallery) because as the mouse
+   * position moves around the main image, the speed in which the zoomed image must move around must
+   * correspond to the ratio of the zoomed image and main photo's sizes.
+   *
+   * 3) The 700 and 1000 px are arbitrary numbers I used to modify the y and x positions of the photo
+   * because I couldn't figure out the formula to keep the photo perfectly centered with the mouse.
+   * That's why I had testMouse and such, but I went onto working on other components.
+   **********************************************************************************************/
+
   return (
     <div className="itemInfo" onMouseMove={moveWithin}>
       <div className="lazySpacer"></div>
@@ -107,7 +154,7 @@ function ItemInfo(props) {
       {/* move object by pixel using position.x, position.y} */}
       {/*gotta figure out the math */}
       {boolean ? (
-        <div className="zoomedContainer" ref={zoomedContainer}>
+        <div className="zoomedContainer">
           <img
             src={view}
             className="zoomedPhoto"
@@ -132,9 +179,11 @@ function ItemInfo(props) {
           <br></br>
           <div style={{ display: "flex", marginTop: "5px" }}>
             <span style={{ margin: "0px 5px 0px -2px" }}>
-              <Rate productId={props.productId}/>
+              <Rate productId={props.productId} />
             </span>
-            <a style={{ marginRight: "5px" }} href="#mainReviewsDiv">{numOfRatings} ratings</a>{" "}
+            <a style={{ marginRight: "5px" }} href="#mainReviewsDiv">
+              {numOfRatings} ratings
+            </a>{" "}
             {questions ? (
               <>
                 <span style={{ color: "gray", marginRight: "5px" }}>|</span>
@@ -217,6 +266,15 @@ function ItemInfo(props) {
           potentially without free Prime shipping.
           <table className="MainInfoGrid">
             <tbody>
+              {/********************************************************************************************************
+               * - Like with other data above, the data for the product is displayed dynamically.
+               *
+               * - I used a ternary conditional above, but here, I go through all values that I stored in iterableObj,
+               * and just use a if statement to map it out if the value isn't null. So for example, with the gummy bears,
+               * it doesn't have anything for the item size (null value), so it doesn't get shown.
+               *
+               * There are no more comments below
+               *********************************************************************************************************/}
               {Object.entries(iterableObj).map(([keys, value]) => {
                 if (value != null) {
                   return (

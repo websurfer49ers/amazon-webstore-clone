@@ -11,6 +11,7 @@ const pool = new pg.Pool({connectionString: process.env.DB_NAME}); //remote data
 // const pool = new pg.Pool({database: 'amazoom'}); //local database
 const port = 3006;
 
+
 const app = express();
 app.use(cors());
 app.use(express.json());
