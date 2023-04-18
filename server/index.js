@@ -1,20 +1,48 @@
-import express from "express";
+import express, { Router } from "express";
 import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
+//import * from mongoose from 'mongoose';
+import mongoose from 'mongoose';
+import { MongoClient } from 'mongodb';
 
 dotenv.config();
+const pool = new pg.Pool({connectionString: process.env.DB_NAME}); //remote database in render for amazoom project
+// const pool = new pg.Pool({database: 'amazoom'}); //local database
+const port = 3006;
 
-console.log(process.env.DB_NAME);
-const pool = new pg.Pool({connectionString: process.env.DB_NAME});
-
-// const pool = new pg.Pool({database: 'amazon-webstore'});
-const port = 3000;
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
+
+/****************************** Set up config for mongodb **********************************/
+// const mongoString = process.env.DB_NAME;
+
+// app.listen(3006, () => {
+//     console.log(`Server Started at ${port}`)
+// })
+// mongoose.set('strictQuery', true);
+// //mongoose.connect('mongodb+srv://aakashgh:Galvanize%40%402022@cluster0.huv6n6s.mongodb.net/amazoom-cluster', {useNewUrlParser:true, useUnifiedTopology:true});
+// mongoose.connect('mongodb://127.0.0.1:27017/amazoom')
+// const db = mongoose.connection;
+// db.on('error', (error) => console.log(error))
+// db.once('open', () => console.log("Connected to MongoDB Database"))
+
+
+// app.get("/reviews/:id", async function (req, res) {
+//   //const dbConnect = dbo.getDb();
+//   const {id} = req.params;
+//    db.collection("new_reviews").find({productid: `${id}`})
+//      .toArray(function (err, result) {
+//        if (err) {
+//          res.status(400).send("Error fetching listings!");
+//       } else {
+//          res.json(result);
+//        }
+//      });
+//  });
+
 
 /******************** Get all products with description and pictures ********************/
 app.get("/api/product", (req, res) => {
@@ -94,6 +122,7 @@ app.get("/api/pictures/:id", (req, res) => {
   });
 });
 
+
 /******************** Get 1 pictureURL from pictures ********************/
 app.get("/api/sponsored/:productId", (req, res) => {
   const {productId} = req.params;
@@ -122,16 +151,16 @@ app.get("/api/sellers/:id", (req, res) => {
 });
 
 /******************** Get ALL ratings for a particular product ********************/
-// app.get("/api/rating/:productId", (req, res) => {
-//   const {productId} = req.params;
-//   pool.query(`SELECT * FROM reviews where productid = ${productId}`)
-//   .then((result) => {
-//     res.send(result.rows);
-//   })
-//   .catch((error)=>{
-//     res.send(error.message);
-//   });
-// });
+app.get("/api/rating/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(`SELECT * FROM reviews where productid = ${productId}`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
 
 /******************** Get AVERAGE ratings for a particular product ********************/
 app.get("/api/avgrating/:productId", (req, res) => {
@@ -145,23 +174,6 @@ app.get("/api/avgrating/:productId", (req, res) => {
   });
 });
 
-/******************** Get all ratings for a particular product including usernames ********************/
-app.get("/api/rating/product/:productId", (req, res) => {
-  const {productId} = req.params;
-  pool.query(
-    `SELECT reviews.*, users.firstName, users.lastName
-      FROM reviews
-        JOIN users
-        ON reviews.userid = users.id
-        where reviews.productid = ${productId}
-        `)
-  .then((result) => {
-    res.send(result.rows);
-  })
-  .catch((error)=>{
-    res.send(error.message);
-  });
-});
 
 /******************** Get all questions and answers for particular product ********************/
 app.get("/api/questions/product/:id", (req, res) => {
@@ -239,9 +251,23 @@ app.post("/api/answers", (req, res) => {
 //   res.send(result.rows[0]);
 // });
 
-
-
-
+// /******************** Get all ratings for a particular product including usernames ********************/
+app.get("/api/rating/product/:productId", (req, res) => {
+  const {productId} = req.params;
+  pool.query(
+    `SELECT reviews.*, users.firstName, users.lastName
+      FROM reviews
+        JOIN users
+        ON reviews.userid = users.id
+        where reviews.productid = ${productId}
+         `)
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((error)=>{
+    res.send(error.message);
+  });
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

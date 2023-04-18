@@ -12,7 +12,26 @@ CREATE TABLE product (
   productName TEXT,
   description TEXT[],
   price MONEY,
-  sold BOOLEAN
+  soldout BOOLEAN,
+  brand TEXT,
+  material TEXT,
+  size TEXT,
+  theme TEXT,
+  item_dimensions TEXT,
+  category TEXT,
+  sub_category TEXT,
+  amazon_choice TEXT,
+  color TEXT,
+  plant_animal_product TEXT,
+  use_for_product TEXT,
+  item_form TEXT,
+  diet_type TEXT,
+  flavor TEXT,
+  special_ingredients TEXT,
+  pkg_info TEXT, 
+  unit_count INT,
+  num_of_items INT,
+  dosage_form TEXT
 );
 
 CREATE TABLE pictures (
@@ -41,7 +60,7 @@ CREATE TABLE address (
   userId INT REFERENCES users(id),
   street TEXT,
   city TEXT,
-  state INT,
+  state TEXT,
   zipcode char(5)
 );
 
