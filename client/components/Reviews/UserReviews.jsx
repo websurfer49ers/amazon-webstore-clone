@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Rate, Rated } from "./Rating";
 import { Container, Rating } from "./RatingStyles";
 
+// Displays the written User Reviews in order of UserID
 export function UserReviews(props) {
   const [returnedResults, setReturnedResults] = useState([]);
 
+  // Gets all ratings for a product
   useEffect(() => {
     fetch(`/api/rating/product/${props.productId}`, {
       mode: "cors",
@@ -17,6 +19,7 @@ export function UserReviews(props) {
 
   // console.log(returnedResults)
 
+  // Displays all reviews using the .map method; There is no limit on how many can display
   return (
     <div className="userReviewsMain">
       <div className="userReviewDisplay">
